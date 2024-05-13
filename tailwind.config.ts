@@ -1,13 +1,26 @@
 import type { Config } from "tailwindcss";
+import colors from "tailwindcss/colors";
 
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    container: {
+      center: true,
+      padding: {
+        DEFAULT: "1rem",
+      },
+    },
+    extend: {
+      colors: {
+        primary: {
+          DEFAULT: colors.cyan[900],
+        },
+      },
+    },
   },
   plugins: [
     require("tailwindcss-members"),
