@@ -28,6 +28,9 @@ const config: Config = {
         fg_light: {
           DEFAULT: colors.gray[900],
         },
+        link: {
+          DEFAULT: colors.blue[500],
+        },
       },
     },
   },
