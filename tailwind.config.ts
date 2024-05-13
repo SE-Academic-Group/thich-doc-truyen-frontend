@@ -19,6 +19,15 @@ const config: Config = {
         primary: {
           DEFAULT: colors.cyan[900],
         },
+        fg_primary: {
+          DEFAULT: colors.cyan[50],
+        },
+        bg_light: {
+          DEFAULT: colors.white,
+        },
+        fg_light: {
+          DEFAULT: colors.gray[900],
+        },
       },
     },
   },
