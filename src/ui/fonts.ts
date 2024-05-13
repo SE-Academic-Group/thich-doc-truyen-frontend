@@ -5,6 +5,7 @@ import {
   Open_Sans,
   Montagu_Slab,
   Merienda,
+  Protest_Revolution,
 } from "next/font/google";
 
 // Display fonts
@@ -19,3 +20,9 @@ export const spectral = Spectral({
 export const openSans = Open_Sans({ subsets: ["vietnamese"] });
 export const montaguSlab = Montagu_Slab({ subsets: ["vietnamese"] });
 export const merienda = Merienda({ subsets: ["vietnamese"] });
+
+// Logo font
+export const protestRevolution = Protest_Revolution({
+  weight: ["400"],
+  subsets: ["vietnamese"],
+});
