@@ -1,12 +1,11 @@
 import "@/ui/globals.css";
 
-import type { Metadata } from "next";
 import { robotoCondensed } from "@/ui/fonts";
+import type { Metadata } from "next";
 
-import Header from "@/ui/layout/header";
-import Footer from "@/ui/layout/footer";
 import { cn } from "@/lib/utils";
-import Banner from "@/ui/layout/banner";
+import Footer from "@/ui/layout/footer";
+import Header from "@/ui/layout/header";
 
 export const metadata = {
   title: "Đọc truyện online | Thích Đọc Truyện",
@@ -24,11 +23,10 @@ export default function RootLayout({
       <body
         className={cn(
           robotoCondensed.className,
-          "grid grid-rows-[auto_auto_1fr_auto] min-h-dvh",
+          "grid grid-rows-[auto_1fr_auto] min-h-dvh",
         )}
       >
         <Header />
-        <Banner />
         {children}
         <Footer />
       </body>
