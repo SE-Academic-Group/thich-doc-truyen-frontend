@@ -1,25 +1,14 @@
-import { QuestionIcon } from "../icons";
 import Section from "../section";
 import ThichDocTruyenLogo from "../thich-doc-truyen-logo";
 import SearchBar from "./search-bar";
+import SearchSourceInfo from "./search-source-info";
 
 export default function Search() {
   return (
     <Section title="Tìm kiếm truyện">
       <div className="flex flex-col items-center gap-4 py-12">
         <ThichDocTruyenLogo size="lg" />
-        <div className="flex items-center justify-center gap-4">
-          <div>
-            <span>Nguồn tìm kiếm: </span>
-            <span className="font-bold uppercase text-primary">
-              truyenfull.vn
-            </span>
-          </div>
-          <div className="flex items-center gap-0.5">
-            <QuestionIcon />
-            <span>Thay đổi nguồn</span>
-          </div>
-        </div>
+        <SearchSourceInfo />
         <div className="self-stretch">
           <SearchBar />
         </div>
