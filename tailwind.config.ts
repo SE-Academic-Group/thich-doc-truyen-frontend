@@ -9,6 +9,12 @@ const config: Config = {
   ],
   theme: {
     container: {
+      screens: {
+        DEFAULT: "100%",
+        sm: "640px",
+        md: "768px",
+        lg: "1024px",
+      },
       center: true,
       padding: {
         DEFAULT: "1rem",
