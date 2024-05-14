@@ -23,6 +23,7 @@ const config: Config = {
     extend: {
       colors: {
         primary: {
+          light: colors.cyan[700],
           DEFAULT: colors.cyan[900],
         },
         fg_primary: {
