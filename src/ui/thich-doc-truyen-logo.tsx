@@ -4,11 +4,12 @@ import { protestRevolution } from "./fonts";
 import { tv, type VariantProps } from "tailwind-variants";
 
 const logo = tv({
-  base: cn("font-bold uppercase", protestRevolution.className),
+  base: cn("font-bold uppercase text-center", protestRevolution.className),
   variants: {
     size: {
       sm: "text-xl",
       md: "text-2xl",
+      lg: "text-3xl",
     },
   },
   defaultVariants: {
