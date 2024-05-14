@@ -37,6 +37,12 @@ const config: Config = {
         link: {
           DEFAULT: colors.blue[500],
         },
+        bg_alert: {
+          DEFAULT: colors.cyan[100],
+        },
+        fg_alert: {
+          DEFAULT: colors.cyan[900],
+        },
       },
     },
   },
