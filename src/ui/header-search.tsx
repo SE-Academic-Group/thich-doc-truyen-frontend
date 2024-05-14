@@ -17,7 +17,7 @@ export default function HeaderSearch() {
           name="search-input"
           id="header-search-input"
           className="grow rounded-lg bg-bg_light px-2.5 py-1 text-fg_light placeholder:text-sm focus:outline-none"
-          placeholder="Tìm kiếm theo tên truyện, tên tác giả..."
+          placeholder="Tìm kiếm theo tên truyện..."
           required
         />
         <button
