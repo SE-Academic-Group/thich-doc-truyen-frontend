@@ -13,7 +13,7 @@ const config: Config = {
         DEFAULT: "100%",
         sm: "640px",
         md: "768px",
-        lg: "1024px",
+        lg: "960px",
       },
       center: true,
       padding: {
