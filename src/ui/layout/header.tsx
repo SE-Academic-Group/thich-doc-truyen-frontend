@@ -1,6 +1,6 @@
 import HeaderSearch from "../header-search";
 import ThichDocTruyenLogo from "../thich-doc-truyen-logo";
-import UserSettings from "../user-settings";
+import UserSettings from "./user-settings";
 
 export default function Header() {
   return (

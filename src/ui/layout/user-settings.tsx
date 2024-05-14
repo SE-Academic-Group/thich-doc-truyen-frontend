@@ -1,4 +1,4 @@
-import { SettingsIcon } from "./icons";
+import { SettingsIcon } from "../icons";
 
 export default function UserSettings() {
   return (
