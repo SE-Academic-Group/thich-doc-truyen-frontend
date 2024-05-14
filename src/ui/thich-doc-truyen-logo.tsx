@@ -7,8 +7,8 @@ const logo = tv({
   base: cn("font-bold uppercase", protestRevolution.className),
   variants: {
     size: {
-      sm: "text-lg",
-      md: "text-xl",
+      sm: "text-xl",
+      md: "text-2xl",
     },
   },
   defaultVariants: {
