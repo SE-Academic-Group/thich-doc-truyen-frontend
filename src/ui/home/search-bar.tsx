@@ -8,7 +8,7 @@ export default function SearchBar() {
       action={searchAction}
     >
       <label htmlFor="search-input" className="sr-only">
-        Search
+        Tìm kiếm truyện
       </label>
       <div className="flex rounded-full border-2 bg-bg_light pe-1 ps-3 focus-within:ring">
         <div className="pointer-events-none flex items-center">

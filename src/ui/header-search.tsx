@@ -5,7 +5,7 @@ export default function HeaderSearch() {
   return (
     <form className="hidden max-w-64 grow md:block" action={searchAction}>
       <label htmlFor="header-search-input" className="sr-only">
-        Tìm kiếm truyện theo tên
+        Tìm kiếm truyện
       </label>
       <div className="flex rounded-md border bg-bg_light pe-1 ps-3 text-fg_light focus-within:ring">
         <div className="pointer-events-none flex items-center">
