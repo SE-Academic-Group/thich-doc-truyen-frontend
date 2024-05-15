@@ -1,5 +1,5 @@
 import { searchAction } from "@/lib/actions";
-import { SearchIcon } from "./icons";
+import { SearchIcon } from "../lib/icons";
 
 export default function HeaderSearch() {
   return (

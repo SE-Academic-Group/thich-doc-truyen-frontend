@@ -1,6 +1,6 @@
 "use client";
 
-import { QuestionIcon } from "../icons";
+import { QuestionIcon } from "../../lib/icons";
 import * as Popover from "@radix-ui/react-popover";
 
 export default function SearchSourceInfo() {

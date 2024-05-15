@@ -1,6 +1,6 @@
 "use client";
 
-import { SettingsIcon } from "../icons";
+import { SettingsIcon } from "../../lib/icons";
 import * as Popover from "@radix-ui/react-popover";
 
 export default function UserSettings() {
