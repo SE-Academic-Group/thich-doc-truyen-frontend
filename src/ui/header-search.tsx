@@ -7,7 +7,7 @@ export default function HeaderSearch() {
       <label htmlFor="header-search-input" className="sr-only">
         Tìm kiếm truyện theo tên
       </label>
-      <div className="relative flex rounded-md border bg-bg_light pe-1 ps-3 text-fg_light focus-within:ring">
+      <div className="flex rounded-md border bg-bg_light pe-1 ps-3 text-fg_light focus-within:ring">
         <div className="pointer-events-none flex items-center">
           <SearchIcon className="size-3" />
         </div>
