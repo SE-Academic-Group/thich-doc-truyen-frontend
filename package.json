@@ -9,6 +9,7 @@
     "start": "next start",
     "lint": "next lint",
     "test": "vitest --watch=false",
+    "test:w": "vitest",
     "prepare": "husky",
     "lint-staged": "lint-staged"
   },
