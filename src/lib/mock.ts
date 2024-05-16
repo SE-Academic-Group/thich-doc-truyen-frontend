@@ -1,4 +1,6 @@
-export const searchResults = [
+import { NovelSearchResult } from "./definitions";
+
+export const searchResults: NovelSearchResult[] = [
   {
     title: "Ta Tại Tu Tiên Giới Có Tài Nhưng Thành Đạt Muộn",
     author: "Hắc Tâm Sư Tôn",
