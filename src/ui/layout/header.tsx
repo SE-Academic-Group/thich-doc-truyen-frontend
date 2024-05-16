@@ -4,7 +4,7 @@ import UserSettings from "./user-settings";
 
 export default function Header() {
   return (
-    <header className="bg-primary py-2.5 text-fg_primary">
+    <header className="bg-primary py-2.5 text-fg_primary shadow-lg">
       <div className="container flex items-center justify-between">
         <ThichDocTruyenLogo />
         <HeaderSearch />
