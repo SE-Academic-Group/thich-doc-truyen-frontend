@@ -54,6 +54,7 @@ const config: Config = {
     require("tailwindcss-members"),
     require("tailwindcss-mixins"),
     require("tailwindcss-signals"),
+    require("@tailwindcss/container-queries"),
   ],
 };
 export default config;
