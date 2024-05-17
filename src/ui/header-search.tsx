@@ -10,7 +10,7 @@ export default function HeaderSearch() {
       </label>
       <div className="flex rounded-md border bg-bg_light pe-1 ps-3 text-fg_light focus-within:ring">
         <div className="pointer-events-none flex items-center">
-          <SearchIcon className="size-3" />
+          <SearchIcon className="size-3 text-muted" />
         </div>
         <input
           type="search"

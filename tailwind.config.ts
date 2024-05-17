@@ -44,6 +44,9 @@ const config: Config = {
         fg_alert: {
           DEFAULT: colors.cyan[900],
         },
+        muted: {
+          DEFAULT: colors.gray[500],
+        },
       },
     },
   },
