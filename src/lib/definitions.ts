@@ -10,3 +10,6 @@ export type NovelSearchResult = {
   url: string;
   nchapter: number;
 };
+
+export type ReactSVGIconProps = React.SVGProps<SVGSVGElement>;
+
