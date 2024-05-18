@@ -6,6 +6,10 @@ const nextConfig = {
         protocol: "https",
         hostname: "metruyenchu.com.vn",
       },
+      {
+        protocol: "https",
+        hostname: "www.nae.vn",
+      },
     ],
   },
 };
