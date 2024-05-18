@@ -1,28 +1,39 @@
+import { SearchParams } from "@/lib/definitions";
+import { getSearchParam } from "@/lib/utils";
 import SearchKeyword from "@/ui/search/search-keyword";
 import SearchResultList from "@/ui/search/search-result-list";
+import SearchResultListSkeleton from "@/ui/search/search-result-list.skeleton";
+import Section from "@/ui/section";
+import type { Metadata } from "next";
 import { Suspense } from "react";
 
-export default function Page({
-  searchParams,
-}: {
-  searchParams: { [key: string]: string | string[] | undefined };
-}) {
-  const q = searchParams["q"] ?? "";
-  let keyword = "";
+type Props = {
+  searchParams: SearchParams;
+};
 
-  if (Array.isArray(q)) {
-    keyword = q.at(0) ?? "";
-  } else {
-    keyword = q;
-  }
+export async function generateMetadata({
+  searchParams,
+}: Props): Promise<Metadata> {
+  const keyword = getSearchParam({ searchParams, key: "q" });
+
+  return {
+    title: "Kết quả tìm kiếm: " + keyword,
+  };
+}
+
+export default function Page({ searchParams }: Props) {
+  const keyword = getSearchParam({ searchParams, key: "q" });
+  const page = Number(getSearchParam({ searchParams, key: "page" }) || "1");
 
   return (
     <div>
       <SearchKeyword keyword={keyword} />
       <main className="container py-4">
-        <Suspense fallback={<div>loading results</div>}>
-          <SearchResultList keyword={keyword} />
-        </Suspense>
+        <Section title={`Kết quả tìm kiếm - Trang ${page}`} className="my-2">
+          <Suspense fallback={<SearchResultListSkeleton />}>
+            <SearchResultList keyword={keyword} page={page} />
+          </Suspense>
+        </Section>
       </main>
     </div>
   );

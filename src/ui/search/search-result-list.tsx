@@ -1,34 +1,42 @@
 import { getSearchResult } from "@/lib/data";
-import Section from "../section";
-import Image from "next/image";
+import Pagination from "../pagination";
+import ResultStoryCard from "./result-story-card";
 
 export default async function SearchResultList({
   keyword,
+  page,
 }: {
   keyword: string;
+  page: number;
 }) {
-  const searchResult = await getSearchResult({ keyword });
+  const { data: stories, metadata } = await getSearchResult({ keyword, page });
+
+  if (!stories) {
+    return <div>Có lỗi xảy ra, vui lòng thử lại sau.</div>;
+  }
+
+  if (stories.length === 0) {
+    return (
+      <div>
+        Không tìm thấy kết quả nào cho từ khóa&nbsp;
+        <span className="font-medium">&quot;{keyword}&quot;</span>.
+      </div>
+    );
+  }
 
   return (
-    <Section title="Kết quả tìm kiếm">
-      <ul>
-        {searchResult.map((result) => (
-          <li key={result.url}>
-            <a href={result.url}>
-              <Image
-                src={result.image}
-                alt={result.title}
-                width={200}
-                height={200}
-                className="size-[200px]"
-              />
-              <h3>{result.title}</h3>
-              <p>{result.author}</p>
-              <p>{result.nchapter} chương</p>
-            </a>
+    <div className="space-y-6">
+      <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] gap-x-4 gap-y-5">
+        {stories.map((story) => (
+          <li key={story.url}>
+            <ResultStoryCard story={story} />
           </li>
         ))}
       </ul>
-    </Section>
+      <Pagination
+        currentPage={metadata.currentPage}
+        totalPages={metadata.maxPage}
+      />
+    </div>
   );
 }
