@@ -6,7 +6,7 @@ export async function searchAction(formData: FormData) {
   const searchQuery = formData.get("search-input");
 
   if (searchQuery) {
-    const beautifiedSlug = searchQuery.toString().replace(/ /g, "+");
+    const beautifiedSlug = searchQuery.toString().trim().replace(/ /g, "+");
     redirect(`/tim-kiem?q=${beautifiedSlug}`);
   }
 }

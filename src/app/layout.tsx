@@ -23,7 +23,7 @@ export default function RootLayout({
       <body
         className={cn(
           robotoCondensed.className,
-          "grid grid-rows-[auto_1fr_auto] min-h-dvh",
+          "grid grid-rows-[auto_1fr_auto] min-h-dvh bg-primary-bg",
         )}
       >
         <Header />

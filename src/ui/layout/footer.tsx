@@ -2,7 +2,7 @@ import ThichDocTruyenLogo from "../thich-doc-truyen-logo";
 
 export default function Footer() {
   return (
-    <footer className="border-y py-3 shadow">
+    <footer className="border-y py-6 shadow">
       <div className="container grid items-center gap-4 md:grid-cols-2">
         <div>
           <ThichDocTruyenLogo size="sm" />

@@ -1,8 +1,8 @@
 export default function Banner() {
   return (
-    <aside className="border-y py-1 shadow">
+    <aside className="border-y bg-bg_light py-1 shadow">
       <div className="container text-sm">
-        <p>Đọc truyện online, đọc truyện chữ, truyện full, và truyện hay.</p>
+        <p>Ở đây có truyện hay. Mại dô, mại dô, mại dô!</p>
       </div>
     </aside>
   );

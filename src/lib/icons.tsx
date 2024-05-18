@@ -1,4 +1,6 @@
-export const GitHubIcon = (props: React.SVGProps<SVGSVGElement>) => {
+import { ReactSVGIconProps } from "./definitions";
+
+export const GitHubIcon = (props: ReactSVGIconProps) => {
   return (
     <svg
       className="size-5"
@@ -19,7 +21,7 @@ export const GitHubIcon = (props: React.SVGProps<SVGSVGElement>) => {
   );
 };
 
-export const SettingsIcon = (props: React.SVGProps<SVGSVGElement>) => {
+export const SettingsIcon = (props: ReactSVGIconProps) => {
   return (
     <svg
       className="size-7"
@@ -42,7 +44,7 @@ export const SettingsIcon = (props: React.SVGProps<SVGSVGElement>) => {
   );
 };
 
-export const SearchIcon = (props: React.SVGProps<SVGSVGElement>) => {
+export const SearchIcon = (props: ReactSVGIconProps) => {
   return (
     <svg
       className="size-4"
@@ -63,7 +65,7 @@ export const SearchIcon = (props: React.SVGProps<SVGSVGElement>) => {
   );
 };
 
-export const QuestionIcon = (props: React.SVGProps<SVGSVGElement>) => {
+export const QuestionIcon = (props: ReactSVGIconProps) => {
   return (
     <svg
       className="size-5"
@@ -86,7 +88,7 @@ export const QuestionIcon = (props: React.SVGProps<SVGSVGElement>) => {
   );
 };
 
-export const HomeIcon = (props: React.SVGProps<SVGSVGElement>) => {
+export const HomeIcon = (props: ReactSVGIconProps) => {
   return (
     <svg
       className="size-4"
