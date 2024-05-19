@@ -13,6 +13,22 @@ export type StorySearchResult = {
   nchapter: number;
 };
 
+export type StoryDetail = {
+  title: string;
+  author: string;
+  image: string;
+  url: string;
+  description: string;
+  genres: string[];
+  nchapter: number;
+};
+
+export type StoryChapter = {
+  title: string;
+  url: string;
+  index: number;
+};
+
 export type ReactSVGIconProps = React.SVGProps<SVGSVGElement>;
 
 export type SearchParams = { [key: string]: string | string[] | undefined };

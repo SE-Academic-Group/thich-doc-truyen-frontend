@@ -19,7 +19,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="vi">
+    <html lang="vi" className="scroll-p-3 scroll-smooth">
       <body
         className={cn(
           robotoCondensed.className,
