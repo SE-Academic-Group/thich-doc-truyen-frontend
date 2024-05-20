@@ -41,8 +41,9 @@ export default async function ChapterList({
           </li>
         ))}
       </ul>
+      {/* TODO: remove `+1` after backend fix the problem */}
       <Pagination
-        currentPage={metadata.currentPage}
+        currentPage={metadata.currentPage + 1}
         totalPages={metadata.maxPage}
         scrollToId="chapter-list"
       />
