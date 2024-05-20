@@ -1,9 +1,9 @@
 import { SearchParams } from "@/lib/definitions";
 import { getSearchParam } from "@/lib/utils";
-import SearchKeyword from "@/ui/search/search-keyword";
-import SearchResultList from "@/ui/search/search-result-list";
-import SearchResultListSkeleton from "@/ui/search/search-result-list.skeleton";
-import Section from "@/ui/section";
+import SearchKeyword from "@/ui/tim-kiem/search-keyword";
+import SearchResultList from "@/ui/tim-kiem/search-result-list";
+import SearchResultListSkeleton from "@/ui/tim-kiem/search-result-list.skeleton";
+import Section from "@/ui/common/section";
 import type { Metadata } from "next";
 import { Suspense } from "react";
 

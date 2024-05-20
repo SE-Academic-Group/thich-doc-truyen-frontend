@@ -1,5 +1,5 @@
 import { searchAction } from "@/lib/actions";
-import { SearchIcon } from "../lib/icons";
+import { SearchIcon } from "@/lib/icons";
 
 // TODO: Check why the action takes so long to perform
 export default function HeaderSearch() {

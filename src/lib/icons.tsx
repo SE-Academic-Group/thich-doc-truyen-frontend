@@ -30,6 +30,8 @@ export const SearchIcon = (props: ReactSVGIconProps) => {
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
+      width={16}
+      height={16}
       viewBox="0 0 20 20"
       {...props}
     >

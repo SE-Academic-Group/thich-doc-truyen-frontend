@@ -1,6 +1,6 @@
 import { getChapterList } from "@/lib/data";
 import Link from "next/link";
-import Pagination from "../pagination";
+import Pagination from "../common/pagination";
 
 export type ChapterListProps = {
   storyUrl: string;

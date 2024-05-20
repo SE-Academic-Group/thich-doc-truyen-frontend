@@ -1,6 +1,6 @@
 import { SearchParams } from "@/lib/definitions";
 import { getSearchParam } from "@/lib/utils";
-import Content from "@/ui/read/content";
+import Content from "@/ui/doc-truyen/content";
 
 type Props = {
   searchParams: SearchParams;

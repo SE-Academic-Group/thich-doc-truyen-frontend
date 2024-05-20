@@ -1,5 +1,5 @@
 import { getSearchResult } from "@/lib/data";
-import Pagination from "../pagination";
+import Pagination from "../common/pagination";
 import ResultStoryCard from "./result-story-card";
 
 export type SearchResultListProps = {

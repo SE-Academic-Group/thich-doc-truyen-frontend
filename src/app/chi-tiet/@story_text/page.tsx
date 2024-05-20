@@ -1,7 +1,7 @@
 import { SearchParams } from "@/lib/definitions";
 import { getSearchParam } from "@/lib/utils";
-import Section from "@/ui/section";
-import StoryText from "@/ui/story-detail/story-text";
+import Section from "@/ui/common/section";
+import StoryText from "@/ui/chi-tiet/story-text";
 import { Suspense } from "react";
 
 type Props = {

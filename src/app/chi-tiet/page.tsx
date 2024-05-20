@@ -1,9 +1,9 @@
 import { getStoryDetail } from "@/lib/data";
 import { SearchParams } from "@/lib/definitions";
 import { getSearchParam } from "@/lib/utils";
-import Section from "@/ui/section";
-import ChapterList from "@/ui/story-detail/chapter-list";
-import StoryText from "@/ui/story-detail/story-text";
+import Section from "@/ui/common/section";
+import ChapterList from "@/ui/chi-tiet/chapter-list";
+import StoryText from "@/ui/chi-tiet/story-text";
 import { Metadata } from "next";
 import { Suspense } from "react";
 

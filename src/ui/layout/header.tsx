@@ -1,4 +1,4 @@
-import ThichDocTruyenLogo from "../thich-doc-truyen-logo";
+import ThichDocTruyenLogo from "../common/thich-doc-truyen-logo";
 import UserSettings from "./user-settings";
 
 export default function Header() {
