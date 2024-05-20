@@ -10,7 +10,7 @@ export default function SearchBar() {
       <label htmlFor="search-input" className="sr-only">
         Tìm kiếm truyện
       </label>
-      <div className="flex rounded-full border-2 bg-bg_light pe-1 ps-3 focus-within:ring">
+      <div className="bg-bg_light flex rounded-full border-2 pe-1 ps-3 focus-within:ring">
         <div className="pointer-events-none flex items-center">
           <SearchIcon />
         </div>

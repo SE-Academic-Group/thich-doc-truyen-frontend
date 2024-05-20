@@ -2,13 +2,15 @@ import { getSearchResult } from "@/lib/data";
 import Pagination from "../pagination";
 import ResultStoryCard from "./result-story-card";
 
+export type SearchResultListProps = {
+  keyword: string;
+  page: number;
+};
+
 export default async function SearchResultList({
   keyword,
   page,
-}: {
-  keyword: string;
-  page: number;
-}) {
+}: SearchResultListProps) {
   const { data: stories, metadata } = await getSearchResult({ keyword, page });
 
   if (!stories) {

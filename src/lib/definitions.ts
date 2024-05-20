@@ -1,10 +1,5 @@
 // TODO: use `zod` for type validation
 
-export type Breadcrumb = {
-  label: string;
-  href: string;
-};
-
 export type StorySearchResult = {
   title: string;
   author: string;
@@ -56,9 +51,16 @@ export type HttpMetadata = {
   maxPage: number;
 };
 
-export type HttpResponse<D = {}, E = HttpError, M = Record<string, unknown>> = {
-  data: D | undefined;
-  error: E | undefined;
+export type HttpResponse<D = {}, E = HttpError, M = Record<string, unknown>> = (
+  | {
+      data: D;
+      error: null;
+    }
+  | {
+      data: null;
+      error: E;
+    }
+) & {
   metadata: M;
 };
 

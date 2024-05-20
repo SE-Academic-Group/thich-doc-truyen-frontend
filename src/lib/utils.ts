@@ -1,10 +1,10 @@
-import { clsx, ClassValue } from "clsx";
+import { ClassValue, clsx } from "clsx";
+import { headers } from "next/headers";
 import { twMerge } from "tailwind-merge";
 import { SearchParams } from "./definitions";
-import { headers } from "next/headers";
 
 export const cn = (...classes: ClassValue[]) => twMerge(clsx(classes));
-
+export const getCustomHeader = (key: string) => headers().get(key);
 export const sleep = async (nSecs = 1000) =>
   await new Promise((resolve) => setTimeout(resolve, nSecs));
 
@@ -45,7 +45,7 @@ export function generatePagination({
     return [1, 2, 3, "...", totalPages - 1, totalPages];
   }
 
-  // If the current page is among the last 3 pages,
+  // If the current page is among the last 2 pages,
   // show the first 2, an ellipsis, and the last 3 pages.
   if (currentPage >= totalPages - 1) {
     return [1, 2, "...", totalPages - 2, totalPages - 1, totalPages];
@@ -64,10 +64,9 @@ export function generatePagination({
     totalPages,
   ];
 }
-export const getCustomHeader = (key: string) => headers().get(key);
 
 // TODO: Define rules to format the content of a story chapter.
-export const preLineStoryDetail = (content: string) => {
+export const normalizeContent = (content: string) => {
   return content
     .replace(/(\n|\r\n|\r|<br\/>)/g, " ")
     .replace(/:“/g, ": “")

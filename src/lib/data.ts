@@ -10,6 +10,8 @@ import {
   StorySearchResult,
 } from "./definitions";
 
+const API_URL = process.env.API_URL;
+
 export async function getSearchResult({
   keyword,
   page,
@@ -17,9 +19,7 @@ export async function getSearchResult({
   keyword: string;
   page: number;
 }) {
-  const response = await fetch(
-    `http://localhost:8080/truyenFull/search?q=${keyword}&page=${page}`,
-  );
+  const response = await fetch(`${API_URL}/search?q=${keyword}&page=${page}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch search results");
@@ -35,7 +35,7 @@ export async function getSearchResult({
 }
 
 export async function getPluginList() {
-  const response = await fetch("http://localhost:8080/plugin-list");
+  const response = await fetch(`${API_URL}/plugin-list`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch plugin list");
@@ -45,9 +45,7 @@ export async function getPluginList() {
 }
 
 export async function getStoryDetail({ url }: { url: string }) {
-  const response = await fetch(
-    `http://localhost:8080/truyenFull/novel-detail?url=${url}`,
-  );
+  const response = await fetch(`${API_URL}/novel-detail?url=${url}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch story detail");
@@ -64,7 +62,7 @@ export async function getChapterList({
   page: number;
 }) {
   const response = await fetch(
-    `http://localhost:8080/truyenFull/chapter-list?url=${url}&page=${page}`,
+    `${API_URL}/chapter-list?url=${url}&page=${page}`,
   );
 
   if (!response.ok) {
@@ -79,9 +77,7 @@ export async function getChapterList({
 }
 
 export async function getChapterDetail({ url }: { url: string }) {
-  const response = await fetch(
-    `http://localhost:8080/truyenFull/chapter-detail?url=${url}`,
-  );
+  const response = await fetch(`${API_URL}/chapter-detail?url=${url}`);
 
   if (!response.ok) {
     throw new Error("Failed to fetch chapter detail");

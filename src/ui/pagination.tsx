@@ -1,5 +1,5 @@
-import { cn, generatePagination, getCustomHeader } from "@/lib/utils";
-import Link from "next/link";
+import { generatePagination, getCustomHeader } from "@/lib/utils";
+import { PaginationLink } from "./pagination-link";
 
 export type PaginationProps = {
   currentPage: number;
@@ -30,34 +30,5 @@ export default function Pagination({
         </li>
       ))}
     </ul>
-  );
-}
-
-function PaginationLink({
-  page,
-  url,
-  isActive,
-  scrollToId,
-}: {
-  page: number | "...";
-  url: string;
-  isActive: boolean;
-  scrollToId?: string;
-}) {
-  if (typeof page === "string") {
-    return <span className="text-lg md:text-base">{page}</span>;
-  }
-
-  return (
-    <Link
-      className={cn(
-        "rounded-sm bg-bg-200 px-3 py-2 text-lg hover:bg-bg-300",
-        "md:px-2.5 md:py-1 md:text-base",
-        isActive && "bg-primary-light text-primary-fg pointer-events-none",
-      )}
-      href={`${url.toString()}&page=${page}${scrollToId ? `#${scrollToId}` : ""}`}
-    >
-      {page}
-    </Link>
   );
 }
