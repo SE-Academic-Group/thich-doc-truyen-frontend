@@ -28,6 +28,9 @@ const config: Config = {
           light: colors.cyan[700],
           DEFAULT: colors.cyan[900],
         },
+        secondary: {
+          DEFAULT: colors.green[600],
+        },
         bg: {
           200: colors.gray[200],
           300: colors.gray[300],
@@ -43,6 +46,9 @@ const config: Config = {
         },
         muted: {
           DEFAULT: colors.gray[500],
+        },
+        read: {
+          DEFAULT: "#f6f1e7",
         },
       },
     },

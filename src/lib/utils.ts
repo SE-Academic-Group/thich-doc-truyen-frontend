@@ -21,7 +21,6 @@ export function getSearchParam({
   return result;
 }
 
-// TODO: Include final page
 export function generatePagination({
   currentPage,
   totalPages,
@@ -42,14 +41,13 @@ export function generatePagination({
 
   // If the current page is among the first 3 pages,
   // show the first 3, an ellipsis, and the last 2 pages.
-  if (currentPage <= 3) {
+  if (currentPage <= 2) {
     return [1, 2, 3, "...", totalPages - 1, totalPages];
   }
 
   // If the current page is among the last 3 pages,
   // show the first 2, an ellipsis, and the last 3 pages.
-  console.log(totalPages);
-  if (currentPage >= totalPages - 2) {
+  if (currentPage >= totalPages - 1) {
     return [1, 2, "...", totalPages - 2, totalPages - 1, totalPages];
   }
 
@@ -66,5 +64,16 @@ export function generatePagination({
     totalPages,
   ];
 }
-
 export const getCustomHeader = (key: string) => headers().get(key);
+
+// TODO: Define rules to format the content of a story chapter.
+export const preLineStoryDetail = (content: string) => {
+  return content
+    .replace(/(\n|\r\n|\r|<br\/>)/g, " ")
+    .replace(/:“/g, ": “")
+    .replace(/- /g, "")
+    .replace(/(["”“”“]) .(["”“”“])/g, "$1\n\n$2")
+    .replace(/([\.]) ([^\.])/g, "$1\n\n$2")
+    .replace(/&quot;/g, '"')
+    .replace(/([\.]{3})\n\n/g, "$1 ");
+};

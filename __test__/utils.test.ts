@@ -1,4 +1,8 @@
-import { getSearchParam, generatePagination } from "../src/lib/utils";
+import {
+  getSearchParam,
+  generatePagination,
+  preLineStoryDetail,
+} from "../src/lib/utils";
 import { describe, test, expect } from "vitest";
 
 describe("getSearchParam", () => {
@@ -84,3 +88,5 @@ describe("generatePagination", () => {
     ).toEqual([1, 2, "...", 8, 9, 10]);
   });
 });
+
+describe("preLineStoryDetail", () => {});
