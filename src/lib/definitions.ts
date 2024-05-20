@@ -29,6 +29,17 @@ export type StoryChapter = {
   index: number;
 };
 
+export type ChapterDetail = {
+  title: string;
+  url: string;
+  content: string;
+};
+
+export type ChapterDetailMetadata = {
+  nextChapter: string | null;
+  prevChapter: string | null;
+};
+
 export type ReactSVGIconProps = React.SVGProps<SVGSVGElement>;
 
 export type SearchParams = { [key: string]: string | string[] | undefined };

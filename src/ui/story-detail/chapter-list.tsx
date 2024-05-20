@@ -24,7 +24,10 @@ export default async function ChapterList({
         {chapters.map((chapter) => (
           <li key={chapter.url}>
             {chapter.url ? (
-              <Link href={chapter.url} className="group inline-block py-0.5">
+              <Link
+                href={`/doc-truyen?url=${chapter.url}`}
+                className="group inline-block py-0.5"
+              >
                 <span role="presentation">*</span>
                 <span className="group-hover:underline">
                   Chương {chapter.index}:{" "}
@@ -41,9 +44,8 @@ export default async function ChapterList({
           </li>
         ))}
       </ul>
-      {/* TODO: remove `+1` after backend fix the problem */}
       <Pagination
-        currentPage={metadata.currentPage + 1}
+        currentPage={metadata.currentPage}
         totalPages={metadata.maxPage}
         scrollToId="chapter-list"
       />

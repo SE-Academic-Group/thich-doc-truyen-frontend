@@ -1,4 +1,6 @@
 import {
+  ChapterDetail,
+  ChapterDetailMetadata,
   HttpError,
   HttpMetadata,
   HttpResponse,
@@ -16,7 +18,7 @@ export async function getSearchResult({
   page: number;
 }) {
   const response = await fetch(
-    `http://localhost:8080/tangThuVien/search?q=${keyword}&page=${page}`,
+    `http://localhost:8080/truyenFull/search?q=${keyword}&page=${page}`,
   );
 
   if (!response.ok) {
@@ -44,7 +46,7 @@ export async function getPluginList() {
 
 export async function getStoryDetail({ url }: { url: string }) {
   const response = await fetch(
-    `http://localhost:8080/tangThuVien/novel-detail?url=${url}`,
+    `http://localhost:8080/truyenFull/novel-detail?url=${url}`,
   );
 
   if (!response.ok) {
@@ -62,7 +64,7 @@ export async function getChapterList({
   page: number;
 }) {
   const response = await fetch(
-    `http://localhost:8080/tangThuVien/chapter-list?url=${url}&page=${page}`,
+    `http://localhost:8080/truyenFull/chapter-list?url=${url}&page=${page}`,
   );
 
   if (!response.ok) {
@@ -73,5 +75,21 @@ export async function getChapterList({
     StoryChapter[],
     null,
     HttpMetadata
+  >;
+}
+
+export async function getChapterDetail({ url }: { url: string }) {
+  const response = await fetch(
+    `http://localhost:8080/truyenFull/chapter-detail?url=${url}`,
+  );
+
+  if (!response.ok) {
+    throw new Error("Failed to fetch chapter detail");
+  }
+
+  return (await response.json()) as HttpResponse<
+    ChapterDetail,
+    null,
+    ChapterDetailMetadata
   >;
 }
