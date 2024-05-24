@@ -9,7 +9,7 @@ const logo = tv({
     size: {
       sm: "text-xl",
       md: "text-2xl",
-      lg: "text-4xl",
+      lg: " text-[2.75rem]",
     },
   },
   defaultVariants: {
