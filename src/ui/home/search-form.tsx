@@ -54,7 +54,7 @@ export default function SearchForm({ action }: SearchFormProps) {
           </kbd>
         </div>
       </div>
-      <div className="flex items-center justify-between">
+      {/* <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <fieldset className="rounded border text-sm">
             <legend className="text-xs">Tìm kiếm theo</legend>
@@ -80,25 +80,11 @@ export default function SearchForm({ action }: SearchFormProps) {
               </li>
             </ul>
           </fieldset>
-          <fieldset className="rounded border text-sm">
-            <legend className="text-xs">Nguồn tìm kiếm</legend>
-            <select
-              name="story-source"
-              id="story-source"
-              className="px-2 py-0.5"
-            >
-              <option value="truyenfull" selected>
-                Truyện Full
-              </option>
-              <option value="truyencv">Truyện CV</option>
-              <option value="wikidich">Wiki Dịch</option>
-            </select>
-          </fieldset>
         </div>
         <button className="rounded-sm bg-bg-200 px-2.5 py-1" type="submit">
           Tìm kiếm
         </button>
-      </div>
+      </div> */}
     </form>
   );
 }
