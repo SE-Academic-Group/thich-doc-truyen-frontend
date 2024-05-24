@@ -1,4 +1,4 @@
-type SectionProps = React.ComponentProps<"section"> & {
+export type SectionProps = React.ComponentProps<"section"> & {
   title: string;
 };
 

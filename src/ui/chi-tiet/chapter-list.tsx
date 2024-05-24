@@ -1,14 +1,16 @@
 import { getChapterList } from "@/lib/data";
 import Link from "next/link";
-import Pagination from "../pagination";
+import Pagination from "../common/pagination";
+
+export type ChapterListProps = {
+  storyUrl: string;
+  page: number;
+};
 
 export default async function ChapterList({
   storyUrl,
   page,
-}: {
-  storyUrl: string;
-  page: number;
-}) {
+}: ChapterListProps) {
   const { data: chapters, metadata } = await getChapterList({
     url: storyUrl,
     page,

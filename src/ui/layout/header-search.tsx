@@ -1,5 +1,5 @@
 import { searchAction } from "@/lib/actions";
-import { SearchIcon } from "../lib/icons";
+import { SearchIcon } from "@/lib/icons";
 
 // TODO: Check why the action takes so long to perform
 export default function HeaderSearch() {
@@ -8,9 +8,9 @@ export default function HeaderSearch() {
       <label htmlFor="header-search-input" className="sr-only">
         Tìm kiếm truyện
       </label>
-      <div className="flex rounded-md border bg-bg_light pe-1 ps-3 text-fg_light focus-within:ring">
+      <div className="bg-bg_light text-fg_light flex rounded-md border pe-1 ps-3 focus-within:ring">
         <div className="pointer-events-none flex items-center">
-          <SearchIcon className="size-3 text-muted" />
+          <SearchIcon className="text-muted size-3" />
         </div>
         <input
           type="search"

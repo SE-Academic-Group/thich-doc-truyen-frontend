@@ -1,14 +1,11 @@
-import "@/ui/globals.css";
-
-import { robotoCondensed } from "@/ui/fonts";
 import type { Metadata } from "next";
 
 import { cn } from "@/lib/utils";
-import Footer from "@/ui/layout/footer";
-import Header from "@/ui/layout/header";
+import { robotoCondensed } from "@/ui/fonts";
+import "@/ui/globals.css";
 
 export const metadata = {
-  title: "Đọc truyện online | Thích Đọc Truyện",
+  title: "Thích Đọc Truyện",
   description: "Tìm kiếm và thưởng thức đa dạng truyện chữ online miễn phí",
   keywords: "đọc truyện, truyện chữ, truyện online, truyện miễn phí",
 } satisfies Metadata;
@@ -21,14 +18,9 @@ export default function RootLayout({
   return (
     <html lang="vi" className="scroll-p-3 scroll-smooth">
       <body
-        className={cn(
-          robotoCondensed.className,
-          "grid grid-rows-[auto_1fr_auto] min-h-dvh bg-primary-bg",
-        )}
+        className={cn(robotoCondensed.className, "min-h-dvh bg-primary-bg")}
       >
-        <Header />
         {children}
-        <Footer />
       </body>
     </html>
   );

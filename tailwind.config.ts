@@ -22,33 +22,24 @@ const config: Config = {
     },
     extend: {
       colors: {
-        primary: {
-          fg: colors.cyan[50],
-          bg: colors.gray[50],
-          light: colors.cyan[700],
-          DEFAULT: colors.cyan[900],
-        },
-        secondary: {
-          DEFAULT: colors.green[600],
-        },
+        primary: colors.cyan[800],
+        secondary: "#669900",
+        read: "#f6f1e7",
+        border: colors.gray[300],
         bg: {
+          0: colors.white,
+          50: colors.gray[50],
+          100: colors.gray[100],
           200: colors.gray[200],
           300: colors.gray[300],
         },
-        bg_light: {
-          DEFAULT: colors.white,
-        },
-        fg_light: {
-          DEFAULT: colors.gray[900],
-        },
-        link: {
-          DEFAULT: colors.blue[500],
-        },
-        muted: {
-          DEFAULT: colors.gray[500],
-        },
-        read: {
-          DEFAULT: "#f6f1e7",
+        fg: {
+          0: colors.black,
+          50: colors.gray[900],
+          100: colors.gray[800],
+          200: colors.gray[700],
+          500: colors.gray[500],
+          900: colors.white,
         },
       },
     },

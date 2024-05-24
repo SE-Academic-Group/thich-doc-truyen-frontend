@@ -2,7 +2,7 @@ import { StorySearchResult } from "@/lib/definitions";
 import Image from "next/image";
 import Link from "next/link";
 
-type ResultStoryCardProps = {
+export type ResultStoryCardProps = {
   story: StorySearchResult;
 };
 
@@ -29,7 +29,7 @@ export default function ResultStoryCard({ story }: ResultStoryCardProps) {
             {story.title}
           </h3>
         </Link>
-        <p className="text-sm text-muted">
+        <p className="text-sm text-fg-500">
           <span>Tác giả: </span>
           <span>{story.author}</span>
         </p>

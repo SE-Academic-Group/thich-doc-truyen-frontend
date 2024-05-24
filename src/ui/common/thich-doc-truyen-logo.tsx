@@ -1,7 +1,7 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { protestRevolution } from "./fonts";
 import { tv, type VariantProps } from "tailwind-variants";
+import { protestRevolution } from "../fonts";
 
 const logo = tv({
   base: cn("font-bold uppercase text-center", protestRevolution.className),
@@ -9,7 +9,7 @@ const logo = tv({
     size: {
       sm: "text-xl",
       md: "text-2xl",
-      lg: "text-3xl",
+      lg: "text-4xl sm:text-[2.75rem]",
     },
   },
   defaultVariants: {

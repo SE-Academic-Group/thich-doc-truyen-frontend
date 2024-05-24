@@ -11,7 +11,7 @@ export default async function StoryText({ storyUrl }: { storyUrl: string }) {
   }
 
   return (
-    <article className="grid justify-center gap-4 md:grid-cols-[auto,auto,auto] md:gap-12">
+    <article className="grid justify-center gap-4 md:grid-cols-[repeat(3,auto)] md:gap-12">
       <section className="flex flex-col gap-3 text-center md:text-start">
         <h3 className="mb-2 text-balance text-xl font-semibold md:hidden">
           {detail.title}
@@ -47,7 +47,7 @@ export default async function StoryText({ storyUrl }: { storyUrl: string }) {
         </h3>
         <section className="hidden md:block">
           <h4 className="sr-only">Thông tin thêm</h4>
-          <ul className="flex flex-wrap justify-center gap-2 mixin:inline-block mixin:pe-1.5 mixin:font-semibold">
+          <ul className="flex flex-wrap justify-center gap-3 mixin:inline-block mixin:pe-1.5 mixin:font-semibold">
             <li>
               <span className="mixin">Tác giả: </span>
               <span>{detail.author}</span>

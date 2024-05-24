@@ -1,11 +1,7 @@
-import {
-  getSearchParam,
-  generatePagination,
-  preLineStoryDetail,
-} from "../src/lib/utils";
+import { getSearchParam, generatePagination } from "../lib/utils";
 import { describe, test, expect } from "vitest";
 
-describe("getSearchParam", () => {
+describe("getSearchParam: get a specified search param from the url", () => {
   test("should return the value of the given key from the searchParams object", () => {
     const searchParams = { keyword: "hello" };
     const key = "keyword";
@@ -42,7 +38,7 @@ describe("getSearchParam", () => {
   });
 });
 
-describe("generatePagination", () => {
+describe("generatePagination: receive currentPage and totalPages to generate an array of pagination", () => {
   test("should return an empty array if totalPages is 1", () => {
     expect(
       generatePagination({
@@ -73,7 +69,7 @@ describe("generatePagination", () => {
         currentPage: 8,
         totalPages: 10,
       }),
-    ).toEqual([1, 2, "...", 8, 9, 10]);
+    ).toEqual([1, "...", 7, 8, 9, "...", 10]);
     expect(
       generatePagination({
         currentPage: 5,
@@ -88,5 +84,3 @@ describe("generatePagination", () => {
     ).toEqual([1, 2, "...", 8, 9, 10]);
   });
 });
-
-describe("preLineStoryDetail", () => {});

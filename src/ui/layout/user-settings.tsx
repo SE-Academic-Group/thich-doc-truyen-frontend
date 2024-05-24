@@ -14,7 +14,7 @@ export default function UserSettings() {
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content align="end" sideOffset={6}>
-          <div className="w-52 rounded-md bg-primary-light px-4 py-2 text-fg_primary shadow-md">
+          <div className="bg-primary-light text-fg_primary w-52 rounded-md px-4 py-2 shadow-md">
             <div>nguon</div>
             <section>
               <h3>reading</h3>

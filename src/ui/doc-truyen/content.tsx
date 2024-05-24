@@ -1,5 +1,5 @@
 import { getChapterDetail } from "@/lib/data";
-import { preLineStoryDetail } from "@/lib/utils";
+import { normalizeContent } from "@/lib/utils";
 import ChapterNavigation from "./chapter-navigation";
 
 export type Props = {
@@ -15,7 +15,7 @@ export default async function Content({ url }: Props) {
     return <div>Không tìm thấy tài nguyên</div>;
   }
 
-  const preLinedContent = preLineStoryDetail(detail.content);
+  const preLinedContent = normalizeContent(detail.content);
 
   return (
     <article className="container">
