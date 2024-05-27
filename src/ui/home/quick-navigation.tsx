@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function QuickNavigation() {
   return (
     <nav aria-label="Điều hướng nhanh ở trang chủ">
-      <ul className="flex flex-wrap gap-4">
+      <ul className="flex flex-wrap justify-center gap-4">
         <li>
           <Link
             href="/lich-su"

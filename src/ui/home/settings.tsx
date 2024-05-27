@@ -7,7 +7,7 @@ export default function Settings() {
   return (
     <Popover.Root>
       <Popover.Trigger className="rounded-full p-1.5 hover:bg-bg-100">
-        <BarsIcon />
+        <BarsIcon className="size-7" />
       </Popover.Trigger>
       <Popover.Portal>
         <Popover.Content
