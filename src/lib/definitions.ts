@@ -35,8 +35,6 @@ export type ChapterDetailMetadata = {
   prevChapter: string | null;
 };
 
-export type ReactSVGIconProps = React.SVGProps<SVGSVGElement>;
-
 export type SearchParams = { [key: string]: string | string[] | undefined };
 
 export type HttpError = {
