@@ -1,8 +1,7 @@
-import type { Metadata } from "next";
-
 import { cn } from "@/lib/utils";
 import { robotoCondensed } from "@/ui/fonts";
 import "@/ui/globals.css";
+import type { Metadata } from "next";
 
 export const metadata = {
   title: "Thích Đọc Truyện",

@@ -1,33 +1,37 @@
+import { capitalCase } from "change-case";
 import { ClassValue, clsx } from "clsx";
 import { headers } from "next/headers";
 import { twMerge } from "tailwind-merge";
+import { tv } from "tailwind-variants";
 import { SearchParams } from "./definitions";
 
+export const style = tv;
 export const cn = (...classes: ClassValue[]) => twMerge(clsx(classes));
 export const getCustomHeader = (key: string) => headers().get(key);
 export const sleep = async (nSecs = 1000) =>
   await new Promise((resolve) => setTimeout(resolve, nSecs));
+export const convertToCapitalCase = (text: string) => capitalCase(text);
 
-export function getSearchParam({
+export const getSearchParam = ({
   searchParams,
   key,
 }: {
   searchParams: SearchParams;
   key: string;
-}) {
+}) => {
   const value = searchParams[key] ?? "";
   const result = Array.isArray(value) ? value[0] : value;
 
   return result;
-}
+};
 
-export function generatePagination({
+export const generatePagination = ({
   currentPage,
   totalPages,
 }: {
   currentPage: number;
   totalPages: number;
-}): Array<number | "..."> {
+}): Array<number | "..."> => {
   // If the total number of pages is 1, return an empty array.
   if (totalPages === 1) {
     return [];
@@ -63,7 +67,7 @@ export function generatePagination({
     "...",
     totalPages,
   ];
-}
+};
 
 // TODO: Define rules to format the content of a story chapter.
 export const normalizeContent = (content: string) => {
