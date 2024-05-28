@@ -6,10 +6,10 @@ import Skeleton from "../common/skeleton";
 export function QuickNavigationSkeleton() {
   return (
     <Skeleton>
-      <ul className="flex gap-4 flex-wrap justify-center">
+      <ul className="flex flex-wrap justify-center gap-4">
         {Array.from({ length: 3 }).map((_, i) => (
           <li key={i}>
-            <div className="h-2 w-10" />
+            <div className="h-6 w-24" />
           </li>
         ))}
       </ul>
