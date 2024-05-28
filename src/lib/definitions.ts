@@ -1,5 +1,3 @@
-// TODO: use `zod` for type validation
-
 export type StorySearchResult = {
   title: string;
   author: string;

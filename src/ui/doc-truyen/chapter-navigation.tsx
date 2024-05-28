@@ -20,7 +20,7 @@ export default function ChapterNavigation({ navigation }: Props) {
       <Link
         className={cn(
           "bg-secondary text-primary-fg px-2 py-1 rounded-sm inline-flex hover:opacity-80",
-          !prevChapter && "opacity-50 pointer-events-none",
+          !prevChapter && "opacity-50 pointer-events-none"
         )}
         href={`/doc-truyen?url=${prevChapter}`}
       >
@@ -30,7 +30,7 @@ export default function ChapterNavigation({ navigation }: Props) {
       <Link
         className={cn(
           "bg-secondary text-primary-fg px-2 py-1 rounded-sm inline-flex hover:opacity-80",
-          !nextChapter && "opacity-50 pointer-events-none",
+          !nextChapter && "opacity-50 pointer-events-none"
         )}
         href={`/doc-truyen?url=${nextChapter}`}
       >

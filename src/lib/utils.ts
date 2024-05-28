@@ -1,13 +1,12 @@
 import { capitalCase } from "change-case";
 import { ClassValue, clsx } from "clsx";
-import { headers } from "next/headers";
 import { twMerge } from "tailwind-merge";
 import { tv } from "tailwind-variants";
 import { SearchParams } from "./definitions";
 
 export const style = tv;
 export const cn = (...classes: ClassValue[]) => twMerge(clsx(classes));
-export const getCustomHeader = (key: string) => headers().get(key);
+
 export const sleep = async (nSecs = 1000) =>
   await new Promise((resolve) => setTimeout(resolve, nSecs));
 export const convertToCapitalCase = (text: string) => capitalCase(text);

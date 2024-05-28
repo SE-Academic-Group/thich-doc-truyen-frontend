@@ -1,4 +1,4 @@
-import { getStoryDetail } from "@/lib/data";
+import { getStoryDetail } from "@/lib/data/get-story-detail";
 import Image from "next/image";
 import Link from "next/link";
 

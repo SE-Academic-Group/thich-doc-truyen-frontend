@@ -1,5 +1,6 @@
-import { generatePagination, getCustomHeader } from "@/lib/utils";
+import { generatePagination } from "@/lib/utils";
 import { PaginationLink } from "./pagination-link";
+import { headers } from "next/headers";
 
 export type PaginationProps = {
   currentPage: number;
@@ -13,7 +14,7 @@ export default function Pagination({
   scrollToId,
 }: PaginationProps) {
   const pagination = generatePagination({ currentPage, totalPages });
-  const requestUrl = getCustomHeader("x-url")!;
+  const requestUrl = headers().get("x-url")!;
   const url = new URL(requestUrl);
   url.searchParams.delete("page");
 

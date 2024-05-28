@@ -1,4 +1,4 @@
-import { getPluginList } from "@/lib/data";
+import { getPluginList } from "@/lib/data/get-plugin-list";
 import { convertToCapitalCase } from "@/lib/utils";
 import Link from "next/link";
 

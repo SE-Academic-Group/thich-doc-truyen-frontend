@@ -1,4 +1,4 @@
-import { getSearchResult } from "@/lib/data";
+import { getSearchResult } from "@/lib/data/get-search-result";
 import Pagination from "../common/pagination";
 import ResultStoryCard from "./result-story-card";
 
