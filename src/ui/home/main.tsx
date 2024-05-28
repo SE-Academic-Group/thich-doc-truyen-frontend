@@ -1,10 +1,11 @@
 import { searchAction } from "@/lib/actions";
 import { Suspense } from "react";
-import ThichDocTruyenLogo from "../common/thich-doc-truyen-logo";
 import ErrorBoundary from "../common/error-boundary";
+import ThichDocTruyenLogo from "../common/thich-doc-truyen-logo";
 import Disclaimer from "./disclaimer";
-import QuickNavigation, { QuickNavigationSkeleton } from "./quick-navigation";
 import SearchForm from "./search-form";
+import StorySourceList from "./story-source-list";
+import { StorySourceListSkeleton } from "./story-source-list-skeleton";
 
 export default function Page() {
   return (
@@ -14,9 +15,9 @@ export default function Page() {
         <h2 className="sr-only">Tìm kiếm truyện</h2>
         <ThichDocTruyenLogo size="lg" />
         <SearchForm action={searchAction} />
-        <Suspense fallback={<QuickNavigationSkeleton />}>
+        <Suspense fallback={<StorySourceListSkeleton />}>
           <ErrorBoundary fallback={<div>error</div>}>
-            <QuickNavigation />
+            <StorySourceList />
           </ErrorBoundary>
         </Suspense>
         <Disclaimer />

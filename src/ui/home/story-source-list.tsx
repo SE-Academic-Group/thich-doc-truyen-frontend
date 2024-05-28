@@ -1,27 +1,19 @@
 import { getPluginList } from "@/lib/data";
 import { convertToCapitalCase } from "@/lib/utils";
 import Link from "next/link";
-import Skeleton from "../common/skeleton";
 
-export function QuickNavigationSkeleton() {
-  return (
-    <Skeleton>
-      <ul className="flex flex-wrap justify-center gap-4">
-        {Array.from({ length: 3 }).map((_, i) => (
-          <li key={i}>
-            <div className="h-6 w-24" />
-          </li>
-        ))}
-      </ul>
-    </Skeleton>
-  );
-}
-
-export default async function QuickNavigation() {
+export default async function StorySourceList() {
   const { data: pluginList } = await getPluginList();
 
   if (!pluginList?.length) {
-    return null;
+    return (
+      <p
+        role="alert"
+        className="rounded-sm bg-red-100 px-1 text-sm text-red-800"
+      >
+        Có lỗi xảy ra trong quá trình hiển thị danh sách nguồn truyện
+      </p>
+    );
   }
 
   return (

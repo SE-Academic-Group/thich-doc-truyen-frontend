@@ -4,9 +4,9 @@ import { ServerAction } from "@/lib/actions";
 import { SearchIcon } from "../../lib/icons";
 import { useEffect, useRef } from "react";
 
-export type SearchFormProps = {
+export type SearchFormProps = Readonly<{
   action: ServerAction;
-};
+}>;
 
 export default function SearchForm({ action }: SearchFormProps) {
   const inputRef = useRef<HTMLInputElement>(null);
@@ -19,6 +19,7 @@ export default function SearchForm({ action }: SearchFormProps) {
       }
     };
 
+    inputRef.current?.focus();
     window.addEventListener("keydown", handleSearch);
     return () => {
       window.removeEventListener("keydown", handleSearch);
@@ -46,45 +47,14 @@ export default function SearchForm({ action }: SearchFormProps) {
           <span className="sr-only">
             Nhân tổ hợp phím Ctrl và K để tìm kiếm
           </span>
-          <kbd role="presentation" className="rounded bg-bg-50 p-1">
+          <kbd aria-hidden="true" className="rounded bg-bg-50 p-1">
             Ctrl
           </kbd>
-          <kbd role="presentation" className="rounded bg-bg-50 p-1">
+          <kbd aria-hidden="true" className="rounded bg-bg-50 p-1">
             K
           </kbd>
         </div>
       </div>
-      {/* <div className="flex items-center justify-between">
-        <div className="flex items-center gap-4">
-          <fieldset className="rounded border text-sm">
-            <legend className="text-xs">Tìm kiếm theo</legend>
-            <ul className="space-x-2.5 px-2 py-0.5">
-              <li className="inline-flex items-center gap-1">
-                <input
-                  type="radio"
-                  id="ten-truyen"
-                  name="search-by"
-                  value="title"
-                  defaultChecked
-                />
-                <label htmlFor="ten-truyen">Tên truyện</label>
-              </li>
-              <li className="inline-flex items-center gap-1">
-                <input
-                  type="radio"
-                  id="ten-tac-gia"
-                  name="search-by"
-                  value="author"
-                />
-                <label htmlFor="ten-tac-gia">Tác giả</label>
-              </li>
-            </ul>
-          </fieldset>
-        </div>
-        <button className="rounded-sm bg-bg-200 px-2.5 py-1" type="submit">
-          Tìm kiếm
-        </button>
-      </div> */}
     </form>
   );
 }
