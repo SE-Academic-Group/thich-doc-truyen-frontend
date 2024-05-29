@@ -5,7 +5,7 @@ import ThichDocTruyenLogo from "../common/thich-doc-truyen-logo";
 import Disclaimer from "./disclaimer";
 import SearchForm from "./search-form";
 import StorySourceList from "./story-source-list";
-import { StorySourceListSkeleton } from "./story-source-list-skeleton";
+import StorySourceListSkeleton from "./story-source-list-skeleton";
 
 export default function Page() {
   return (
