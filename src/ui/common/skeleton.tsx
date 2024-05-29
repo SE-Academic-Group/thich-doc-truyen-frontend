@@ -7,11 +7,14 @@ export type SkeletonWrapperProps = Readonly<{
 
 export type SkeletonBoxProps = Readonly<{
   className: string;
+  children?: React.ReactNode;
 }>;
 
-function SkeletonBox({ className }: SkeletonBoxProps) {
+function SkeletonBox(props: SkeletonBoxProps) {
   return (
-    <div className={cn("animate-pulse bg-bg-100 rounded-sm", className)} />
+    <div className={cn("bg-bg-100 rounded-sm", props.className)}>
+      {props.children}
+    </div>
   );
 }
 
@@ -22,7 +25,9 @@ function SkeletonWrapper({
   return (
     <output>
       <span className="sr-only">{screenReaderText}</span>
-      <div aria-hidden="true">{children}</div>
+      <div aria-hidden="true" className="animate-pulse">
+        {children}
+      </div>
     </output>
   );
 }
