@@ -1,7 +1,9 @@
 import { SearchParams } from "@/lib/definitions";
 import { getSearchParam } from "@/lib/utils";
 import Section from "@/ui/common/section";
-import SearchKeyword from "@/ui/tim-kiem/search-keyword";
+import Footer from "@/ui/layout/footer";
+import Header from "@/ui/layout/header";
+import SearchKeyword from "@/ui/layout/search-keyword";
 import SearchResultList from "@/ui/tim-kiem/search-result-list";
 import SearchResultListSkeleton from "@/ui/tim-kiem/search-result-list-skeleton";
 import { Suspense } from "react";
@@ -23,6 +25,8 @@ export default function Page({ searchParams }: PageProps) {
   const page = Number(getSearchParam({ searchParams, key: "page" }) || "1");
 
   return (
+    <>
+      <Header />
       <Suspense>
         <SearchKeyword />
       </Suspense>
@@ -33,6 +37,7 @@ export default function Page({ searchParams }: PageProps) {
           </Suspense>
         </Section>
       </main>
-    </div>
+      <Footer />
+    </>
   );
 }

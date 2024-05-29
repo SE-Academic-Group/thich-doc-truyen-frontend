@@ -2,18 +2,12 @@ import ThichDocTruyenLogo from "../common/thich-doc-truyen-logo";
 
 export default function Footer() {
   return (
-    <footer className="border-t border-primary bg-bg-50 py-4">
-      <div className="container grid items-center gap-4 md:grid-cols-2">
-        <div>
-          <ThichDocTruyenLogo size="sm" />
-          <p className="max-w-prose text-pretty text-sm">
-            Đọc truyện quá 60 phút có hại cho sức khỏe, đặc biệt là mắt của bạn.
-            Thích Đọc Truyện không sở hữu tài nguyên truyện nào trên website,
-            mọi truyện đều được lấy từ các nguồn trên internet.
-          </p>
-        </div>
-        <p className="md:text-center">
-          Copyright &copy; 2024 FIT_HCMUS ANH EM XA DOAN
+    <footer className="bg-bg-50">
+      <div className="container flex flex-wrap items-center justify-between gap-4 py-6">
+        <ThichDocTruyenLogo size="sm" />
+        <p className="max-w-prose text-pretty text-center text-sm">
+          Đây chỉ là website phục vụ nhu cầu đồ án môn học. Chúng tôi không có
+          mục đích thương mại cạnh tranh với bất kỳ trang web nào khác.
         </p>
       </div>
     </footer>

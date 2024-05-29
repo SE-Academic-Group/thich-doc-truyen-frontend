@@ -1,12 +1,14 @@
 import ThichDocTruyenLogo from "../common/thich-doc-truyen-logo";
-import UserSettings from "./user-settings";
+import ChangeSourceSetting from "../home/change-source-setting";
+import HeaderSearchForm from "./header-search-form";
 
 export default function Header() {
   return (
-    <header className="bg-primary py-3 text-fg-900">
-      <div className="container flex items-center justify-between">
-        <ThichDocTruyenLogo />
-        <UserSettings />
+    <header className="bg-bg-100">
+      <div className="container flex justify-between py-2">
+        <ThichDocTruyenLogo size="sm" />
+        <HeaderSearchForm />
+        <ChangeSourceSetting />
       </div>
     </header>
   );
