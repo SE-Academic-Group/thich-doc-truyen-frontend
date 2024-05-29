@@ -1,27 +1,20 @@
-import { getSearchResult } from "@/lib/data/get-search-result";
+import { getSearchResult } from "@/data/get-search-result";
 import Pagination from "../common/pagination";
 import ResultStoryCard from "./result-story-card";
 
-export type SearchResultListProps = {
+export type SearchResultListProps = Readonly<{
   keyword: string;
   page: number;
-};
+}>;
 
-export default async function SearchResultList({
-  keyword,
-  page,
-}: SearchResultListProps) {
-  const { data: stories, metadata } = await getSearchResult({ keyword, page });
+export default async function SearchResultList(props: SearchResultListProps) {
+  const { data: stories, metadata } = await getSearchResult(props);
 
-  if (!stories) {
-    return <div>Có lỗi xảy ra, vui lòng thử lại sau.</div>;
-  }
-
-  if (stories.length === 0) {
+  if (!stories?.length) {
     return (
       <div>
-        Không tìm thấy kết quả nào cho từ khóa&nbsp;
-        <span className="font-medium">&quot;{keyword}&quot;</span>.
+        <span>Không tìm thấy kết quả nào cho từ khóa </span>
+        <span className="font-medium">&quot;{props.keyword}&quot;</span>.
       </div>
     );
   }
