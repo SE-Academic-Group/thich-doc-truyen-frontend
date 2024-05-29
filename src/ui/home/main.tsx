@@ -13,6 +13,7 @@ export default function Page() {
       <section className="flex h-full flex-col items-center gap-6 px-3 pt-24 sm:pt-12">
         <h2 className="sr-only">Tìm kiếm truyện</h2>
         <ThichDocTruyenLogo size="lg" />
+        {/* TODO: add Suspense to let other part of this page to be able statically rendered */}
         <SearchForm />
         <Suspense fallback={<StorySourceListSkeleton />}>
           <ErrorBoundary fallback={<div>error</div>}>
