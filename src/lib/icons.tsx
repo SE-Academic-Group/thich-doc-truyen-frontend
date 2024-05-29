@@ -5,4 +5,5 @@ export {
   ChevronLeftIcon,
   ChevronRightIcon,
   Menu as BarsIcon,
+  ImageIcon,
 } from "lucide-react";
