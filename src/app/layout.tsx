@@ -9,11 +9,9 @@ export const metadata = {
   keywords: "đọc truyện, truyện chữ, truyện online, truyện miễn phí",
 } satisfies Metadata;
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export type RootLayoutProps = Readonly<React.PropsWithChildren>;
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="vi" className="scroll-p-3 scroll-smooth">
       <body
