@@ -26,6 +26,7 @@ const config: Config = {
         secondary: "#669900",
         read: "#f6f1e7",
         border: colors.gray[300],
+        error: colors.red[500],
         bg: {
           0: colors.white,
           50: colors.gray[50],
