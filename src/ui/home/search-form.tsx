@@ -1,14 +1,14 @@
 "use client";
 
-import { ServerAction } from "@/lib/actions";
-import { SearchIcon } from "../../lib/icons";
+import { searchAction } from "@/lib/actions";
 import { useEffect, useRef } from "react";
+import { useFormState } from "react-dom";
+import { SearchIcon } from "../../lib/icons";
+import Kbd from "../common/kbd";
+import ErrorText from "../common/error-text";
 
-export type SearchFormProps = Readonly<{
-  action: ServerAction;
-}>;
-
-export default function SearchForm({ action }: SearchFormProps) {
+export default function SearchForm() {
+  const [state, action] = useFormState(searchAction, { error: "" });
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
@@ -27,34 +27,25 @@ export default function SearchForm({ action }: SearchFormProps) {
   }, []);
 
   return (
-    <form className="mx-auto w-[min(100%,500px)] space-y-2" action={action}>
+    <form className="mx-auto w-[min(100%,500px)] space-y-3" action={action}>
       <label htmlFor="search-input" className="sr-only">
-        Tìm kiếm truyện
+        Tìm kiếm truyện theo từ khóa
       </label>
-      <div className="flex overflow-hidden rounded-3xl border border-border px-3 focus-within:ring">
-        <div className="pointer-events-none flex items-center text-fg-500">
-          <SearchIcon className="size-[14px]" />
-        </div>
+      <div className="flex items-center overflow-hidden rounded-3xl border border-border px-3 ring-border focus-within:ring">
+        <SearchIcon className="pointer-events-none size-[14px] text-fg-500" />
         <input
           type="search"
           name="search-input"
           id="search-input"
           className="w-full px-4 py-2 focus:outline-none"
           ref={inputRef}
-          required
         />
-        <div className="hidden items-center gap-1.5 text-xs md:flex">
-          <span className="sr-only">
-            Nhân tổ hợp phím Ctrl và K để tìm kiếm
-          </span>
-          <kbd aria-hidden="true" className="rounded bg-bg-50 p-1">
-            Ctrl
-          </kbd>
-          <kbd aria-hidden="true" className="rounded bg-bg-50 p-1">
-            K
-          </kbd>
-        </div>
+        <Kbd
+          keystrokes={["Ctrl", "K"]}
+          screenReaderText="Nhân tổ hợp phím Ctrl và K để tìm kiếm"
+        />
       </div>
+      <ErrorText>{state?.error}</ErrorText>
     </form>
   );
 }
