@@ -8,7 +8,7 @@ export default function Layout({
   return (
     <main className="container space-y-8 py-4">
       {story_text}
-      {story_chapters}
+      {/* {story_chapters} */}
     </main>
   );
 }

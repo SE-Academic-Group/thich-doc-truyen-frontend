@@ -1,5 +1,3 @@
-// TODO: use `zod` for type validation
-
 export type StorySearchResult = {
   title: string;
   author: string;
@@ -34,8 +32,6 @@ export type ChapterDetailMetadata = {
   nextChapter: string | null;
   prevChapter: string | null;
 };
-
-export type ReactSVGIconProps = React.SVGProps<SVGSVGElement>;
 
 export type SearchParams = { [key: string]: string | string[] | undefined };
 

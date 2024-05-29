@@ -1,4 +1,4 @@
-import { getStoryDetail } from "@/lib/data";
+import { getStoryDetail } from "@/lib/data/get-story-detail";
 import { SearchParams } from "@/lib/definitions";
 import { getSearchParam } from "@/lib/utils";
 import Section from "@/ui/common/section";

@@ -1,28 +1,28 @@
 "use client";
 
 import { BarsIcon } from "@/lib/icons";
-import * as Popover from "@radix-ui/react-popover";
+import { CookiesProvider } from "@/lib/providers";
+import { Popover } from "@/ui/common/popover";
+import ChangeSourceSetting from "./change-source-setting";
 
 export default function Settings() {
   return (
-    <Popover.Root>
-      <Popover.Trigger className="rounded-full p-1.5 hover:bg-bg-100">
-        <BarsIcon />
-      </Popover.Trigger>
-      <Popover.Portal>
-        <Popover.Content
-          side="bottom"
-          align="end"
-          sideOffset={8}
-          className="rounded-md border bg-white px-4 py-2 shadow-lg"
-        >
+    <CookiesProvider>
+      <Popover.Root>
+        <Popover.Trigger className="rounded-full p-1.5 hover:bg-bg-100">
+          <BarsIcon className="size-7" />
+        </Popover.Trigger>
+        <Popover.Content>
           <ul>
             <li>
-              <span>thay doi nguon truyen</span>
+              <span className="text-medium mb-2 block text-sm">
+                Nguồn truyện mặc định
+              </span>
+              <ChangeSourceSetting />
             </li>
           </ul>
         </Popover.Content>
-      </Popover.Portal>
-    </Popover.Root>
+      </Popover.Root>
+    </CookiesProvider>
   );
 }

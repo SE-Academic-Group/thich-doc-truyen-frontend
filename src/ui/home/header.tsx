@@ -3,7 +3,7 @@ import Settings from "./settings";
 
 export default function Header() {
   return (
-    <header className="flex items-center justify-end gap-6 px-8 py-3">
+    <header className="flex items-center justify-end gap-2 p-2 md:gap-4 md:px-8 md:py-3">
       <nav aria-label="Điều hướng chính">
         <ul>
           <li>
