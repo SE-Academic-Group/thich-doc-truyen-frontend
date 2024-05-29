@@ -64,3 +64,5 @@ export type StoryPlugin = {
   pluginName: string;
   pluginUrl: string;
 };
+
+export type ServerAction = (() => Promise<void>) & Function;

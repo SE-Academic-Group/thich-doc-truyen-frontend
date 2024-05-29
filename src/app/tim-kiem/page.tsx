@@ -1,19 +1,16 @@
 import { SearchParams } from "@/lib/definitions";
 import { getSearchParam } from "@/lib/utils";
+import Section from "@/ui/common/section";
 import SearchKeyword from "@/ui/tim-kiem/search-keyword";
 import SearchResultList from "@/ui/tim-kiem/search-result-list";
-import SearchResultListSkeleton from "@/ui/tim-kiem/search-result-list.skeleton";
-import Section from "@/ui/common/section";
-import type { Metadata } from "next";
+import SearchResultListSkeleton from "@/ui/tim-kiem/search-result-list-skeleton";
 import { Suspense } from "react";
 
-type Props = {
+export type PageProps = Readonly<{
   searchParams: SearchParams;
-};
+}>;
 
-export async function generateMetadata({
-  searchParams,
-}: Props): Promise<Metadata> {
+export async function generateMetadata({ searchParams }: PageProps) {
   const keyword = getSearchParam({ searchParams, key: "q" });
 
   return {
@@ -21,7 +18,7 @@ export async function generateMetadata({
   };
 }
 
-export default function Page({ searchParams }: Props) {
+export default function Page({ searchParams }: PageProps) {
   const keyword = getSearchParam({ searchParams, key: "q" });
   const page = Number(getSearchParam({ searchParams, key: "page" }) || "1");
 

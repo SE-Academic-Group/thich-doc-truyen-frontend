@@ -1,11 +1,10 @@
-import { searchAction } from "@/lib/actions";
 import { Suspense } from "react";
 import ErrorBoundary from "../common/error-boundary";
 import ThichDocTruyenLogo from "../common/thich-doc-truyen-logo";
 import Disclaimer from "./disclaimer";
 import SearchForm from "./search-form";
 import StorySourceList from "./story-source-list";
-import { StorySourceListSkeleton } from "./story-source-list-skeleton";
+import StorySourceListSkeleton from "./story-source-list-skeleton";
 
 export default function Page() {
   return (
@@ -14,7 +13,7 @@ export default function Page() {
       <section className="flex h-full flex-col items-center gap-6 px-3 pt-24 sm:pt-12">
         <h2 className="sr-only">Tìm kiếm truyện</h2>
         <ThichDocTruyenLogo size="lg" />
-        <SearchForm action={searchAction} />
+        <SearchForm />
         <Suspense fallback={<StorySourceListSkeleton />}>
           <ErrorBoundary fallback={<div>error</div>}>
             <StorySourceList />

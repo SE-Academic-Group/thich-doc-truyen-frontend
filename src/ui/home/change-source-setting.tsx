@@ -1,8 +1,9 @@
 "use client";
 
-import { getPluginList } from "@/lib/data/get-plugin-list";
+import { getPluginList } from "@/data/get-plugin-list";
 import { useAsync, useCookies } from "@/lib/hooks";
 import Skeleton from "../common/skeleton";
+import ErrorText from "../common/error-text";
 
 export default function ChangeSourceSetting() {
   const [cookies, setCookie] = useCookies(["pluginName"]);
@@ -17,7 +18,7 @@ export default function ChangeSourceSetting() {
   }
 
   if (state.error || !state.value?.data) {
-    return <div>error</div>;
+    return <ErrorText>Có lỗi xảy ra</ErrorText>;
   }
 
   return (

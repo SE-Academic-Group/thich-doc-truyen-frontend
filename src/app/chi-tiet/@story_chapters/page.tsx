@@ -4,11 +4,11 @@ import Section from "@/ui/common/section";
 import ChapterList from "@/ui/chi-tiet/chapter-list";
 import { Suspense } from "react";
 
-type Props = {
+export type PageProps = Readonly<{
   searchParams: SearchParams;
-};
+}>;
 
-export default function Page({ searchParams }: Props) {
+export default function Page({ searchParams }: PageProps) {
   const url = getSearchParam({ searchParams, key: "url" });
   const page = Number(getSearchParam({ searchParams, key: "page" }) ?? "1");
 

@@ -1,15 +1,24 @@
+"use server";
+
 import { redirect } from "next/navigation";
+import { z } from "zod";
 
-export type ServerAction<T = FormData> = ((data: T) => Promise<void>) &
-  Function;
+const searchQuerySchema = z
+  .string()
+  .min(3, {
+    message: "Từ khóa tìm kiếm phải có ít nhất 3 ký tự",
+  })
+  .transform((value) => value.trim().replaceAll(" ", "+"));
 
-export async function searchAction(formData: FormData) {
-  "use server";
-
+export async function searchAction(prevState: any, formData: FormData) {
   const searchQuery = formData.get("search-input");
+  const result = searchQuerySchema.safeParse(searchQuery);
 
-  if (searchQuery) {
-    const beautifiedSlug = searchQuery.toString().trim().replace(/ /g, "+");
-    redirect(`/tim-kiem?q=${beautifiedSlug}`);
+  if (result.success) {
+    return redirect(`/tim-kiem?q=${result.data}`);
   }
+
+  return {
+    error: result.error.format()._errors.join("; "),
+  };
 }

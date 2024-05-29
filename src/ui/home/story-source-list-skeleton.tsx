@@ -1,6 +1,6 @@
 import Skeleton from "../common/skeleton";
 
-export function StorySourceListSkeleton() {
+export default function StorySourceListSkeleton() {
   return (
     <Skeleton.Wrapper>
       <ul className="flex flex-wrap justify-center gap-4">

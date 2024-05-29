@@ -9,7 +9,7 @@ export const cn = (...classes: ClassValue[]) => twMerge(clsx(classes));
 
 export const sleep = async (nSecs = 1000) =>
   await new Promise((resolve) => setTimeout(resolve, nSecs));
-export const convertToCapitalCase = (text: string) => capitalCase(text);
+export const capitalize = (text: string) => capitalCase(text);
 
 export const getSearchParam = ({
   searchParams,
