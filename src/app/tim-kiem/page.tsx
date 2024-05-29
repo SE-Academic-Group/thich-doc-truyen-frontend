@@ -23,8 +23,9 @@ export default function Page({ searchParams }: PageProps) {
   const page = Number(getSearchParam({ searchParams, key: "page" }) || "1");
 
   return (
-    <div>
-      <SearchKeyword keyword={keyword} />
+      <Suspense>
+        <SearchKeyword />
+      </Suspense>
       <main className="container py-4">
         <Section title={`Kết quả tìm kiếm - Trang ${page}`} className="my-2">
           <Suspense fallback={<SearchResultListSkeleton />}>
