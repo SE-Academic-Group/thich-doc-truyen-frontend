@@ -1,18 +1,18 @@
-import { API_URL } from "../constants";
+import { API_URL } from "../lib/constants";
 import {
   HttpError,
   HttpMetadata,
   HttpResponse,
   StorySearchResult,
-} from "../definitions";
-import { getPluginNameFromCookie } from "../server-utils";
+} from "../lib/definitions";
+import { getPluginNameFromCookie } from "../lib/server-utils";
 
-export type getSearchResultArgs = Readonly<{
+export type getSearchResultParams = Readonly<{
   keyword: string;
   page: number;
 }>;
 
-export async function getSearchResult(args: getSearchResultArgs) {
+export async function getSearchResult(args: getSearchResultParams) {
   const pluginName = getPluginNameFromCookie();
   const apiUrl = new URL(`${pluginName}/search`, API_URL);
   apiUrl.searchParams.set("q", args.keyword);
