@@ -25,9 +25,8 @@ export default function Page({ searchParams }: PageProps) {
   const page = Number(getSearchParam({ searchParams, key: "page" }) || "1");
 
   return (
-    <>
-      <Header />
-      <Suspense>
+    <div>
+      <Suspense fallback={<div>Tìm kiếm truyện</div>}>
         <SearchKeyword />
       </Suspense>
       <main className="container py-4">
@@ -37,7 +36,6 @@ export default function Page({ searchParams }: PageProps) {
           </Suspense>
         </Section>
       </main>
-      <Footer />
-    </>
+    </div>
   );
 }
