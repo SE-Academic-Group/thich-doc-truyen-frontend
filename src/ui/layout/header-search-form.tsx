@@ -57,6 +57,7 @@ export default function HeaderSearchForm() {
         <input
           type="search"
           id="search-input"
+          name="search-input"
           className="w-full bg-transparent px-4 py-1 placeholder:text-sm focus:outline-none"
           placeholder="Tìm kiếm theo từ khóa..."
           ref={inputRef}
