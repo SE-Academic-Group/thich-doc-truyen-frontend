@@ -19,6 +19,7 @@ export default function HeaderSearchForm() {
       if (event.key === "/") {
         event.preventDefault();
         inputRef.current?.focus();
+        inputRef.current?.select();
       }
     };
 
