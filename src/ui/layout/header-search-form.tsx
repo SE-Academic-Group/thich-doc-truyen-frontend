@@ -49,11 +49,11 @@ export default function HeaderSearchForm() {
       </label>
       <div
         className={cn(
-          "relative flex items-center rounded border border-border bg-bg-0 px-2",
+          "relative flex items-center rounded border border-border bg-bg-0 sm:px-2",
           isPending && "bg-bg-50"
         )}
       >
-        <SearchIcon className="pointer-events-none size-[14px] text-fg-500" />
+        <SearchIcon className="pointer-events-none hidden size-[14px] text-fg-500 sm:block" />
         <input
           type="search"
           id="search-input"
@@ -64,6 +64,9 @@ export default function HeaderSearchForm() {
           disabled={isPending}
         />
         <Kbd keystrokes={["/"]} screenReaderText="Nhấn phím để tìm kiếm" />
+        <button type="submit" className="self-stretch bg-bg-100 px-2 sm:hidden">
+          <SearchIcon className="pointer-events-none size-[14px] text-fg-500" />
+        </button>
         {error && (
           <div className="absolute inset-x-0 top-[115%] border bg-bg-0 p-1 shadow-md">
             <ErrorText>{error}</ErrorText>

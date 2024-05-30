@@ -17,11 +17,17 @@ const logo = tv({
   },
 });
 
-type LogoProps = VariantProps<typeof logo>;
+type LogoProps = VariantProps<typeof logo> & {
+  className?: string;
+};
 
-export default function ThichDocTruyenLogo(props: LogoProps) {
+export default function ThichDocTruyenLogo({ className, ...props }: LogoProps) {
   return (
-    <Link href="/" title="Thích Đọc Truyện" className={logo(props)}>
+    <Link
+      href="/"
+      title="Thích Đọc Truyện"
+      className={cn(logo(props), className)}
+    >
       Thích đọc truyện
     </Link>
   );

@@ -6,4 +6,5 @@ export {
   ChevronRightIcon,
   Menu as BarsIcon,
   ImageIcon,
+  SearchSlash as TextSearchIcon,
 } from "lucide-react";
