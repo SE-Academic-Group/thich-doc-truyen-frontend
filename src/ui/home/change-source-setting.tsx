@@ -28,8 +28,8 @@ export default function ChangeSourceSetting() {
     >
       {state.value.data.map((plugin) => {
         return (
-          <option value={plugin.pluginName} key={plugin.pluginUrl}>
-            {plugin.pluginName}
+          <option value={plugin.name} key={plugin.url}>
+            {plugin.name}
           </option>
         );
       })}
