@@ -1,14 +1,7 @@
 "use server";
 
+import { searchQuerySchema } from "@/types/search-query";
 import { redirect } from "next/navigation";
-import { z } from "zod";
-
-const searchQuerySchema = z
-  .string()
-  .min(3, {
-    message: "Từ khóa tìm kiếm phải có ít nhất 3 ký tự",
-  })
-  .transform((value) => value.trim().replaceAll(" ", "+"));
 
 export async function searchAction(prevState: any, formData: FormData) {
   const searchQuery = formData.get("search-input");

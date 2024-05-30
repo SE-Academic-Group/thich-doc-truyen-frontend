@@ -1,4 +1,4 @@
-import { getChapterList } from "@/lib/data";
+import { getChapterList } from "@/data/get-chapter-list";
 import Link from "next/link";
 import Pagination from "../common/pagination";
 

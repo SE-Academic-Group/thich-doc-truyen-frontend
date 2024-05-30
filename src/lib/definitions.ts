@@ -61,8 +61,8 @@ export type HttpResponse<D = {}, E = HttpError, M = Record<string, unknown>> = (
 };
 
 export type StoryPlugin = {
-  pluginName: string;
-  pluginUrl: string;
+  name: string;
+  url: string;
 };
 
 export type ServerAction = (() => Promise<void>) & Function;

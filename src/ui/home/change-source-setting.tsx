@@ -4,6 +4,7 @@ import { getPluginList } from "@/data/get-plugin-list";
 import { useAsync, useCookies } from "@/lib/hooks";
 import Skeleton from "../common/skeleton";
 import ErrorText from "../common/error-text";
+import { capitalize } from "@/lib/utils";
 
 export default function ChangeSourceSetting() {
   const [cookies, setCookie] = useCookies(["pluginName"]);
@@ -12,7 +13,7 @@ export default function ChangeSourceSetting() {
   if (state.loading) {
     return (
       <Skeleton.Wrapper>
-        <Skeleton.Box className="h-6 w-28" />
+        <Skeleton.Box className="h-[1.875rem] w-32" />
       </Skeleton.Wrapper>
     );
   }
@@ -25,11 +26,12 @@ export default function ChangeSourceSetting() {
     <select
       onChange={(e) => setCookie("pluginName", e.target.value)}
       defaultValue={cookies.pluginName}
+      className="rounded border bg-bg-50 px-2 py-1"
     >
       {state.value.data.map((plugin) => {
         return (
-          <option value={plugin.pluginName} key={plugin.pluginUrl}>
-            {plugin.pluginName}
+          <option value={plugin.name} key={plugin.url}>
+            {capitalize(plugin.name)}
           </option>
         );
       })}

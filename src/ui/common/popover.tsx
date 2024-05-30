@@ -7,7 +7,7 @@ const Content = ({ children }: { children: React.ReactNode }) => (
     <RadixUIPopover.Content
       side="bottom"
       align="end"
-      sideOffset={8}
+      sideOffset={4}
       className="rounded-md border bg-white px-4 py-2 shadow-lg"
     >
       {children}
