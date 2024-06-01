@@ -22,7 +22,6 @@ export async function generateMetadata({ searchParams }: PageProps) {
 
 export default function Page({ searchParams }: PageProps) {
   const url = getSearchParam({ searchParams, key: "url" });
-  const page = Number(getSearchParam({ searchParams, key: "page" }) ?? "1");
 
   return (
     <main className="container space-y-8 py-4">
@@ -31,11 +30,11 @@ export default function Page({ searchParams }: PageProps) {
           <StoryText storyUrl={url} />
         </Suspense>
       </Section>
-      <Section title="Danh sách chương">
+      {/* <Section title="Danh sách chương">
         <Suspense fallback={<div>Đang tải...</div>}>
           <ChapterList storyUrl={url} page={page} />
         </Suspense>
-      </Section>
+      </Section> */}
     </main>
   );
 }
