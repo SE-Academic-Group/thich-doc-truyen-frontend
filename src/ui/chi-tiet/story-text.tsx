@@ -64,9 +64,9 @@ export default async function StoryText({ storyUrl }: { storyUrl: string }) {
           </ul>
         </section>
         <hr className="my-2.5 border" />
-        <p className="whitespace-pre-line text-pretty text-sm leading-6">
+        <div className="whitespace-pre-line text-pretty text-sm leading-6">
           {parseHTML(detail.description)}
-        </p>
+        </div>
         <hr className="mb-5 mt-2.5 border" />
         <nav aria-label="Chuyển hướng đọc nhanh">
           <ul className="flex flex-wrap justify-center gap-2.5 text-sm mixin:rounded mixin:bg-bg-200 mixin:p-1.5">
