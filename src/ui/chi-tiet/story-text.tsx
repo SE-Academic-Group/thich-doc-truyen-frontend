@@ -12,7 +12,7 @@ export default async function StoryText({ storyUrl }: { storyUrl: string }) {
   }
 
   return (
-    <article className="grid justify-center gap-4 rounded-lg border bg-bg-50 py-6 md:grid-cols-[repeat(2,auto)] md:gap-12">
+    <article className="grid justify-center gap-4 rounded-lg border bg-bg-50 px-1.5 py-6 md:grid-cols-[repeat(2,auto)] md:gap-12">
       <section className="flex flex-col gap-3 text-center md:text-start">
         <h3 className="mb-2 text-balance text-xl font-semibold md:hidden">
           {detail.title}
