@@ -2,12 +2,12 @@ import { ChevronLeftIcon, ChevronRightIcon } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 
-type Props = {
+export type Props = Readonly<{
   navigation: {
-    prevChapter: string | null;
-    nextChapter: string | null;
+    prevChapter?: string;
+    nextChapter?: string;
   };
-};
+}>;
 
 export default function ChapterNavigation({ navigation }: Props) {
   const { prevChapter, nextChapter } = navigation;
