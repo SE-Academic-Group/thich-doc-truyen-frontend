@@ -2,6 +2,7 @@ import { capitalCase } from "change-case";
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { SearchParams } from "./definitions";
+import HTMLReactParser from "html-react-parser";
 
 export const cn = (...classes: ClassValue[]) => twMerge(clsx(classes));
 
@@ -77,3 +78,5 @@ export const normalizeContent = (content: string) => {
     .replace(/&quot;/g, '"')
     .replace(/([\.]{3})\n\n/g, "$1 ");
 };
+
+export const parseHTML = HTMLReactParser;
