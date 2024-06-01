@@ -1,6 +1,6 @@
-import { API_URL } from "../lib/constants";
-import { HttpMetadata, HttpResponse, StoryChapter } from "../lib/definitions";
-import { getPluginNameFromCookie } from "../lib/server-utils";
+import { httpChapterListSchema } from "@/types/http";
+import { parseZodSchema } from "./helpers";
+import { generatePluginNameURL } from "./server-helpers";
 
 export type GetChapterListParams = Readonly<{
   url: string;
@@ -8,20 +8,17 @@ export type GetChapterListParams = Readonly<{
 }>;
 
 export async function getChapterList(params: GetChapterListParams) {
-  const pluginName = getPluginNameFromCookie();
-  const apiUrl = new URL(`${pluginName}/chapter-list`, API_URL);
-  apiUrl.searchParams.append("url", params.url);
-  apiUrl.searchParams.append("page", String(params.page));
+  const fetchURL = generatePluginNameURL({ path: "chapter-list" });
+  fetchURL.searchParams.set("url", params.url);
+  fetchURL.searchParams.set("page", String(params.page));
 
-  const response = await fetch(apiUrl.toString());
+  const response = await fetch(fetchURL);
+  const json = await response.json();
 
   if (!response.ok) {
     throw new Error("Failed to fetch chapter list");
   }
 
-  return (await response.json()) as HttpResponse<
-    StoryChapter[],
-    null,
-    HttpMetadata
-  >;
+  const parsed = parseZodSchema(httpChapterListSchema, json);
+  return parsed;
 }

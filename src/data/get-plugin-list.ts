@@ -1,15 +1,21 @@
-import { API_URL } from "../lib/constants";
-import { HttpResponse, StoryPlugin } from "../lib/definitions";
+import { httpSourcePluginListSchema } from "@/types/http";
 import { unstable_noStore as noStore } from "next/cache";
+import { API_URL } from "../lib/constants";
+import { parseZodSchema } from "./helpers";
 
 export async function getPluginList() {
   noStore();
-  const apiUrl = new URL("plugin-list", API_URL);
-  const response = await fetch(apiUrl.toString());
+
+  const fetchURL = new URL("plugin-list", API_URL);
+  const response = await fetch(fetchURL);
+  const json = await response.json();
 
   if (!response.ok) {
     throw new Error("Failed to fetch plugin list");
   }
 
-  return (await response.json()) as HttpResponse<StoryPlugin[]>;
+  // http data schema
+  const parsed = parseZodSchema(httpSourcePluginListSchema, json);
+
+  return parsed;
 }
