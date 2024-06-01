@@ -1,29 +1,25 @@
-import { API_URL } from "../lib/constants";
-import {
-  ChapterDetail,
-  ChapterDetailMetadata,
-  HttpResponse,
-} from "../lib/definitions";
-import { getPluginNameFromCookie } from "../lib/server-utils";
+import { httpChapterDetailSchema } from "@/types/http";
+import { parseZodSchema } from "./helpers";
+import { generatePluginNameURL } from "./server-helpers";
 
 export type GetChapterListParams = Readonly<{
-  url: string;
+  novelURL: string;
+  chapterURL: string;
 }>;
 
 export async function getChapterDetail(params: GetChapterListParams) {
-  const pluginName = getPluginNameFromCookie();
-  const apiUrl = new URL(`${pluginName}/chapter-detail`, API_URL);
-  apiUrl.searchParams.append("url", params.url);
+  const fetchURL = generatePluginNameURL({ path: "chapter-detail" });
+  fetchURL.searchParams.set("novelUrl", params.novelURL);
+  fetchURL.searchParams.set("chapterUrl", params.chapterURL);
 
-  const response = await fetch(apiUrl.toString());
+  const response = await fetch(fetchURL);
+  const json = await response.json();
 
   if (!response.ok) {
     throw new Error("Failed to fetch chapter detail");
   }
 
-  return (await response.json()) as HttpResponse<
-    ChapterDetail,
-    null,
-    ChapterDetailMetadata
-  >;
+  const parsed = parseZodSchema(httpChapterDetailSchema, json);
+
+  return parsed;
 }

@@ -1,34 +1,26 @@
-import { API_URL } from "../lib/constants";
-import {
-  HttpError,
-  HttpMetadata,
-  HttpResponse,
-  StorySearchResult,
-} from "../lib/definitions";
-import { getPluginNameFromCookie } from "../lib/server-utils";
+import { httpSearchResultSchema } from "@/types/http";
+import { generatePluginNameURL } from "./server-helpers";
+import { parseZodSchema } from "./helpers";
 
 export type getSearchResultParams = Readonly<{
   keyword: string;
   page: number;
 }>;
 
-export async function getSearchResult(args: getSearchResultParams) {
-  const pluginName = getPluginNameFromCookie();
-  const apiUrl = new URL(`${pluginName}/search`, API_URL);
-  apiUrl.searchParams.set("q", args.keyword);
-  apiUrl.searchParams.set("page", String(args.page));
+export const getSearchResult = async (args: getSearchResultParams) => {
+  const fetchURL = generatePluginNameURL({ path: "search" });
+  fetchURL.searchParams.set("q", args.keyword);
+  fetchURL.searchParams.set("page", String(args.page));
 
-  const response = await fetch(apiUrl.toString());
+  const response = await fetch(fetchURL);
+  const json = await response.json();
 
   if (!response.ok) {
     throw new Error("Failed to fetch search results");
   }
 
-  const results = (await response.json()) as HttpResponse<
-    StorySearchResult[],
-    HttpError,
-    HttpMetadata
-  >;
+  // http data schema
+  const parsed = parseZodSchema(httpSearchResultSchema, json);
 
-  return results;
-}
+  return parsed;
+};

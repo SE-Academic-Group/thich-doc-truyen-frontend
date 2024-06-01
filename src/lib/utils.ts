@@ -1,10 +1,8 @@
 import { capitalCase } from "change-case";
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { tv } from "tailwind-variants";
 import { SearchParams } from "./definitions";
 
-export const style = tv;
 export const cn = (...classes: ClassValue[]) => twMerge(clsx(classes));
 
 export const sleep = async (nSecs = 1000) =>
