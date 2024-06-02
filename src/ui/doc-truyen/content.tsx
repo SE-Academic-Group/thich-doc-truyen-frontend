@@ -24,7 +24,7 @@ export default async function Content(props: Props) {
           {detail.title}
         </h2>
         <ChapterNavigation novelURL={props.novelURL} navigation={navigation} />
-        <div className="mb-4 mt-6 whitespace-pre-line text-pretty font-sans text-lg">
+        <div className="mb-4 mt-6 whitespace-pre-line text-pretty text-lg">
           {parseHTML(detail.content)}
         </div>
         <p className="text-center font-medium uppercase text-secondary">

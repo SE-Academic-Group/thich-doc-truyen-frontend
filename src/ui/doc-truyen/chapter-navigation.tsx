@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export type Props = Readonly<{
   navigation: {
-    prevPage?: string;
-    nextPage?: string;
+    prevPage: string | null;
+    nextPage: string | null;
   };
   novelURL: string;
 }>;

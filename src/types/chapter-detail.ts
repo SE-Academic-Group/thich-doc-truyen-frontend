@@ -1,27 +1,37 @@
 import z from "zod";
 
-// add new line after each paragraph
-const addNewLineAfterParagraph = (content: string) => {
-  return content.replace(/<\/p>/g, "</p>\n\n");
+// remove the content between the two colons
+const removeChapterIndex = (val: string) => {
+  return val.replace(/:(.*):/g, ":");
 };
 
-const addNewLineAfterPunctuation = (content: string) => {
-  return content.replace(/([.!?:]) /g, "$1\n\n");
+const addNewLineAfterPunctuation = (val: string) => {
+  return val
+    .replace(/\."/g, '"')
+    .replace(/” “/g, "”\n\n“")
+    .replace(/"/, "”")
+    .replace(/(\.|!”|:|\?”)/g, "$1\n\n")
+    .replace(/.\n\n”/g, ".” ")
+    .replace(/\.\n\n\.\n\n\.\n\n/g, "...")
+    .replace(/\.\n\n\./g, "..");
 };
 
-// add new line after double quotes
-const addNewLineAfterDoubleQuotes = (content: string) => {
-  return content;
-  return content.replace(/[”]/g, "”\n\n");
+const addSpaceAfter = (val: string) => {
+  return val.replace(/([?!])[^”]/g, "$1 ").replace(/(\w)([A-Z])/g, "$1 $2");
+};
+
+// if an capital letter has no space before it, add a space before it
+const addSpaceBefore = (val: string) => {
+  return val.replace(/(\w)([A-Z])/g, "$1 $2");
 };
 
 export const chapterDetailSchema = z.object({
-  title: z.string(),
+  title: z.string().transform(removeChapterIndex),
   content: z
     .string()
-    .transform(addNewLineAfterParagraph)
     .transform(addNewLineAfterPunctuation)
-    .transform(addNewLineAfterDoubleQuotes),
+    .transform(addSpaceAfter)
+    .transform(addSpaceBefore),
   url: z.string().url(),
   novelTitle: z.string(),
 });

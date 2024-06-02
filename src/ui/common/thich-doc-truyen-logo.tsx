@@ -28,7 +28,8 @@ export default function ThichDocTruyenLogo({ className, ...props }: LogoProps) {
       title="Thích Đọc Truyện"
       className={cn(logo(props), className)}
     >
-      Thích đọc truyện
+      <span className="hidden sm:inline">Thích đọc truyện</span>
+      <span className="sm:hidden">TDTruyen</span>
     </Link>
   );
 }

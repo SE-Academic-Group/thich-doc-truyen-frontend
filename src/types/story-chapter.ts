@@ -10,5 +10,5 @@ const removeChapterIndex = (val: string) => {
 export const StoryChapterSchema = z.object({
   title: z.string().transform(removeChapterIndex),
   url: z.string().url(),
-  index: z.string(),
+  index: z.string().transform((val) => parseInt(val, 10) - 1),
 });
