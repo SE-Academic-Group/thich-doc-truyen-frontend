@@ -27,7 +27,7 @@ export default async function ChapterList({
           <li key={chapter.url}>
             {chapter.url ? (
               <Link
-                href={`/doc-truyen?url=${chapter.url}`}
+                href={`/doc-truyen?chapterUrl=${chapter.url}&novelUrl=${storyUrl}`}
                 className="group inline-block py-0.5"
               >
                 <span className="group-hover:underline">

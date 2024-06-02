@@ -15,7 +15,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="vi" className="scroll-p-3 scroll-smooth">
       <body
-        className={cn(robotoCondensed.className, "min-h-dvh bg-primary-bg")}
+        className={cn(robotoCondensed.className, "bg-primary-bg min-h-dvh")}
       >
         {children}
       </body>

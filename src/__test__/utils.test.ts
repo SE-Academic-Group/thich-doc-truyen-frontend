@@ -44,7 +44,7 @@ describe("generatePagination: receive currentPage and totalPages to generate an 
       generatePagination({
         currentPage: 1,
         totalPages: 1,
-      })
+      }),
     ).toEqual([]);
   });
 
@@ -53,7 +53,7 @@ describe("generatePagination: receive currentPage and totalPages to generate an 
       generatePagination({
         currentPage: 1,
         totalPages: 5,
-      })
+      }),
     ).toEqual([1, 2, 3, 4, 5]);
   });
 
@@ -62,25 +62,25 @@ describe("generatePagination: receive currentPage and totalPages to generate an 
       generatePagination({
         currentPage: 1,
         totalPages: 10,
-      })
+      }),
     ).toEqual([1, 2, 3, "...", 9, 10]);
     expect(
       generatePagination({
         currentPage: 8,
         totalPages: 10,
-      })
+      }),
     ).toEqual([1, "...", 7, 8, 9, "...", 10]);
     expect(
       generatePagination({
         currentPage: 5,
         totalPages: 10,
-      })
+      }),
     ).toEqual([1, "...", 4, 5, 6, "...", 10]);
     expect(
       generatePagination({
         currentPage: 10,
         totalPages: 10,
-      })
+      }),
     ).toEqual([1, 2, "...", 8, 9, 10]);
   });
 });

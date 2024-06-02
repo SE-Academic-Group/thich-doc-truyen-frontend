@@ -12,7 +12,7 @@ export type SkeletonBoxProps = Readonly<{
 
 function SkeletonBox(props: SkeletonBoxProps) {
   return (
-    <div className={cn("bg-bg-100 rounded-sm", props.className)}>
+    <div className={cn("rounded-sm bg-bg-100", props.className)}>
       {props.children}
     </div>
   );

@@ -1,16 +1,20 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Suspense } from "react";
+import FullChapterList from "./full-chapter-list";
+import Skeleton from "../common/skeleton";
 
-type Props = {
+export type Props = Readonly<{
   navigation: {
-    prevChapter: string | null;
-    nextChapter: string | null;
+    prevPage: string | null;
+    nextPage: string | null;
   };
-};
+  novelURL: string;
+}>;
 
-export default function ChapterNavigation({ navigation }: Props) {
-  const { prevChapter, nextChapter } = navigation;
+export default function ChapterNavigation({ navigation, novelURL }: Props) {
+  const { prevPage: prevChapter, nextPage: nextChapter } = navigation;
 
   return (
     <nav
@@ -19,23 +23,32 @@ export default function ChapterNavigation({ navigation }: Props) {
     >
       <Link
         className={cn(
-          "bg-secondary text-primary-fg px-2 py-1 rounded-sm inline-flex hover:opacity-80",
-          !prevChapter && "opacity-50 pointer-events-none"
+          "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-2 ps-0.5 text-sm text-fg-900 hover:opacity-90",
+          !prevChapter && "pointer-events-none opacity-50",
         )}
-        href={`/doc-truyen?url=${prevChapter}`}
+        href={`/doc-truyen?chapterUrl=${prevChapter}&novelUrl=${novelURL}`}
       >
-        <ChevronLeftIcon />
+        <ChevronLeftIcon size={18} />
         Chương trước
       </Link>
+      <Suspense
+        fallback={
+          <Skeleton.Wrapper>
+            <Skeleton.Box className="h-[2rem] w-[6.25rem] bg-secondary" />
+          </Skeleton.Wrapper>
+        }
+      >
+        <FullChapterList novelURL={novelURL} />
+      </Suspense>
       <Link
         className={cn(
-          "bg-secondary text-primary-fg px-2 py-1 rounded-sm inline-flex hover:opacity-80",
-          !nextChapter && "opacity-50 pointer-events-none"
+          "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-0.5 ps-2 text-sm text-fg-900 hover:opacity-90",
+          !nextChapter && "pointer-events-none opacity-50",
         )}
-        href={`/doc-truyen?url=${nextChapter}`}
+        href={`/doc-truyen?chapterUrl=${nextChapter}&novelUrl=${novelURL}`}
       >
         Chương sau
-        <ChevronRightIcon />
+        <ChevronRightIcon size={18} />
       </Link>
     </nav>
   );

@@ -7,11 +7,12 @@ export type PageProps = Readonly<{
 }>;
 
 export default function Page({ searchParams }: PageProps) {
-  const url = getSearchParam({ searchParams, key: "url" });
+  const novelUrl = getSearchParam({ searchParams, key: "novelUrl" });
+  const chapterUrl = getSearchParam({ searchParams, key: "chapterUrl" });
 
   return (
     <main className="bg-read py-4">
-      <Content url={url} />
+      <Content novelURL={novelUrl} chapterURL={chapterUrl} />
     </main>
   );
 }

@@ -11,15 +11,8 @@
     "test": "vitest --watch=false",
     "test:w": "vitest",
     "prepare": "husky",
-    "lint-staged": "lint-staged"
-  },
-  "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "eslint"
-    ],
-    "*.{json,js,ts,jsx,tsx,html}": [
-      "prettier --write --ignore-unknown"
-    ]
+    "lint-staged": "lint-staged",
+    "format": "prettier --write ."
   },
   "dependencies": {
     "@radix-ui/react-popover": "^1.0.7",
@@ -50,10 +43,8 @@
     "eslint-plugin-deprecate": "^0.8.4",
     "eslint-plugin-jsx-a11y": "^6.8.0",
     "eslint-plugin-react-hooks": "^4.6.2",
-    "eslint-plugin-tailwindcss": "^3.15.1",
     "husky": "^9.0.11",
     "jsdom": "^24.0.0",
-    "lint-staged": "^15.2.2",
     "postcss": "^8",
     "prettier": "^3.2.5",
     "prettier-plugin-tailwindcss": "^0.5.14",

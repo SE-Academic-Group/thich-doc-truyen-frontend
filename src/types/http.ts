@@ -35,10 +35,14 @@ export const httpChapterListSchema = z.object({
   metadata: paginationMetadataSchema,
 });
 
+export const httpFullChapterListSchema = z.object({
+  data: z.array(StoryChapterSchema),
+});
+
 export const httpChapterDetailSchema = z.object({
   data: chapterDetailSchema,
   metadata: z.object({
-    nextChapter: z.string().nullable(),
-    prevChapter: z.string().nullable(),
+    nextPage: z.string().nullable(),
+    prevPage: z.string().nullable(),
   }),
 });

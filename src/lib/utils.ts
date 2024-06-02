@@ -5,7 +5,6 @@ import { SearchParams } from "./definitions";
 import HTMLReactParser from "html-react-parser";
 
 export const cn = (...classes: ClassValue[]) => twMerge(clsx(classes));
-
 export const sleep = async (nSecs = 1000) =>
   await new Promise((resolve) => setTimeout(resolve, nSecs));
 export const capitalize = (text: string) => capitalCase(text);
@@ -65,18 +64,6 @@ export const generatePagination = ({
     "...",
     totalPages,
   ];
-};
-
-// TODO: Define rules to format the content of a story chapter.
-export const normalizeContent = (content: string) => {
-  return content
-    .replace(/(\n|\r\n|\r|<br\/>)/g, " ")
-    .replace(/:“/g, ": “")
-    .replace(/- /g, "")
-    .replace(/(["”“”“]) .(["”“”“])/g, "$1\n\n$2")
-    .replace(/([\.]) ([^\.])/g, "$1\n\n$2")
-    .replace(/&quot;/g, '"')
-    .replace(/([\.]{3})\n\n/g, "$1 ");
 };
 
 export const parseHTML = HTMLReactParser;
