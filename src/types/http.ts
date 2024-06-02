@@ -35,6 +35,10 @@ export const httpChapterListSchema = z.object({
   metadata: paginationMetadataSchema,
 });
 
+export const httpFullChapterListSchema = z.object({
+  data: z.array(StoryChapterSchema),
+});
+
 export const httpChapterDetailSchema = z.object({
   data: chapterDetailSchema,
   metadata: z.object({

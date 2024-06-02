@@ -1,6 +1,9 @@
 import { ChevronLeftIcon, ChevronRightIcon } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
+import { Suspense } from "react";
+import FullChapterList from "./full-chapter-list";
+import Skeleton from "../common/skeleton";
 
 export type Props = Readonly<{
   navigation: {
@@ -28,6 +31,15 @@ export default function ChapterNavigation({ navigation, novelURL }: Props) {
         <ChevronLeftIcon size={18} />
         Chương trước
       </Link>
+      <Suspense
+        fallback={
+          <Skeleton.Wrapper>
+            <Skeleton.Box className="h-[2rem] w-[6.25rem] bg-secondary" />
+          </Skeleton.Wrapper>
+        }
+      >
+        <FullChapterList novelURL={novelURL} />
+      </Suspense>
       <Link
         className={cn(
           "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-0.5 ps-2 text-sm text-fg-900 hover:opacity-90",

@@ -20,7 +20,7 @@ export default async function Content(props: Props) {
         <p className="mb-2 text-balance text-center font-medium uppercase text-fg-500">
           {detail.novelTitle}
         </p>
-        <h2 className="mb-6 text-center text-xl font-medium uppercase text-secondary">
+        <h2 className="mb-4 text-center text-xl font-medium uppercase text-secondary">
           {detail.title}
         </h2>
         <ChapterNavigation novelURL={props.novelURL} navigation={navigation} />

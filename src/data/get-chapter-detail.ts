@@ -1,6 +1,7 @@
 import { httpChapterDetailSchema } from "@/types/http";
 import { parseZodSchema } from "./helpers";
 import { generatePluginNameURL } from "./server-helpers";
+import { revalidateTag } from "next/cache";
 
 export type GetChapterListParams = Readonly<{
   novelURL: string;
@@ -14,6 +15,7 @@ export async function getChapterDetail(params: GetChapterListParams) {
 
   const response = await fetch(fetchURL);
   const json = await response.json();
+  revalidateTag("full-chapter-list");
 
   if (!response.ok) {
     throw new Error("Failed to fetch chapter detail");

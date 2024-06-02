@@ -12,3 +12,5 @@ export const StoryChapterSchema = z.object({
   url: z.string().url(),
   index: z.string().transform((val) => parseInt(val, 10) - 1),
 });
+
+export type StoryChapter = z.infer<typeof StoryChapterSchema>;
