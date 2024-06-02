@@ -4,13 +4,14 @@ import Link from "next/link";
 
 export type Props = Readonly<{
   navigation: {
-    prevChapter?: string;
-    nextChapter?: string;
+    prevPage?: string;
+    nextPage?: string;
   };
+  novelURL: string;
 }>;
 
-export default function ChapterNavigation({ navigation }: Props) {
-  const { prevChapter, nextChapter } = navigation;
+export default function ChapterNavigation({ navigation, novelURL }: Props) {
+  const { prevPage: prevChapter, nextPage: nextChapter } = navigation;
 
   return (
     <nav
@@ -19,23 +20,23 @@ export default function ChapterNavigation({ navigation }: Props) {
     >
       <Link
         className={cn(
-          "bg-secondary text-primary-fg px-2 py-1 rounded-sm inline-flex hover:opacity-80",
-          !prevChapter && "opacity-50 pointer-events-none"
+          "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-2 ps-0.5 text-sm text-fg-900 hover:opacity-90",
+          !prevChapter && "pointer-events-none opacity-50",
         )}
-        href={`/doc-truyen?url=${prevChapter}`}
+        href={`/doc-truyen?chapterUrl=${prevChapter}&novelUrl=${novelURL}`}
       >
-        <ChevronLeftIcon />
+        <ChevronLeftIcon size={18} />
         Chương trước
       </Link>
       <Link
         className={cn(
-          "bg-secondary text-primary-fg px-2 py-1 rounded-sm inline-flex hover:opacity-80",
-          !nextChapter && "opacity-50 pointer-events-none"
+          "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-0.5 ps-2 text-sm text-fg-900 hover:opacity-90",
+          !nextChapter && "pointer-events-none opacity-50",
         )}
-        href={`/doc-truyen?url=${nextChapter}`}
+        href={`/doc-truyen?chapterUrl=${nextChapter}&novelUrl=${novelURL}`}
       >
         Chương sau
-        <ChevronRightIcon />
+        <ChevronRightIcon size={18} />
       </Link>
     </nav>
   );

@@ -6,7 +6,6 @@ import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
 import { SearchIcon } from "../../lib/icons";
 import ErrorText from "../common/error-text";
-import Kbd from "../common/kbd";
 
 export default function HeaderSearchForm() {
   const router = useRouter();
@@ -37,8 +36,8 @@ export default function HeaderSearchForm() {
       return setError(result.error.format()._errors.join(", "));
     }
 
+    setError(null);
     startTransition(() => {
-      setError(null);
       router.push(`/tim-kiem?q=${result.data}`);
     });
   };
@@ -50,11 +49,10 @@ export default function HeaderSearchForm() {
       </label>
       <div
         className={cn(
-          "relative flex items-center rounded border border-border bg-bg-0 sm:px-2",
-          isPending && "bg-bg-50"
+          "relative flex items-center rounded border border-border bg-bg-0",
+          isPending && "bg-bg-50",
         )}
       >
-        <SearchIcon className="pointer-events-none hidden size-[14px] text-fg-500 sm:block" />
         <input
           type="search"
           id="search-input"
@@ -64,8 +62,7 @@ export default function HeaderSearchForm() {
           ref={inputRef}
           disabled={isPending}
         />
-        <Kbd keystrokes={["/"]} screenReaderText="Nhấn phím để tìm kiếm" />
-        <button type="submit" className="self-stretch bg-bg-100 px-2 sm:hidden">
+        <button type="submit" className="self-stretch bg-bg-100 px-2">
           <SearchIcon className="pointer-events-none size-[14px] text-fg-500" />
         </button>
         {error && (

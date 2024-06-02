@@ -1,11 +1,13 @@
-import { useEffect, useState, useCallback } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 export { useCookies } from "react-cookie";
 export { useAsync } from "react-use";
 
-export type UseScrollToTopParams = Readonly<{
-  threshold?: number;
-}>;
+export type UseScrollToTopParams = Partial<
+  Readonly<{
+    threshold?: number;
+  }>
+>;
 
 export function useScrollToTop({ threshold = 300 }: UseScrollToTopParams) {
   const [shown, setShown] = useState(false);

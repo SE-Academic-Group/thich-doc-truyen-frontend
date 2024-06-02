@@ -1,10 +1,4 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
-  "cSpell.words": [
-    "classname",
-    "hcmus",
-    "khóa",
-    "metruyenchu",
-    "nchapter"
-  ]
+  "cSpell.words": ["classname", "hcmus", "khóa", "metruyenchu", "nchapter"]
 }

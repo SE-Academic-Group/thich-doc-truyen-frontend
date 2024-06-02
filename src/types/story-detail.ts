@@ -7,7 +7,7 @@ const addLineBreaksBeforeTheseWords = (val: string) => {
       // add newline before these words
       .replace(
         /(Tác giả:|Thể loại:|Số chương:|Nhân vật chính:|Editor:|Giới thiệu)/g,
-        "\n<b>$1</b>"
+        "\n<b>$1</b>",
       )
       // add colon after "Giới thiệu"
       .replace(/(Giới thiệu)/, "$1: ")

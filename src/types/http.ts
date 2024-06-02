@@ -38,7 +38,7 @@ export const httpChapterListSchema = z.object({
 export const httpChapterDetailSchema = z.object({
   data: chapterDetailSchema,
   metadata: z.object({
-    nextChapter: z.string().optional(),
-    prevChapter: z.string().optional(),
+    nextPage: z.string().nullable(),
+    prevPage: z.string().nullable(),
   }),
 });
