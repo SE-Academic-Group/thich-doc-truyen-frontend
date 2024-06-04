@@ -22,8 +22,8 @@ export default function ReadingPadSettings() {
     <Popover.Root>
       <Popover.Trigger>
         <div className="flex items-center gap-1">
-          <span className="text-sm">Tùy chỉnh</span>
-          <SettingsIcon className="text-fg-500" size={18} />
+          <span className="hidden md:inline text-sm">Tùy chỉnh</span>
+          <SettingsIcon className="text-fg-500 size-7 md:size-5" />
         </div>
       </Popover.Trigger>
       <Popover.Content>
