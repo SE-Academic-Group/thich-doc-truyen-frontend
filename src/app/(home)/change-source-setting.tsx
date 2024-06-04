@@ -1,14 +1,24 @@
 "use client";
 
+import ErrorText from "../../ui/common/error-text";
+import Skeleton from "../../ui/common/skeleton";
 import { getPluginList } from "@/data/get-plugin-list";
 import { useAsync, useCookies } from "@/lib/hooks";
-import Skeleton from "../../ui/common/skeleton";
-import ErrorText from "../../ui/common/error-text";
 import { capitalize } from "@/lib/utils";
+import { useEffect } from "react";
 
 export default function ChangeSourceSetting() {
   const [cookies, setCookie] = useCookies(["pluginName"]);
   const state = useAsync(getPluginList);
+
+  useEffect(() => {
+    const pluginName = cookies.pluginName;
+
+    if (!pluginName) {
+      setCookie("pluginName", state.value?.data[0].name);
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [state.value]);
 
   if (state.loading) {
     return (

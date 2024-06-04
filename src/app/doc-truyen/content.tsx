@@ -2,6 +2,7 @@
 
 import ChapterNavigation from "./chapter-navigation";
 import ReadingPadSettings from "./reading-pad-settings";
+import SetReadingHistory from "./set-reading-history";
 import SettingsConsumer from "./settings-consumer";
 import StoryContent from "./story-content";
 import { CookiesProvider } from "@/lib/providers";
@@ -24,6 +25,7 @@ export default function Content({
 }: ContentProps) {
   return (
     <CookiesProvider>
+      <SetReadingHistory storyTitle={chapterDetail.novelTitle} />
       <SettingsConsumer>
         <article className="container">
           <section className="container py-3">

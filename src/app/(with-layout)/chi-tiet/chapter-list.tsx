@@ -27,11 +27,11 @@ export default async function ChapterList({
           <li key={chapter.url}>
             {chapter.url ? (
               <Link
-                href={`/doc-truyen?chapterUrl=${chapter.url}&novelUrl=${storyUrl}`}
+                href={`/doc-truyen?chapterUrl=${chapter.url}&novelUrl=${storyUrl}&chapterIndex=${chapter.index}`}
                 className="group inline-block py-0.5"
               >
                 <span className="group-hover:underline">
-                  Chương {chapter.index}:{" "}
+                  Chương {chapter.index - 1}:{" "}
                 </span>
                 <span className="inline-block text-pretty group-hover:underline">
                   {chapter.title}

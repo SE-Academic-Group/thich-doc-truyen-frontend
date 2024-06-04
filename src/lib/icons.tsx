@@ -7,4 +7,6 @@ export {
   Menu as BarsIcon,
   ImageIcon,
   SearchSlash as TextSearchIcon,
+  XIcon,
+  TrashIcon,
 } from "lucide-react";

@@ -5,7 +5,7 @@ import { StoryChapter } from "@/types/story-chapter";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 
-export type ChapterSelectProps = {
+type ChapterSelectProps = {
   fullChapterList: StoryChapter[];
 };
 
@@ -23,8 +23,11 @@ export default function ChapterSelect(props: ChapterSelectProps) {
     setSelectValue(chapterURL);
     startTransition(() => {
       const newChapterURL = e.target.value;
+      const chapter = props.fullChapterList.find(
+        (chapter) => chapter.url === newChapterURL,
+      )!;
       router.push(
-        `/doc-truyen?chapterUrl=${newChapterURL}&novelUrl=${novelURL}`,
+        `/doc-truyen?chapterUrl=${newChapterURL}&novelUrl=${novelURL}&chapterIndex=${chapter.index}`,
       );
     });
   };
@@ -49,7 +52,7 @@ export default function ChapterSelect(props: ChapterSelectProps) {
           value={chapter.url}
           onClick={(e) => e.preventDefault()}
         >
-          Chương {chapter.index + 1}
+          Chương {chapter.index}
         </option>
       ))}
     </select>
