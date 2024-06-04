@@ -1,7 +1,7 @@
-import { getSearchParam } from "@/lib/utils";
-import { SearchParams } from "@/types/search-params";
 import ChapterList from "@/app/(with-layout)/chi-tiet/chapter-list";
 import StoryText from "@/app/(with-layout)/chi-tiet/story-text";
+import { getSearchParam } from "@/lib/utils";
+import { SearchParams } from "@/types/search-params";
 import Section from "@/ui/common/section";
 
 type PageProps = Readonly<{
@@ -13,7 +13,7 @@ export default function Page({ searchParams }: PageProps) {
   const page = Number(getSearchParam({ searchParams, key: "page" }) || "1");
 
   return (
-    <main className="container space-y-8 py-8">
+    <main className="container space-y-3 py-8">
       <Section title="Thông tin truyện">
         <StoryText storyUrl={url} />
       </Section>

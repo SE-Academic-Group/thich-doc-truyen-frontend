@@ -18,7 +18,7 @@ export default async function Page({ searchParams }: PageProps) {
 
   return (
     <main>
-      <Content chapterDetail={data} navigation={metadata} />
+      <Content novelURL={novelUrl} chapterDetail={data} navigation={metadata} />
     </main>
   );
 }

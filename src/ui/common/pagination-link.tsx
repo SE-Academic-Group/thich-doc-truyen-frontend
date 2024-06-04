@@ -29,14 +29,14 @@ export function PaginationLink({
   const url = `${pathname}?${searchParams.toString()}${scrollToId ? `#${scrollToId}` : ""}`;
 
   if (page === "...") {
-    return <span className="text-lg md:text-base">{page}</span>;
+    return <span className="md:text-base">{page}</span>;
   }
 
   return (
     <Link
       className={cn(
-        "rounded-sm bg-bg-100 hover:bg-bg-200",
-        "px-3 py-2 text-lg md:px-2.5 md:py-1 md:text-base",
+        "rounded-lg bg-bg-100 hover:bg-bg-200",
+        "px-2.5 py-1.5 text-lg",
         isActive && "pointer-events-none bg-secondary text-fg-900",
       )}
       href={url}

@@ -30,7 +30,8 @@ export default function ChapterNavigation({
         href={`/doc-truyen?chapterUrl=${prevChapter}&novelUrl=${novelURL}`}
       >
         <ChevronLeftIcon size={18} />
-        Chương trước
+        <span className="sm:hidden">Trước</span>
+        <span className="hidden sm:inline">Chương trước</span>
       </Link>
       <FullChapterList />
       <Link
@@ -40,7 +41,8 @@ export default function ChapterNavigation({
         )}
         href={`/doc-truyen?chapterUrl=${nextChapter}&novelUrl=${novelURL}`}
       >
-        Chương sau
+        <span className="hidden sm:inline">Chương sau</span>
+        <span className="sm:hidden">Sau</span>
         <ChevronRightIcon size={18} />
       </Link>
     </nav>

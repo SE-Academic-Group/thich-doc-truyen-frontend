@@ -1,6 +1,6 @@
-import { getSearchResult } from "@/data/get-search-result";
 import Pagination from "../../../ui/common/pagination";
 import ResultStoryCard from "./result-story-card";
+import { getSearchResult } from "@/data/get-search-result";
 
 export type SearchResultListProps = Readonly<{
   keyword: string;
@@ -21,7 +21,7 @@ export default async function SearchResultList(props: SearchResultListProps) {
 
   return (
     <div className="space-y-6">
-      <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,400px),1fr))] gap-x-4 gap-y-5">
+      <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-x-4 gap-y-5">
         {stories.map((story) => (
           <li key={story.url}>
             <ResultStoryCard story={story} />
