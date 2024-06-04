@@ -10,14 +10,14 @@ export default function ResultStoryCard({ story }: ResultStoryCardProps) {
   const storyDetailUrl = `/chi-tiet?url=${story.url}`;
 
   return (
-    <article className="flex items-center gap-4 rounded-sm border-2 p-4 hover:bg-gray-100 md:gap-3">
+    <article className="flex items-center gap-4 rounded border-2 p-2.5 hover:bg-gray-100 md:gap-3 hover:shadow">
       <Link href={storyDetailUrl} className="shrink-0">
         <Image
           src={story.image}
           alt={story.title}
-          width={90}
-          height={120}
-          className="h-[120px] w-[90px] rounded object-cover shadow"
+          width={80}
+          height={110}
+          className="h-[110px] w-[80px] rounded object-cover shadow"
         />
       </Link>
       <section>
