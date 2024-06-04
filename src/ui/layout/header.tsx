@@ -11,11 +11,8 @@ export default function Header() {
         <div className="hidden sm:block">
           <HeaderSearchForm />
         </div>
-        <div className="flex items-center gap-4">
-          <div className="sm:hidden">
-            <PopoverSearch />
-          </div>
-          <Settings />
+        <div className="sm:hidden">
+          <PopoverSearch />
         </div>
       </div>
     </header>
