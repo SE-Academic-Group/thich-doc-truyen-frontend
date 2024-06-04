@@ -1,11 +1,11 @@
+import Pagination from "../../../ui/common/pagination";
 import { getChapterList } from "@/data/get-chapter-list";
 import Link from "next/link";
-import Pagination from "../../../ui/common/pagination";
 
-export type ChapterListProps = Readonly<{
+type ChapterListProps = {
   storyUrl: string;
   page: number;
-}>;
+};
 
 export default async function ChapterList({
   storyUrl,
@@ -22,7 +22,7 @@ export default async function ChapterList({
 
   return (
     <div className="space-y-6">
-      <ul className="-mt-2.5 list-disc ps-4 sm:columns-2 sm:text-sm md:columns-3 md:px-4">
+      <ul className="-mt-2.5 list-disc ps-4 sm:columns-2 sm:text-sm md:columns-3 gap-6 md:px-4">
         {chapters.map((chapter) => (
           <li key={chapter.url}>
             {chapter.url ? (
