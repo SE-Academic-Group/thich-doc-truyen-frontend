@@ -1,4 +1,4 @@
-import Skeleton from "../common/skeleton";
+import Skeleton from "../../ui/common/skeleton";
 
 export default function StorySourceListSkeleton() {
   return (

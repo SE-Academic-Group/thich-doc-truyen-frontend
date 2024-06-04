@@ -9,9 +9,3 @@ export const storySearchResultSchema = z.object({
 });
 
 export type StorySearchResult = z.infer<typeof storySearchResultSchema>;
-
-export const storySearchResultSchemaArray = z.array(storySearchResultSchema);
-
-export type StorySearchResultArray = z.infer<
-  typeof storySearchResultSchemaArray
->;

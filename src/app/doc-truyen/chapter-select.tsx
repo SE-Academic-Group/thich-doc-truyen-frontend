@@ -5,29 +5,28 @@ import { StoryChapter } from "@/types/story-chapter";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 
-export type ChapterSelectProps = Readonly<{
+export type ChapterSelectProps = {
   fullChapterList: StoryChapter[];
-  novelURL: string;
-}>;
+};
 
 export default function ChapterSelect(props: ChapterSelectProps) {
   const router = useRouter();
   const [isPending, startTransition] = useTransition();
   const searchParams = useSearchParams();
   const chapterURL = searchParams.get("chapterUrl")!;
+  const novelURL = searchParams.get("novelUrl")!;
   const [selectValue, setSelectValue] = useState(chapterURL);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
 
-    const chapterURL = e.target.value;
-
+    setSelectValue(chapterURL);
     startTransition(() => {
+      const newChapterURL = e.target.value;
       router.push(
-        `/doc-truyen?chapterUrl=${chapterURL}&novelUrl=${props.novelURL}`,
+        `/doc-truyen?chapterUrl=${newChapterURL}&novelUrl=${novelURL}`,
       );
     });
-    setSelectValue(chapterURL);
   };
 
   useEffect(() => {

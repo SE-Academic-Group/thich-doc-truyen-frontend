@@ -2,7 +2,7 @@ import { httpStoryDetailSchema } from "@/types/http";
 import { parseZodSchema } from "./helpers";
 import { generatePluginNameURL } from "./server-helpers";
 
-export type getStoryDetailParams = Readonly<{
+type getStoryDetailParams = Readonly<{
   url: string;
 }>;
 

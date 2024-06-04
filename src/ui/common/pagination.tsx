@@ -1,5 +1,4 @@
 import { generatePagination } from "@/lib/utils";
-import { headers } from "next/headers";
 import { PaginationLink } from "./pagination-link";
 
 export type PaginationProps = {
@@ -14,9 +13,6 @@ export default function Pagination({
   scrollToId,
 }: PaginationProps) {
   const pagination = generatePagination({ currentPage, totalPages });
-  const requestUrl = headers().get("x-url")!;
-  const url = new URL(requestUrl);
-  url.searchParams.delete("page");
   const FIRST_PAGE = 1;
   const LAST_PAGE = totalPages;
 
@@ -26,11 +22,10 @@ export default function Pagination({
         <li>
           <PaginationLink
             page={currentPage - 1}
-            url={url.toString()}
             isActive={false}
             scrollToId={scrollToId}
           >
-            <span>&lt;</span>
+            <span>&laquo;</span>
             <span className="sr-only">Trang trước</span>
           </PaginationLink>
         </li>
@@ -39,7 +34,6 @@ export default function Pagination({
         <li key={`${page}-${index}`}>
           <PaginationLink
             page={page}
-            url={url.toString()}
             isActive={page == currentPage}
             scrollToId={scrollToId}
           >
@@ -51,11 +45,10 @@ export default function Pagination({
         <li>
           <PaginationLink
             page={currentPage + 1}
-            url={url.toString()}
             isActive={false}
             scrollToId={scrollToId}
           >
-            <span>&gt;</span>
+            <span>&raquo;</span>
             <span className="sr-only">Trang sau</span>
           </PaginationLink>
         </li>

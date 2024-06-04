@@ -1,4 +1,4 @@
-import ThichDocTruyenLogo from "../common/thich-doc-truyen-logo";
+import ThichDocTruyenLogo from "../../ui/common/thich-doc-truyen-logo";
 
 export default function Footer() {
   return (

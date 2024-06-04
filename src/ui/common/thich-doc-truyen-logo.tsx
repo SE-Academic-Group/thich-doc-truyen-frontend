@@ -1,10 +1,9 @@
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { tv, type VariantProps } from "tailwind-variants";
-import { protestRevolution } from "../fonts";
 
 const logo = tv({
-  base: cn("font-bold uppercase text-center", protestRevolution.className),
+  base: "font-bold uppercase text-center font-logo",
   variants: {
     size: {
       sm: "text-xl",
@@ -19,17 +18,22 @@ const logo = tv({
 
 type LogoProps = VariantProps<typeof logo> & {
   className?: string;
+  compact?: boolean;
 };
 
-export default function ThichDocTruyenLogo({ className, ...props }: LogoProps) {
+export default function ThichDocTruyenLogo({
+  className,
+  compact,
+  ...props
+}: LogoProps) {
   return (
-    <Link
-      href="/"
-      title="Thích Đọc Truyện"
-      className={cn(logo(props), className)}
-    >
-      <span className="hidden sm:inline">Thích đọc truyện</span>
-      <span className="sm:hidden">TDTruyen</span>
+    <Link href="/" className={cn(logo(props), className)}>
+      <span className={cn(compact && "hidden sm:inline")}>
+        Thích đọc truyện
+      </span>
+      <span className={cn("hidden", compact && "inline sm:hidden")}>
+        TDTruyen
+      </span>
     </Link>
   );
 }
