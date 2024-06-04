@@ -1,5 +1,5 @@
 import ThichDocTruyenLogo from "../common/thich-doc-truyen-logo";
-import Settings from "../home/settings";
+import Settings from "../../app/(home)/settings";
 import HeaderSearchForm from "./header-search-form";
 import PopoverSearch from "./popover-search";
 

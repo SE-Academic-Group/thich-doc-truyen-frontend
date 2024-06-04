@@ -25,13 +25,26 @@ const addSpaceBefore = (val: string) => {
   return val.replace(/(\w)([A-Z])/g, "$1 $2");
 };
 
+// replace <br /> with \n
+const replaceBr = (val: string) => {
+  return val.replace(/<\/br>/g, "\n");
+};
+
+const addSpaceBetween = (val: string) => {
+  return val.replaceAll('" "', '"\n\n"');
+};
+
 export const chapterDetailSchema = z.object({
   title: z.string().transform(removeChapterIndex),
   content: z
     .string()
     .transform(addNewLineAfterPunctuation)
     .transform(addSpaceAfter)
-    .transform(addSpaceBefore),
+    .transform(addSpaceBefore)
+    .transform(replaceBr)
+    .transform(addSpaceBetween),
   url: z.string().url(),
   novelTitle: z.string(),
 });
+
+export type ChapterDetail = z.infer<typeof chapterDetailSchema>;

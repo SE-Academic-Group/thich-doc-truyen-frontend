@@ -1,11 +1,9 @@
-import { SearchParams } from "@/lib/definitions";
 import { getSearchParam } from "@/lib/utils";
+import { SearchParams } from "@/types/search-params";
 import Section from "@/ui/common/section";
-import Footer from "@/ui/layout/footer";
-import Header from "@/ui/layout/header";
 import SearchKeyword from "@/ui/layout/search-keyword";
-import SearchResultList from "@/ui/tim-kiem/search-result-list";
-import SearchResultListSkeleton from "@/ui/tim-kiem/search-result-list-skeleton";
+import SearchResultList from "@/app/(with-layout)/tim-kiem/search-result-list";
+import SearchResultListSkeleton from "@/app/(with-layout)/tim-kiem/search-result-list-skeleton";
 import { Suspense } from "react";
 
 export type PageProps = Readonly<{
@@ -26,7 +24,13 @@ export default function Page({ searchParams }: PageProps) {
 
   return (
     <div>
-      <Suspense fallback={<div>Tìm kiếm truyện</div>}>
+      <Suspense
+        fallback={
+          <div className="container text-sm">
+            Tìm kiếm truyện với từ khóa:...
+          </div>
+        }
+      >
         <SearchKeyword />
       </Suspense>
       <main className="container py-4">

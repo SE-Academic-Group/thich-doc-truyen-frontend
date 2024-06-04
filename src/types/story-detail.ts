@@ -43,5 +43,3 @@ export const storyDetailSchema = z.object({
   genres: z.array(z.string()),
   nchapter: z.number().int().min(0),
 });
-
-export type StoryDetail = z.infer<typeof storyDetailSchema>;

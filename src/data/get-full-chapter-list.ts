@@ -1,20 +1,17 @@
 import { httpFullChapterListSchema } from "@/types/http";
 import { parseZodSchema } from "./helpers";
-import { generatePluginNameURL } from "./server-helpers";
+import { API_URL } from "@/lib/constants";
 
-export type GetFullChapterListParams = Readonly<{
+type GetFullChapterListParams = {
   url: string;
-}>;
+  pluginName: string;
+};
 
 export async function getFullChapterList(params: GetFullChapterListParams) {
-  const fetchURL = generatePluginNameURL({ path: "full-chapter-list" });
+  const fetchURL = new URL(`${params.pluginName}/full-chapter-list`, API_URL);
   fetchURL.searchParams.set("url", params.url);
 
-  const response = await fetch(fetchURL, {
-    next: {
-      tags: ["full-chapter-list"],
-    },
-  });
+  const response = await fetch(fetchURL);
   const json = await response.json();
 
   if (!response.ok) {

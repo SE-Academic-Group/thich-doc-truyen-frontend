@@ -1,7 +1,7 @@
 import { API_URL } from "@/lib/constants";
 import { cookies } from "next/headers";
 
-export type generatePluginNameURLParams = Readonly<{
+type generatePluginNameURLParams = Readonly<{
   path: string;
 }>;
 

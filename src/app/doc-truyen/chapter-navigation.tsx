@@ -1,26 +1,27 @@
+"use client";
+
+import FullChapterList from "./full-chapter-list";
 import { ChevronLeftIcon, ChevronRightIcon } from "@/lib/icons";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { Suspense } from "react";
-import FullChapterList from "./full-chapter-list";
-import Skeleton from "../common/skeleton";
+import { useSearchParams } from "next/navigation";
 
-export type Props = Readonly<{
+type ChapterNavigationProps = {
   navigation: {
     prevPage: string | null;
     nextPage: string | null;
   };
-  novelURL: string;
-}>;
+};
 
-export default function ChapterNavigation({ navigation, novelURL }: Props) {
+export default function ChapterNavigation({
+  navigation,
+}: ChapterNavigationProps) {
   const { prevPage: prevChapter, nextPage: nextChapter } = navigation;
+  const searchParams = useSearchParams();
+  const novelURL = searchParams.get("novelUrl")!;
 
   return (
-    <nav
-      aria-label="Điều hướng chương"
-      className="my-4 flex justify-center gap-2"
-    >
+    <nav className="mt-4 mb-6 flex justify-center gap-2">
       <Link
         className={cn(
           "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-2 ps-0.5 text-sm text-fg-900 hover:opacity-90",
@@ -31,15 +32,7 @@ export default function ChapterNavigation({ navigation, novelURL }: Props) {
         <ChevronLeftIcon size={18} />
         Chương trước
       </Link>
-      <Suspense
-        fallback={
-          <Skeleton.Wrapper>
-            <Skeleton.Box className="h-[2rem] w-[6.25rem] bg-secondary" />
-          </Skeleton.Wrapper>
-        }
-      >
-        <FullChapterList novelURL={novelURL} />
-      </Suspense>
+      <FullChapterList />
       <Link
         className={cn(
           "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-0.5 ps-2 text-sm text-fg-900 hover:opacity-90",

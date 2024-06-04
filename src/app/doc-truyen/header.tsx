@@ -1,9 +1,9 @@
-import ThichDocTruyenLogo from "../common/thich-doc-truyen-logo";
-import HeaderSearchForm from "../layout/header-search-form";
+import ThichDocTruyenLogo from "../../ui/common/thich-doc-truyen-logo";
+import HeaderSearchForm from "../../ui/layout/header-search-form";
 
 export default function Header() {
   return (
-    <header className="mx-auto max-w-[84ch] p-2">
+    <header className="mx-auto max-w-[660px] px-2 py-3">
       <div className="flex items-center justify-between">
         <ThichDocTruyenLogo size="sm" />
         <HeaderSearchForm />

@@ -9,5 +9,3 @@ export const searchQuerySchema = z
     message: "Từ khóa tìm kiếm phải có ít nhất 3 ký tự",
   })
   .transform(sanitizeSearchQuery);
-
-export type SearchQuery = z.infer<typeof searchQuerySchema>;

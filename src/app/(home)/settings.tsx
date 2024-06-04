@@ -10,7 +10,7 @@ export default function Settings() {
     <CookiesProvider>
       <Popover.Root>
         <Popover.Trigger className="rounded-full p-1.5 hover:bg-bg-100">
-          <BarsIcon className="size-7" />
+          <BarsIcon size={28} />
         </Popover.Trigger>
         <Popover.Content>
           <ul>

@@ -1,6 +1,6 @@
 import { getChapterList } from "@/data/get-chapter-list";
 import Link from "next/link";
-import Pagination from "../common/pagination";
+import Pagination from "../../../ui/common/pagination";
 
 export type ChapterListProps = Readonly<{
   storyUrl: string;

@@ -3,28 +3,33 @@ import colors from "tailwindcss/colors";
 
 const config: Config = {
   content: [
-    "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/ui/**/*.{js,ts,jsx,tsx,mdx}",
-    "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
+    "./src/ui/**/*.{js,ts,jsx,tsx}",
+    "./src/app/**/*.{js,ts,jsx,tsx}",
+    "./src/lib/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     container: {
+      center: true,
       screens: {
         DEFAULT: "100%",
         sm: "640px",
         md: "768px",
         lg: "960px",
       },
-      center: true,
       padding: {
         DEFAULT: "1rem",
       },
     },
     extend: {
+      fontFamily: {
+        logo: ["var(--font-protest-revolution)"],
+        sans: ["var(--font-roboto-condensed)"],
+        lora: ["var(--font-lora)"],
+        openSans: ["var(--font-open-sans)"],
+        inconsolata: ["var(--font-inconsolata)"],
+      },
       colors: {
-        primary: colors.cyan[800],
         secondary: "#669900",
-        read: "#f6f1e7",
         border: colors.gray[300],
         error: colors.red[500],
         bg: {
@@ -45,11 +50,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [
-    require("tailwindcss-members"),
-    require("tailwindcss-mixins"),
-    require("tailwindcss-signals"),
-    require("@tailwindcss/container-queries"),
-  ],
+  plugins: [require("tailwindcss-mixins")],
 };
+
 export default config;

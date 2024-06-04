@@ -2,8 +2,8 @@
 
 import { getPluginList } from "@/data/get-plugin-list";
 import { useAsync, useCookies } from "@/lib/hooks";
-import Skeleton from "../common/skeleton";
-import ErrorText from "../common/error-text";
+import Skeleton from "../../ui/common/skeleton";
+import ErrorText from "../../ui/common/error-text";
 import { capitalize } from "@/lib/utils";
 
 export default function ChangeSourceSetting() {

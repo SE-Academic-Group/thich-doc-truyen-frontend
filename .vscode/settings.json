@@ -2,10 +2,22 @@
   "typescript.tsdk": "node_modules/typescript/lib",
   "cSpell.words": [
     "classname",
+    "clsx",
+    "dạng",
     "hcmus",
     "khóa",
+    "kiếm",
+    "lucide",
     "metruyenchu",
-    "nchapter"
+    "miễn",
+    "nchapter",
+    "roboto",
+    "tailwindcss",
+    "Thích",
+    "thức",
+    "thưởng",
+    "Truyện"
   ],
-  "editor.tabSize": 2
+  "editor.tabSize": 2,
+  "cSpell.enabled": false
 }

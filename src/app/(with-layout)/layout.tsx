@@ -3,7 +3,7 @@ import Header from "@/ui/layout/header";
 
 export type TimKiemLayoutProps = Readonly<React.PropsWithChildren>;
 
-export default function RootLayout({ children }: TimKiemLayoutProps) {
+export default function TimKiemLayout({ children }: TimKiemLayoutProps) {
   return (
     <div className="grid h-dvh grid-rows-[auto_1fr_auto]">
       <Header />
