@@ -3,7 +3,7 @@ import ThichDocTruyenLogo from "../../ui/common/thich-doc-truyen-logo";
 
 export default function Footer() {
   return (
-    <footer className="flex mx-auto max-w-[660px] p-2 items-center gap-1 justify-between">
+    <footer className="flex container p-2 items-center gap-1 justify-between">
       <div>
         <ThichDocTruyenLogo size="sm" />
         <p className="mb-2 text-pretty text-sm italic hidden sm:block">

@@ -26,7 +26,7 @@ export default function Content({
     <CookiesProvider>
       <SettingsConsumer>
         <article className="container">
-          <section className="mx-auto max-w-[660px] py-3">
+          <section className="container py-3">
             <div className="flex justify-end">
               <ReadingPadSettings />
             </div>
