@@ -1,11 +1,11 @@
 import ChapterList from "@/app/(with-layout)/chi-tiet/chapter-list";
 import StoryText from "@/app/(with-layout)/chi-tiet/story-text";
 import { getSearchParam } from "@/lib/utils";
-import { SearchParams } from "@/types/search-params";
+import { TSearchParams } from "@/types/search-params";
 import Section from "@/ui/common/section";
 
 type PageProps = {
-  searchParams: SearchParams;
+  searchParams: TSearchParams;
 };
 
 export default function Page({ searchParams }: PageProps) {

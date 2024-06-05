@@ -25,13 +25,13 @@ export default function ReadMore({
 
   return (
     <div>
-      {parse(content)}
+      {parse(content)}{" "}
       {children.length > length && (
         <button
           className="text-primary"
           onClick={() => setMore((prev) => !prev)}
         >
-          {more ? " Thu gọn" : "... Xem thêm"}
+          {more ? "Thu gọn" : "... Xem thêm"}
         </button>
       )}
     </div>

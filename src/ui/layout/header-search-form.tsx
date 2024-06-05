@@ -3,7 +3,7 @@
 import { SearchIcon } from "../../lib/icons";
 import ErrorText from "../common/error-text";
 import { cn } from "@/lib/utils";
-import { searchQuerySchema } from "@/types/search-query";
+import { ZSearchQuery } from "@/types/search-query";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
 
@@ -30,7 +30,7 @@ export default function HeaderSearchForm() {
 
   const onSearch = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const result = searchQuerySchema.safeParse(inputRef.current?.value);
+    const result = ZSearchQuery.safeParse(inputRef.current?.value);
 
     if (result.error) {
       return setError(result.error.format()._errors.join(", "));

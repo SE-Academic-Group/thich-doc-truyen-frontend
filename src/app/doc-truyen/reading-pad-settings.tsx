@@ -4,7 +4,7 @@ import { ToggleGroup } from "../../ui/common/toggle-group";
 import { BG_COLOR_MAP, FONT_FAMILY_MAP, FONT_SIZE_MAP } from "@/lib/constants";
 import { SettingsIcon } from "@/lib/icons";
 import { cn } from "@/lib/utils";
-import { BgColor, FontFamily, FontSize } from "@/types/reading-pad-settings";
+import { TBgColor, TFontFamily, TFontSize } from "@/types/reading-pad-settings";
 import { Popover } from "@/ui/common/popover";
 import { useCookies } from "react-cookie";
 
@@ -14,9 +14,9 @@ export default function ReadingPadSettings() {
     "font-size",
     "font-family",
   ]);
-  const bgColor = (cookies["bg-color"] as BgColor) ?? "light-yellow";
-  const fontSize = (cookies["font-size"] as FontSize) ?? "medium";
-  const fontFamily = (cookies["font-family"] as FontFamily) ?? "serif";
+  const bgColor = (cookies["bg-color"] as TBgColor) ?? "light-yellow";
+  const fontSize = (cookies["font-size"] as TFontSize) ?? "medium";
+  const fontFamily = (cookies["font-family"] as TFontFamily) ?? "serif";
 
   return (
     <Popover.Root>

@@ -1,10 +1,10 @@
 import Content from "@/app/doc-truyen/content";
 import { getChapterDetail } from "@/data/get-chapter-detail";
 import { getSearchParam } from "@/lib/utils";
-import { SearchParams } from "@/types/search-params";
+import { TSearchParams } from "@/types/search-params";
 
 type PageProps = {
-  searchParams: SearchParams;
+  searchParams: TSearchParams;
 };
 
 export default async function Page({ searchParams }: PageProps) {

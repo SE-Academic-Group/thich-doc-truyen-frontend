@@ -6,12 +6,12 @@ import SetReadingHistory from "./set-reading-history";
 import SettingsConsumer from "./settings-consumer";
 import StoryContent from "./story-content";
 import { CookiesProvider } from "@/lib/providers";
-import { ChapterDetail } from "@/types/chapter-detail";
+import { TChapterDetail } from "@/types/chapter-detail";
 import ClientOnly from "@/ui/common/client-only";
 import Link from "next/link";
 
 type ContentProps = {
-  chapterDetail: ChapterDetail;
+  chapterDetail: TChapterDetail;
   navigation: {
     prevPage: string | null;
     nextPage: string | null;

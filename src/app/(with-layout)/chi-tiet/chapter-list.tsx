@@ -22,7 +22,7 @@ export default async function ChapterList({
 
   return (
     <div className="space-y-6">
-      <ul className="-mt-2.5 list-disc ps-4 sm:columns-2 sm:text-sm md:columns-3 gap-6 md:px-4">
+      <ul className="-mt-2.5 list-disc ps-4 sm:columns-2 sm:text-sm gap-6 md:px-4">
         {chapters.map((chapter) => (
           <li key={chapter.url}>
             {chapter.url ? (
@@ -31,7 +31,7 @@ export default async function ChapterList({
                 className="group inline-block py-0.5"
               >
                 <span className="group-hover:underline">
-                  Chương {chapter.index - 1}:{" "}
+                  Chương {chapter.index}:{" "}
                 </span>
                 <span className="inline-block text-pretty group-hover:underline">
                   {chapter.title}

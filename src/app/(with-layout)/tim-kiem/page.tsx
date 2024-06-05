@@ -1,13 +1,13 @@
 import SearchResultList from "@/app/(with-layout)/tim-kiem/search-result-list";
 import SearchResultListSkeleton from "@/app/(with-layout)/tim-kiem/search-result-list-skeleton";
 import { getSearchParam } from "@/lib/utils";
-import { SearchParams } from "@/types/search-params";
+import { TSearchParams } from "@/types/search-params";
 import Section from "@/ui/common/section";
 import SearchKeyword from "@/ui/layout/search-keyword";
 import { Suspense } from "react";
 
 type PageProps = {
-  searchParams: SearchParams;
+  searchParams: TSearchParams;
 };
 
 export async function generateMetadata({ searchParams }: PageProps) {

@@ -1,8 +1,8 @@
-import { chapterDetailSchema } from "./chapter-detail";
-import { sourcePluginSchema } from "./source-plugin";
-import { StoryChapterSchema } from "./story-chapter";
-import { storyDetailSchema } from "./story-detail";
-import { storySearchResultSchema } from "./story-search-result";
+import { ZChapterDetail } from "./chapter-detail";
+import { ZSourcePlugin } from "./source-plugin";
+import { ZStoryChapter } from "./story-chapter";
+import { ZStoryDetail } from "./story-detail";
+import { ZStorySearchResult } from "./story-search-result";
 import { z } from "zod";
 
 export const httpErrorSchema = z.object({
@@ -18,29 +18,29 @@ export const paginationMetadataSchema = z.object({
 });
 
 export const httpSearchResultSchema = z.object({
-  data: z.array(storySearchResultSchema),
+  data: z.array(ZStorySearchResult),
   metadata: paginationMetadataSchema,
 });
 
 export const httpSourcePluginListSchema = z.object({
-  data: z.array(sourcePluginSchema),
+  data: z.array(ZSourcePlugin),
 });
 
 export const httpStoryDetailSchema = z.object({
-  data: storyDetailSchema,
+  data: ZStoryDetail,
 });
 
 export const httpChapterListSchema = z.object({
-  data: z.array(StoryChapterSchema),
+  data: z.array(ZStoryChapter),
   metadata: paginationMetadataSchema,
 });
 
 export const httpFullChapterListSchema = z.object({
-  data: z.array(StoryChapterSchema),
+  data: z.array(ZStoryChapter),
 });
 
 export const httpChapterDetailSchema = z.object({
-  data: chapterDetailSchema,
+  data: ZChapterDetail,
   metadata: z.object({
     nextPage: z.string().nullable(),
     prevPage: z.string().nullable(),

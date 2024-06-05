@@ -1,12 +1,12 @@
 "use client";
 
 import { cn } from "@/lib/utils";
-import { StoryChapter } from "@/types/story-chapter";
+import { TStoryChapter } from "@/types/story-chapter";
 import { useRouter, useSearchParams } from "next/navigation";
 import { useEffect, useState, useTransition } from "react";
 
 type ChapterSelectProps = {
-  fullChapterList: StoryChapter[];
+  fullChapterList: TStoryChapter[];
 };
 
 export default function ChapterSelect(props: ChapterSelectProps) {

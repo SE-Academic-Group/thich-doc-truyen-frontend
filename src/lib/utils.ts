@@ -1,5 +1,5 @@
 import { SKIP_PAGINATION_NUMBER } from "./constants";
-import { SearchParams } from "@/types/search-params";
+import { TSearchParams } from "@/types/search-params";
 import { capitalCase } from "change-case";
 import { ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
@@ -11,7 +11,7 @@ export const getSearchParam = ({
   searchParams,
   key,
 }: {
-  searchParams: SearchParams;
+  searchParams: TSearchParams;
   key: string;
 }) => {
   const value = searchParams[key] ?? "";

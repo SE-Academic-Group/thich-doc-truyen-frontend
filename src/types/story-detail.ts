@@ -29,7 +29,7 @@ const removeSpecialCharacters = (val: string) => {
   return val.replace(/(-{2,})/g, "");
 };
 
-export const storyDetailSchema = z.object({
+export const ZStoryDetail = z.object({
   title: z.string(),
   author: z.string(),
   image: z.string().url(),
