@@ -1,40 +1,17 @@
 "use client";
 
+import { useReadingHistoryList } from "@/data/use-reading-history-list";
 import { TrashIcon } from "@/lib/icons";
 import { capitalize } from "@/lib/utils";
 import groupBy from "lodash.groupby";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function ReadingHistory() {
-  const [readingHistory, setReadingHistory] = useState(() => {
-    const readingHistory = localStorage.getItem("readingHistory") ?? "[]";
-    return JSON.parse(readingHistory);
-  });
-  const groupedByPlugin = groupBy(readingHistory, "pluginName");
+  const { readingHistoryList, removeHistory, clearHistory } =
+    useReadingHistoryList();
+  const groupedByPlugin = groupBy(readingHistoryList, "pluginName");
 
-  const handleRemoveHistory = (novelURL: string, chapterIndex: string) => {
-    const newReadingHistory = readingHistory.filter(
-      (story: any) =>
-        story.novelURL !== novelURL || story.chapterIndex !== chapterIndex,
-    );
-
-    localStorage.setItem("readingHistory", JSON.stringify(newReadingHistory));
-    setReadingHistory(newReadingHistory);
-  };
-
-  const handleRemoveAllHistory = () => {
-    const confirmed = window.confirm(
-      "Bạn có chắc chắn muốn xoá tất cả lịch sử đọc truyện?",
-    );
-
-    if (confirmed) {
-      localStorage.removeItem("readingHistory");
-      setReadingHistory([]);
-    }
-  };
-
-  if (!readingHistory.length) {
+  if (!readingHistoryList.length) {
     return <p>Chưa có lịch sử đọc truyện nào.</p>;
   }
 
@@ -43,7 +20,7 @@ export default function ReadingHistory() {
       <div className="absolute top-0 right-0">
         <button
           className="inline-flex gap-1 hover:text-red-500"
-          onClick={handleRemoveAllHistory}
+          onClick={clearHistory}
         >
           <TrashIcon size={18} className="mt-[2px]" />
           <span>Xoá tất cả</span>
@@ -58,7 +35,7 @@ export default function ReadingHistory() {
             <ul className="mt-2">
               {histories.map((history) => (
                 <li
-                  key={history.chapterIndex}
+                  key={history.novelURL}
                   className="mt-2 flex justify-between items-center w-full bg-bg-50 py-1 px-2 rounded"
                 >
                   <Link
@@ -69,12 +46,7 @@ export default function ReadingHistory() {
                   </Link>
                   <button
                     className="hover:text-red-500"
-                    onClick={() =>
-                      handleRemoveHistory(
-                        history.novelURL,
-                        history.chapterIndex,
-                      )
-                    }
+                    onClick={() => removeHistory(history.novelURL)}
                   >
                     <TrashIcon size={18} />
                   </button>

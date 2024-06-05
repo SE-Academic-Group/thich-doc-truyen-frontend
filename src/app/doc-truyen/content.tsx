@@ -7,6 +7,7 @@ import SettingsConsumer from "./settings-consumer";
 import StoryContent from "./story-content";
 import { CookiesProvider } from "@/lib/providers";
 import { ChapterDetail } from "@/types/chapter-detail";
+import ClientOnly from "@/ui/common/client-only";
 import Link from "next/link";
 
 type ContentProps = {
@@ -25,7 +26,9 @@ export default function Content({
 }: ContentProps) {
   return (
     <CookiesProvider>
-      <SetReadingHistory storyTitle={chapterDetail.novelTitle} />
+      <ClientOnly>
+        <SetReadingHistory storyTitle={chapterDetail.novelTitle} />
+      </ClientOnly>
       <SettingsConsumer>
         <article className="container">
           <section className="container py-3">

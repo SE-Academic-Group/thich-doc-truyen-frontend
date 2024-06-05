@@ -1,7 +1,7 @@
 "use client";
 
 import Disclaimer from "./disclaimer";
-import { ReadingHistory as ReadingHistoryType } from "@/types/reading-history";
+import { TReadingHistory as ReadingHistoryType } from "@/types/reading-history";
 import Link from "next/link";
 import { useState } from "react";
 
@@ -18,8 +18,8 @@ export default function ReadingHistory() {
   }
 
   return (
-    <>
-      <div className="md:hidden">
+    <div>
+      <div className="md:hidden mb-3">
         <Disclaimer />
       </div>
       <section>
@@ -42,6 +42,6 @@ export default function ReadingHistory() {
           ))}
         </ul>
       </section>
-    </>
+    </div>
   );
 }
