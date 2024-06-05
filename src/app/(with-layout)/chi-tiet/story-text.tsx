@@ -1,6 +1,6 @@
+import ReadMore from "../../../ui/common/read-more";
 import { getStoryDetail } from "@/data/get-story-detail";
 import Image from "next/image";
-import ReadMore from "../../../ui/common/read-more";
 import { notFound } from "next/navigation";
 
 export default async function StoryText({ storyUrl }: { storyUrl: string }) {
@@ -14,7 +14,7 @@ export default async function StoryText({ storyUrl }: { storyUrl: string }) {
   return (
     <article className="grid justify-center gap-4 rounded-lg px-1.5 py-2 md:grid-cols-[repeat(2,auto)] md:gap-12">
       <section className="flex flex-col gap-3 text-center md:text-start">
-        <h3 className="mb-2 text-balance text-xl font-semibold md:hidden">
+        <h3 className="mb-2  text-xl font-semibold md:hidden">
           {detail.title}
         </h3>
         <Image
@@ -42,7 +42,7 @@ export default async function StoryText({ storyUrl }: { storyUrl: string }) {
         </section>
       </section>
       <section className="max-w-prose">
-        <h3 className="mb-2.5 hidden text-balance text-center text-2xl font-semibold uppercase md:block">
+        <h3 className="mb-2.5 hidden  text-center text-2xl font-semibold uppercase md:block">
           {detail.title}
         </h3>
         <section className="hidden text-sm md:block">

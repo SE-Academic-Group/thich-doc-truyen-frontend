@@ -32,14 +32,14 @@ export default function Content({
             <div className="flex justify-end">
               <ReadingPadSettings />
             </div>
-            <p className="mb-2 text-balance text-center font-medium uppercase text-fg-500 text-lg">
+            <h3 className="mb-2 text-center font-medium uppercase text-fg-500 text-lg">
               <Link
                 href={`/chi-tiet?url=${novelURL}`}
                 className="hover:underline"
               >
                 {chapterDetail.novelTitle}
               </Link>
-            </p>
+            </h3>
             <h2 className="mb-4 text-center text-xl font-medium uppercase text-primary">
               {chapterDetail.title}
             </h2>
