@@ -19,10 +19,10 @@ export default function ReadingHistory() {
     <div className="relative">
       <div className="absolute top-0 right-0">
         <button
-          className="inline-flex gap-1 hover:text-red-500"
+          className="inline-flex gap-1 hover:text-red-500 text-sm"
           onClick={clearHistory}
         >
-          <TrashIcon size={18} className="mt-[2px]" />
+          <TrashIcon size={14} className="mt-[3px]" />
           <span>Xoá tất cả</span>
         </button>
       </div>
