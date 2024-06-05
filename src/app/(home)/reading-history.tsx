@@ -1,24 +1,19 @@
 "use client";
 
 import Disclaimer from "./disclaimer";
-import { TReadingHistory as ReadingHistoryType } from "@/types/reading-history";
+import { useReadingHistoryList } from "@/data/use-reading-history-list";
 import Link from "next/link";
-import { useState } from "react";
 
 export default function ReadingHistory() {
-  const [readingHistory] = useState(() => {
-    const readingHistory = localStorage.getItem("readingHistory") ?? "[]";
-    const parsed = JSON.parse(readingHistory) as ReadingHistoryType[];
-    const fiveLatestHistory = parsed.slice(-5).reverse();
-    return fiveLatestHistory;
-  });
+  const { readingHistoryList } = useReadingHistoryList();
+  const fiveRecentlyRead = readingHistoryList.slice(-5).toReversed();
 
-  if (!readingHistory.length) {
+  if (fiveRecentlyRead.length == 0) {
     return <Disclaimer />;
   }
 
   return (
-    <div>
+    <>
       <div className="md:hidden mb-3">
         <Disclaimer />
       </div>
@@ -27,7 +22,7 @@ export default function ReadingHistory() {
           Đọc gần đây
         </h3>
         <ul className="mt-2 text-sm max-w-prose divide-y">
-          {readingHistory.map((history) => (
+          {fiveRecentlyRead.map((history) => (
             <li
               key={history.novelURL}
               className="underline underline-offset-2 md:no-underline py-1"
@@ -42,6 +37,6 @@ export default function ReadingHistory() {
           ))}
         </ul>
       </section>
-    </div>
+    </>
   );
 }
