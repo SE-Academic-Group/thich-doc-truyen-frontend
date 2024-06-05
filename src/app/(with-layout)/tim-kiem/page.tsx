@@ -6,7 +6,7 @@ import Section from "@/ui/common/section";
 import SearchKeyword from "@/ui/layout/search-keyword";
 import { Suspense } from "react";
 
-export type PageProps = {
+type PageProps = {
   searchParams: SearchParams;
 };
 
@@ -24,13 +24,7 @@ export default function Page({ searchParams }: PageProps) {
 
   return (
     <div>
-      <Suspense
-        fallback={
-          <div className="container text-sm">
-            Tìm kiếm truyện với từ khóa:...
-          </div>
-        }
-      >
+      <Suspense fallback={null}>
         <SearchKeyword />
       </Suspense>
       <main className="container py-4">

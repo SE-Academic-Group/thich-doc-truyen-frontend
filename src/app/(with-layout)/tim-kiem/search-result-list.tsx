@@ -2,7 +2,7 @@ import Pagination from "../../../ui/common/pagination";
 import ResultStoryCard from "./result-story-card";
 import { getSearchResult } from "@/data/get-search-result";
 
-export type SearchResultListProps = {
+type SearchResultListProps = {
   keyword: string;
   page: number;
 };

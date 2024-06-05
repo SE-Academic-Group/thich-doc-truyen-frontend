@@ -2,7 +2,7 @@ import { StorySearchResult } from "@/types/story-search-result";
 import Image from "next/image";
 import Link from "next/link";
 
-export type ResultStoryCardProps = {
+type ResultStoryCardProps = {
   story: StorySearchResult;
 };
 

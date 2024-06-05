@@ -19,7 +19,6 @@ export default function SearchResultListSkeleton() {
               <Skeleton.Box className="mixin mb-2.5 h-2 max-w-32" />
               <Skeleton.Box className="mixin mb-2.5 h-2 max-w-20" />
             </div>
-            <span className="sr-only">Đang xử lý kết quả tìm kiếm...</span>
           </li>
         ))}
       </ul>
