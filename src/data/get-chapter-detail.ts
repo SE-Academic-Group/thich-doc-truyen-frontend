@@ -1,6 +1,6 @@
-import { httpChapterDetailSchema } from "@/types/http";
 import { parseZodSchema } from "./helpers";
 import { generatePluginNameURL } from "./server-helpers";
+import { httpChapterDetailSchema } from "@/types/http";
 import { revalidateTag } from "next/cache";
 
 export type GetChapterListParams = Readonly<{

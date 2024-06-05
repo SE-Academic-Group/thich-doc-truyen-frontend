@@ -1,3 +1,3 @@
 export default function Loading() {
-  return <div>Chờ chút nhá...</div>;
+  return <div className="container">Chờ chút nhá...</div>;
 }
