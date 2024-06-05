@@ -19,6 +19,7 @@ export default function ChapterNavigation({
   const { prevPage: prevChapter, nextPage: nextChapter } = navigation;
   const searchParams = useSearchParams();
   const novelURL = searchParams.get("novelUrl")!;
+  const chapterIndex = Number(searchParams.get("chapterIndex")!);
 
   return (
     <nav className="mt-4 mb-6 flex justify-center gap-2">
@@ -27,7 +28,8 @@ export default function ChapterNavigation({
           "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-2 ps-0.5 text-sm text-fg-900 hover:opacity-90",
           !prevChapter && "pointer-events-none opacity-50",
         )}
-        href={`/doc-truyen?chapterUrl=${prevChapter}&novelUrl=${novelURL}`}
+        href={`/doc-truyen?chapterUrl=${prevChapter}&novelUrl=${novelURL}&
+          chapterIndex=${chapterIndex - 1}`}
       >
         <ChevronLeftIcon size={18} />
         <span className="sm:hidden">Trước</span>
@@ -39,7 +41,7 @@ export default function ChapterNavigation({
           "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-0.5 ps-2 text-sm text-fg-900 hover:opacity-90",
           !nextChapter && "pointer-events-none opacity-50",
         )}
-        href={`/doc-truyen?chapterUrl=${nextChapter}&novelUrl=${novelURL}`}
+        href={`/doc-truyen?chapterUrl=${nextChapter}&novelUrl=${novelURL}&chapterIndex=${chapterIndex + 1}`}
       >
         <span className="hidden sm:inline">Chương sau</span>
         <span className="sm:hidden">Sau</span>

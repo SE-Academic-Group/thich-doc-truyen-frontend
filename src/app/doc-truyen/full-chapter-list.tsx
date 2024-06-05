@@ -1,7 +1,7 @@
 "use client";
 
-import { getFullChapterList } from "@/data/get-full-chapter-list";
 import ChapterSelect from "./chapter-select";
+import { getFullChapterList } from "@/data/get-full-chapter-list";
 import { useAsync, useCookies } from "@/lib/hooks";
 import Skeleton from "@/ui/common/skeleton";
 import { useSearchParams } from "next/navigation";
