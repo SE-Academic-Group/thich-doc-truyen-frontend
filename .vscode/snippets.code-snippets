@@ -30,18 +30,5 @@
 		],
 		"scope": "javascript,typescript,javascriptreact,typescriptreact",
 		"description": "Create a new function component",
-	},
-	"Create a zod schema": {
-		"prefix": "/zod",
-		"body": [
-			"import { z } from 'zod';",
-			"",
-			"export const ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/} = z.object({",
-			"  $0",
-			"});",
-			"export type ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}Type = z.infer<typeof ${TM_FILENAME_BASE/(.*)/${1:/pascalcase}/}>;"
-		],
-		"scope": "javascript,typescript",
-		"description": "Create a new zod schema",
 	}
 }
