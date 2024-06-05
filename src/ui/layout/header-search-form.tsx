@@ -1,11 +1,11 @@
 "use client";
 
+import { SearchIcon } from "../../lib/icons";
+import ErrorText from "../common/error-text";
 import { cn } from "@/lib/utils";
 import { searchQuerySchema } from "@/types/search-query";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
-import { SearchIcon } from "../../lib/icons";
-import ErrorText from "../common/error-text";
 
 export default function HeaderSearchForm() {
   const router = useRouter();

@@ -2,10 +2,10 @@ import Pagination from "../../../ui/common/pagination";
 import ResultStoryCard from "./result-story-card";
 import { getSearchResult } from "@/data/get-search-result";
 
-export type SearchResultListProps = Readonly<{
+export type SearchResultListProps = {
   keyword: string;
   page: number;
-}>;
+};
 
 export default async function SearchResultList(props: SearchResultListProps) {
   const { data: stories, metadata } = await getSearchResult(props);

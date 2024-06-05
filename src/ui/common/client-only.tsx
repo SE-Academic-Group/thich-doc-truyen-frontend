@@ -11,5 +11,5 @@ export default function ClientOnly({ children }: ClientOnlyProps) {
     setIsClient(true);
   }, []);
 
-  return isClient ? <>{children}</> : <p>Chờ chút nha...</p>;
+  return isClient ? <>{children}</> : <p aria-live="polite">Chờ chút nha...</p>;
 }

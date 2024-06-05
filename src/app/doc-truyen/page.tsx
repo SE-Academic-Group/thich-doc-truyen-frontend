@@ -3,9 +3,9 @@ import { getChapterDetail } from "@/data/get-chapter-detail";
 import { getSearchParam } from "@/lib/utils";
 import { SearchParams } from "@/types/search-params";
 
-type PageProps = Readonly<{
+type PageProps = {
   searchParams: SearchParams;
-}>;
+};
 
 export default async function Page({ searchParams }: PageProps) {
   const novelUrl = getSearchParam({ searchParams, key: "novelUrl" });

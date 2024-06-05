@@ -1,14 +1,14 @@
+import SearchResultList from "@/app/(with-layout)/tim-kiem/search-result-list";
+import SearchResultListSkeleton from "@/app/(with-layout)/tim-kiem/search-result-list-skeleton";
 import { getSearchParam } from "@/lib/utils";
 import { SearchParams } from "@/types/search-params";
 import Section from "@/ui/common/section";
 import SearchKeyword from "@/ui/layout/search-keyword";
-import SearchResultList from "@/app/(with-layout)/tim-kiem/search-result-list";
-import SearchResultListSkeleton from "@/app/(with-layout)/tim-kiem/search-result-list-skeleton";
 import { Suspense } from "react";
 
-export type PageProps = Readonly<{
+export type PageProps = {
   searchParams: SearchParams;
-}>;
+};
 
 export async function generateMetadata({ searchParams }: PageProps) {
   const keyword = getSearchParam({ searchParams, key: "q" });

@@ -1,9 +1,9 @@
 "use client";
 
+import ChangeSourceSetting from "./change-source-setting";
 import { BarsIcon } from "@/lib/icons";
 import { CookiesProvider } from "@/lib/providers";
 import { Popover } from "@/ui/common/popover";
-import ChangeSourceSetting from "./change-source-setting";
 
 export default function Settings() {
   return (

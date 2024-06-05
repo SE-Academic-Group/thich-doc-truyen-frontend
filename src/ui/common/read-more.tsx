@@ -8,15 +8,20 @@ type ReadMoreProps = Readonly<{
   length?: number;
 }>;
 
-const DEFAULT_LENGTH = 600;
+const DEFAULT_SHOW_LENGTH = 600;
 
 export default function ReadMore({
   children,
-  length = DEFAULT_LENGTH,
+  length = DEFAULT_SHOW_LENGTH,
 }: ReadMoreProps) {
   const [more, setMore] = useState(false);
-  const content =
-    children.length < length || more ? children : children.slice(0, length);
+  const contentLength = children.length;
+
+  if (contentLength <= length) {
+    return <div>{parse(children)}</div>;
+  }
+
+  const content = more ? children : children.slice(0, length);
 
   return (
     <div>

@@ -1,7 +1,7 @@
-import { httpSourcePluginListSchema } from "@/types/http";
-import { unstable_noStore as noStore } from "next/cache";
 import { API_URL } from "../lib/constants";
 import { parseZodSchema } from "./helpers";
+import { httpSourcePluginListSchema } from "@/types/http";
+import { unstable_noStore as noStore } from "next/cache";
 
 export async function getPluginList() {
   noStore();

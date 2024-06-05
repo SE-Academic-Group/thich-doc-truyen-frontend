@@ -1,6 +1,6 @@
-import { httpFullChapterListSchema } from "@/types/http";
 import { parseZodSchema } from "./helpers";
 import { API_URL } from "@/lib/constants";
+import { httpFullChapterListSchema } from "@/types/http";
 
 type GetFullChapterListParams = {
   url: string;

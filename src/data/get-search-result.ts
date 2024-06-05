@@ -1,11 +1,11 @@
-import { httpSearchResultSchema } from "@/types/http";
-import { generatePluginNameURL } from "./server-helpers";
 import { parseZodSchema } from "./helpers";
+import { generatePluginNameURL } from "./server-helpers";
+import { httpSearchResultSchema } from "@/types/http";
 
-export type getSearchResultParams = Readonly<{
+export type getSearchResultParams = {
   keyword: string;
   page: number;
-}>;
+};
 
 export const getSearchResult = async (args: getSearchResultParams) => {
   const fetchURL = generatePluginNameURL({ path: "search" });

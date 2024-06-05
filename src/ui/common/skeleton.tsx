@@ -1,36 +1,29 @@
 import { cn } from "@/lib/utils";
 
-export type SkeletonWrapperProps = Readonly<{
-  children: React.ReactNode;
-  screenReaderText?: string;
-}>;
+type SkeletonWrapperProps = React.PropsWithChildren;
 
-export type SkeletonBoxProps = Readonly<{
-  className: string;
-  children?: React.ReactNode;
-}>;
-
-function SkeletonBox(props: SkeletonBoxProps) {
-  return (
-    <div className={cn("rounded-sm bg-bg-100", props.className)}>
-      {props.children}
-    </div>
-  );
-}
-
-function SkeletonWrapper({
-  children,
-  screenReaderText = "Nội dung đang được chuẩn bị",
-}: SkeletonWrapperProps) {
+const SkeletonWrapper = ({ children }: SkeletonWrapperProps) => {
   return (
     <output>
-      <span className="sr-only">{screenReaderText}</span>
+      <span className="sr-only">{"Nội dung đang được chuẩn bị"}</span>
       <div aria-hidden="true" className="animate-pulse">
         {children}
       </div>
     </output>
   );
-}
+};
+
+type SkeletonBoxProps = React.PropsWithChildren & {
+  className: string;
+};
+
+const SkeletonBox = ({ children, className }: SkeletonBoxProps) => {
+  return (
+    <div className={cn("rounded-sm bg-bg-100 size-4", className)}>
+      {children}
+    </div>
+  );
+};
 
 const Skeleton = {
   Box: SkeletonBox,

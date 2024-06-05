@@ -1,11 +1,11 @@
-import { httpChapterListSchema } from "@/types/http";
 import { parseZodSchema } from "./helpers";
 import { generatePluginNameURL } from "./server-helpers";
+import { httpChapterListSchema } from "@/types/http";
 
-export type GetChapterListParams = Readonly<{
+export type GetChapterListParams = {
   url: string;
   page: number;
-}>;
+};
 
 export async function getChapterList(params: GetChapterListParams) {
   const fetchURL = generatePluginNameURL({ path: "chapter-list" });

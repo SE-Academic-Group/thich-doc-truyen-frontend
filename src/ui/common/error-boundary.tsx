@@ -1,9 +1,9 @@
 import { ErrorBoundary as ReactErrorBoundary } from "react-error-boundary";
 
-export type ErrorBoundaryProps = Readonly<{
+type ErrorBoundaryProps = {
   children: React.ReactNode;
   fallback: React.ReactElement;
-}>;
+};
 
 export default function ErrorBoundary({
   children,

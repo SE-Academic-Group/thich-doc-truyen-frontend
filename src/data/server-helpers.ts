@@ -1,9 +1,9 @@
 import { API_URL } from "@/lib/constants";
 import { cookies } from "next/headers";
 
-type generatePluginNameURLParams = Readonly<{
+type generatePluginNameURLParams = {
   path: string;
-}>;
+};
 
 export const generatePluginNameURL = (args: generatePluginNameURLParams) => {
   const cookieStore = cookies();

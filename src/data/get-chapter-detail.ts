@@ -3,10 +3,10 @@ import { generatePluginNameURL } from "./server-helpers";
 import { httpChapterDetailSchema } from "@/types/http";
 import { revalidateTag } from "next/cache";
 
-export type GetChapterListParams = Readonly<{
+export type GetChapterListParams = {
   novelURL: string;
   chapterURL: string;
-}>;
+};
 
 export async function getChapterDetail(params: GetChapterListParams) {
   const fetchURL = generatePluginNameURL({ path: "chapter-detail" });

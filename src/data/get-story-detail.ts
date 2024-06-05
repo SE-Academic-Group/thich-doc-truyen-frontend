@@ -1,10 +1,10 @@
-import { httpStoryDetailSchema } from "@/types/http";
 import { parseZodSchema } from "./helpers";
 import { generatePluginNameURL } from "./server-helpers";
+import { httpStoryDetailSchema } from "@/types/http";
 
-type getStoryDetailParams = Readonly<{
+type getStoryDetailParams = {
   url: string;
-}>;
+};
 
 export async function getStoryDetail(args: getStoryDetailParams) {
   const fetchURL = generatePluginNameURL({ path: "novel-detail" });

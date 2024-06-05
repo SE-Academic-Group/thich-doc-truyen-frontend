@@ -1,11 +1,11 @@
 "use client";
 
+import { SearchIcon } from "../../lib/icons";
+import ErrorText from "../../ui/common/error-text";
 import { cn } from "@/lib/utils";
 import { searchQuerySchema } from "@/types/search-query";
 import { useRouter } from "next/navigation";
 import { useEffect, useRef, useState, useTransition } from "react";
-import { SearchIcon } from "../../lib/icons";
-import ErrorText from "../../ui/common/error-text";
 
 export default function SearchForm() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);

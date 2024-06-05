@@ -1,4 +1,5 @@
 export const API_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL;
+export const SKIP_PAGINATION_NUMBER = 0;
 
 export const BG_COLOR_MAP = {
   "light-yellow": "bg-[#f4f4e4]",

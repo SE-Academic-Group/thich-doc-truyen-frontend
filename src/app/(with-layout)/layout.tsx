@@ -1,7 +1,7 @@
 import Footer from "@/ui/layout/footer";
 import Header from "@/ui/layout/header";
 
-export type TimKiemLayoutProps = Readonly<React.PropsWithChildren>;
+export type TimKiemLayoutProps = React.PropsWithChildren;
 
 export default function TimKiemLayout({ children }: TimKiemLayoutProps) {
   return (

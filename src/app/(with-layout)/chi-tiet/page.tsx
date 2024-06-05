@@ -4,9 +4,9 @@ import { getSearchParam } from "@/lib/utils";
 import { SearchParams } from "@/types/search-params";
 import Section from "@/ui/common/section";
 
-type PageProps = Readonly<{
+type PageProps = {
   searchParams: SearchParams;
-}>;
+};
 
 export default function Page({ searchParams }: PageProps) {
   const url = getSearchParam({ searchParams, key: "url" });

@@ -1,5 +1,7 @@
 {
   "typescript.tsdk": "node_modules/typescript/lib",
   "editor.tabSize": 2,
-  "cSpell.enabled": false
+  "cSpell.enabled": false,
+  "prettier.prettierPath": "./node_modules/prettier",
+  "prettier.configPath": ".prettierrc"
 }

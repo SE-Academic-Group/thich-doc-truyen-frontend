@@ -1,7 +1,7 @@
 import Footer from "@/ui/layout/footer";
 import Header from "@/ui/layout/header";
 
-type LichSuLayoutProps = Readonly<React.PropsWithChildren>;
+type LichSuLayoutProps = React.PropsWithChildren;
 
 export default function LichSuLayout({ children }: LichSuLayoutProps) {
   return (
