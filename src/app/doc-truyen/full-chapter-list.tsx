@@ -17,7 +17,7 @@ export default function FullChapterList() {
   if (state.loading) {
     return (
       <Skeleton.Wrapper>
-        <Skeleton.Box className="h-[2rem] w-[6.25rem] bg-secondary" />
+        <Skeleton.Box className="h-[2rem] w-[6.25rem] bg-primary" />
       </Skeleton.Wrapper>
     );
   }

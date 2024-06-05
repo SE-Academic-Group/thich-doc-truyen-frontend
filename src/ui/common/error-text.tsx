@@ -5,7 +5,7 @@ export default function ErrorText(props: ErrorTextProps) {
     <p
       role="alert"
       aria-live="polite"
-      className="text-center text-xs text-error"
+      className="text-center text-xs text-danget"
       {...props}
     />
   );

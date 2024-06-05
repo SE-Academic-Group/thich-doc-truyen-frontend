@@ -40,7 +40,7 @@ export default function ChapterSelect(props: ChapterSelectProps) {
     <select
       onChange={handleChange}
       className={cn(
-        "rounded-sm bg-secondary px-2 py-1.5 text-sm text-fg-900",
+        "rounded-sm bg-primary px-2 py-1.5 text-sm text-fg-900",
         isPending && "pointer-events-none opacity-50",
       )}
       disabled={isPending}

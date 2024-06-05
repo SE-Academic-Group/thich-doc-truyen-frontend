@@ -7,7 +7,7 @@ export default function BackToTop() {
 
   return (
     <button
-      className="size-8 rounded-full bg-secondary text-fg-900"
+      className="size-8 rounded-full bg-primary text-fg-900"
       onClick={scrollToTop}
     >
       &uarr;

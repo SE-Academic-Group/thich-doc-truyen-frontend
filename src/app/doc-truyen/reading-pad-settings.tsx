@@ -41,7 +41,7 @@ export default function ReadingPadSettings() {
                   key={key}
                   value={key}
                   className={cn(
-                    "rounded px-2 py-1 ring-secondary data-[state=on]:ring-2",
+                    "rounded px-2 py-1 ring-primary data-[state=on]:ring-2",
                     value,
                   )}
                 >
@@ -65,7 +65,7 @@ export default function ReadingPadSettings() {
                   value={key}
                   className={cn(
                     "rounded px-2 py-1 bg-bg-100 h-8",
-                    "data-[state=on]:bg-secondary/50 data-[state=on]:text-fg-900 data-[state=on]:ring-2 data-[state=on]:ring-secondary",
+                    "data-[state=on]:bg-primary/80 data-[state=on]:text-fg-900 data-[state=on]:ring-2 data-[state=on]:ring-primary",
                     "text-base",
                   )}
                 >
@@ -89,7 +89,7 @@ export default function ReadingPadSettings() {
                   value={key}
                   className={cn(
                     "rounded px-2 py-1 bg-bg-100 h-8",
-                    "data-[state=on]:bg-secondary/50 data-[state=on]:text-fg-900 data-[state=on]:ring-2 data-[state=on]:ring-secondary",
+                    "data-[state=on]:bg-primary/50 data-[state=on]:text-fg-900 data-[state=on]:ring-2 data-[state=on]:ring-primary",
                   )}
                 >
                   <span className={value}>{key}</span>

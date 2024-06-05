@@ -25,7 +25,7 @@ export default function ChapterNavigation({
     <nav className="mt-4 mb-6 flex justify-center gap-2">
       <Link
         className={cn(
-          "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-2 ps-0.5 text-sm text-fg-900 hover:opacity-90",
+          "inline-flex items-center rounded-sm bg-primary py-1.5 pe-2 ps-0.5 text-sm text-fg-900 hover:opacity-90",
           !prevChapter && "pointer-events-none opacity-50",
         )}
         href={`/doc-truyen?chapterUrl=${prevChapter}&novelUrl=${novelURL}&
@@ -38,7 +38,7 @@ export default function ChapterNavigation({
       <FullChapterList />
       <Link
         className={cn(
-          "inline-flex items-center rounded-sm bg-secondary py-1.5 pe-0.5 ps-2 text-sm text-fg-900 hover:opacity-90",
+          "inline-flex items-center rounded-sm bg-primary py-1.5 pe-0.5 ps-2 text-sm text-fg-900 hover:opacity-90",
           !nextChapter && "pointer-events-none opacity-50",
         )}
         href={`/doc-truyen?chapterUrl=${nextChapter}&novelUrl=${novelURL}&chapterIndex=${chapterIndex + 1}`}

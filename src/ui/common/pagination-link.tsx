@@ -37,7 +37,7 @@ export function PaginationLink({
       className={cn(
         "rounded-lg bg-bg-100 hover:bg-bg-200",
         "px-2.5 py-1.5 text-lg",
-        isActive && "pointer-events-none bg-secondary text-fg-900",
+        isActive && "pointer-events-none bg-primary text-fg-900",
       )}
       href={url}
     >

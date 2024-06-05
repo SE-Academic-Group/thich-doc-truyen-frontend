@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
 import parse from "html-react-parser";
+import { useState } from "react";
 
 type ReadMoreProps = Readonly<{
   children: string;
@@ -23,7 +23,7 @@ export default function ReadMore({
       {parse(content)}
       {children.length > length && (
         <button
-          className="text-secondary"
+          className="text-primary"
           onClick={() => setMore((prev) => !prev)}
         >
           {more ? " Thu gọn" : "... Xem thêm"}

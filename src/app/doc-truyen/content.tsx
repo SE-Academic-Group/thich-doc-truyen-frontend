@@ -40,7 +40,7 @@ export default function Content({
                 {chapterDetail.novelTitle}
               </Link>
             </p>
-            <h2 className="mb-4 text-center text-xl font-medium uppercase text-secondary">
+            <h2 className="mb-4 text-center text-xl font-medium uppercase text-primary">
               {chapterDetail.title}
             </h2>
             <ChapterNavigation navigation={navigation} />
