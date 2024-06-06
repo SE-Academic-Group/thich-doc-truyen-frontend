@@ -1,5 +1,5 @@
-import { getSearchParam, generatePagination } from "../lib/utils";
-import { describe, test, expect } from "vitest";
+import { generatePagination, getSearchParam } from "../lib/utils";
+import { describe, expect, test } from "vitest";
 
 describe("getSearchParam: get a specified search param from the url", () => {
   test("should return the value of the given key from the searchParams object", () => {

@@ -1,7 +1,7 @@
 import Footer from "@/app/doc-truyen/footer";
 import Header from "@/app/doc-truyen/header";
 
-export type LayoutProps = Readonly<React.PropsWithChildren>;
+type LayoutProps = React.WithChildren;
 
 export default function Layout({ children }: LayoutProps) {
   return (

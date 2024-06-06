@@ -3,9 +3,9 @@
 import { cn } from "@/lib/utils";
 import parse from "html-react-parser";
 
-type StoryContentProps = Readonly<{
+type StoryContentProps = {
   storyContent: string;
-}>;
+};
 
 export default function StoryContent(props: StoryContentProps) {
   return (

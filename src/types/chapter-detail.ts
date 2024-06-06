@@ -34,7 +34,7 @@ const addSpaceBetween = (val: string) => {
   return val.replaceAll('" "', '"\n\n"');
 };
 
-export const chapterDetailSchema = z.object({
+export const ZChapterDetail = z.object({
   title: z.string().transform(removeChapterIndex),
   content: z
     .string()
@@ -47,4 +47,4 @@ export const chapterDetailSchema = z.object({
   novelTitle: z.string(),
 });
 
-export type ChapterDetail = z.infer<typeof chapterDetailSchema>;
+export type TChapterDetail = z.infer<typeof ZChapterDetail>;

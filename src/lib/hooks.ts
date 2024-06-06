@@ -1,6 +1,13 @@
+import { logToErrorReportingService } from "./error-handling";
 import { useCallback, useEffect, useState } from "react";
 
 export { useCookies } from "react-cookie";
+export const useLogToErrorReporting = (error: Error) => {
+  useEffect(() => {
+    logToErrorReportingService(error);
+  }, [error]);
+};
+
 export { useAsync } from "react-use";
 
 type TUseScrollToTopParams = {

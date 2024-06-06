@@ -7,10 +7,10 @@ const removeChapterIndex = (val: string) => {
   return match ? match[1] : val;
 };
 
-export const StoryChapterSchema = z.object({
+export const ZStoryChapter = z.object({
   title: z.string().transform(removeChapterIndex),
   url: z.string().url(),
-  index: z.string().transform((val) => parseInt(val, 10)),
+  index: z.string(),
 });
 
-export type StoryChapter = z.infer<typeof StoryChapterSchema>;
+export type TStoryChapter = z.infer<typeof ZStoryChapter>;

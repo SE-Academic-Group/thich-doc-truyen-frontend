@@ -1,8 +1,8 @@
 "use client";
 
-import { TextSearchIcon } from "@/lib/icons";
 import { Popover } from "../common/popover";
 import HeaderSearchForm from "./header-search-form";
+import { TextSearchIcon } from "@/lib/icons";
 
 export default function PopoverSearch() {
   return (

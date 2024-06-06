@@ -28,9 +28,9 @@ const config: Config = {
         inconsolata: ["var(--font-inconsolata)"],
       },
       colors: {
-        secondary: "#669900",
+        primary: "#669900",
         border: colors.gray[300],
-        error: colors.red[500],
+        danger: colors.red[500],
         bg: {
           0: colors.white,
           50: colors.gray[50],

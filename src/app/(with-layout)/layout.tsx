@@ -1,9 +1,9 @@
 import Footer from "@/ui/layout/footer";
 import Header from "@/ui/layout/header";
 
-export type TimKiemLayoutProps = Readonly<React.PropsWithChildren>;
+type SharedLayoutProps = React.PropsWithChildren;
 
-export default function TimKiemLayout({ children }: TimKiemLayoutProps) {
+export default function SharedLayout({ children }: SharedLayoutProps) {
   return (
     <div className="grid h-dvh grid-rows-[auto_1fr_auto]">
       <Header />

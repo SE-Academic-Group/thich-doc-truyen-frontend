@@ -9,4 +9,5 @@ export {
   SearchSlash as TextSearchIcon,
   XIcon,
   TrashIcon,
+  MoveUpIcon,
 } from "lucide-react";

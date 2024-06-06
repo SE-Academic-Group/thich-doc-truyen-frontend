@@ -3,19 +3,7 @@ import { capitalize } from "@/lib/utils";
 import Link from "next/link";
 
 export default async function StorySourceList() {
-  const { data: pluginList } = await getPluginList();
-
-  if (!pluginList?.length) {
-    return (
-      <p
-        role="alert"
-        aria-live="polite"
-        className="rounded-sm bg-red-100 px-1 text-sm text-red-800"
-      >
-        Có lỗi xảy ra trong quá trình hiển thị danh sách nguồn truyện
-      </p>
-    );
-  }
+  const pluginList = await getPluginList();
 
   return (
     <nav aria-label="Điều hướng nhanh đến các nguồn truyện">

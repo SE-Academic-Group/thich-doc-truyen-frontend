@@ -1,8 +1,9 @@
 "use client";
 
+import { useReadingHistoryList } from "@/data/use-reading-history-list";
+import { TReadingHistory } from "@/types/reading-history";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import { useCookies } from "react-cookie";
 
 type SetReadingHistoryProps = {
   storyTitle: string;
@@ -11,35 +12,27 @@ type SetReadingHistoryProps = {
 export default function SetReadingHistory({
   storyTitle,
 }: SetReadingHistoryProps) {
+  const { addNewHistory } = useReadingHistoryList();
+
   const searchParams = useSearchParams();
-  const novelURL = searchParams.get("novelUrl")!;
-  const chapterURL = searchParams.get("chapterUrl")!;
-  const chapterIndex = searchParams.get("chapterIndex")!;
-  const [cookies] = useCookies(["pluginName"]);
-  const pluginName = cookies.pluginName;
+  const novelURL = searchParams.get("novelUrl");
+  const chapterURL = searchParams.get("chapterUrl");
+  const chapterIndex = searchParams.get("chapterIndex");
 
   useEffect(() => {
-    const readingHistory = localStorage.getItem("readingHistory") ?? "[]";
-    const newReadingHistory = JSON.parse(readingHistory).filter(
-      (story: any) => story.novelURL !== novelURL,
-    );
+    if (!novelURL || !chapterURL || !storyTitle || !chapterIndex) return;
 
-    console.log(newReadingHistory);
+    const newHistory: TReadingHistory = {
+      novelURL,
+      chapterURL,
+      storyTitle,
+      chapterIndex: parseInt(chapterIndex, 10),
+    };
 
-    localStorage.setItem(
-      "readingHistory",
-      JSON.stringify([
-        ...newReadingHistory,
-        {
-          novelURL,
-          chapterURL,
-          chapterIndex,
-          pluginName,
-          storyTitle,
-        },
-      ]),
-    );
-  }, [chapterIndex, chapterURL, novelURL, pluginName, storyTitle]);
+    addNewHistory(newHistory);
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return null;
 }

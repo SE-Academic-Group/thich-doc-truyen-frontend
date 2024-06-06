@@ -1,48 +1,50 @@
+import { ZChapterDetail } from "./chapter-detail";
+import { ZSourcePlugin } from "./source-plugin";
+import { ZStoryChapter } from "./story-chapter";
+import { ZStoryDetail } from "./story-detail";
+import { ZStorySearchResult } from "./story-search-result";
 import { z } from "zod";
-import { chapterDetailSchema } from "./chapter-detail";
-import { sourcePluginSchema } from "./source-plugin";
-import { StoryChapterSchema } from "./story-chapter";
-import { storyDetailSchema } from "./story-detail";
-import { storySearchResultSchema } from "./story-search-result";
 
-export const httpErrorSchema = z.object({
-  error: z.object({
-    errorCode: z.string(),
-    reason: z.string(),
-  }),
-});
+export const ZHttpError = z
+  .object({
+    error: z.object({
+      errorCode: z.string(),
+      reason: z.string().optional(),
+    }),
+  })
+  .describe("ZHttpError, error response from server");
 
-export const paginationMetadataSchema = z.object({
+export const ZPaginationMetadata = z.object({
   currentPage: z.number(),
   maxPage: z.number(),
 });
 
-export const httpSearchResultSchema = z.object({
-  data: z.array(storySearchResultSchema),
-  metadata: paginationMetadataSchema,
+export const ZHttpSearchResult = z.object({
+  data: z.array(ZStorySearchResult),
+  metadata: ZPaginationMetadata,
 });
 
-export const httpSourcePluginListSchema = z.object({
-  data: z.array(sourcePluginSchema),
+export const ZHttpSourcePluginList = z.object({
+  data: z.array(ZSourcePlugin),
 });
 
-export const httpStoryDetailSchema = z.object({
-  data: storyDetailSchema,
+export const ZHttpStoryDetail = z.object({
+  data: ZStoryDetail,
 });
 
-export const httpChapterListSchema = z.object({
-  data: z.array(StoryChapterSchema),
-  metadata: paginationMetadataSchema,
+export const ZHttpChapterList = z.object({
+  data: z.array(ZStoryChapter),
+  metadata: ZPaginationMetadata,
 });
 
-export const httpFullChapterListSchema = z.object({
-  data: z.array(StoryChapterSchema),
+export const ZHttpFullChapterList = z.object({
+  data: z.array(ZStoryChapter),
 });
 
-export const httpChapterDetailSchema = z.object({
-  data: chapterDetailSchema,
+export const ZHttpChapterDetail = z.object({
+  data: ZChapterDetail,
   metadata: z.object({
-    nextPage: z.string().nullable(),
-    prevPage: z.string().nullable(),
+    nextPage: z.string().url().nullable(),
+    prevPage: z.string().url().nullable(),
   }),
 });

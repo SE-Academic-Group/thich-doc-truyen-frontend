@@ -1,45 +1,42 @@
 "use client";
 
+import { SKIP_PAGINATION_NUMBER } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
 import { usePathname, useSearchParams } from "next/navigation";
 
-export type PaginationLinkProps = React.PropsWithChildren & {
-  page: number | "...";
-  isActive: boolean;
+type PaginationLinkProps = React.PropsWithChildren & {
+  page: number;
   scrollToId?: string;
 };
 
 export function PaginationLink({
   page,
-  isActive,
   scrollToId,
   children,
 }: PaginationLinkProps) {
   const pathname = usePathname();
   const readonlySearchParams = useSearchParams();
 
-  const searchParams = new URLSearchParams(readonlySearchParams);
-  searchParams.forEach((value, key) => {
-    searchParams.set(key, value);
-  });
-  searchParams.delete("page");
-  searchParams.set("page", page.toString());
-
-  const url = `${pathname}?${searchParams.toString()}${scrollToId ? `#${scrollToId}` : ""}`;
-
-  if (page === "...") {
-    return <span className="md:text-base">{page}</span>;
+  if (page == SKIP_PAGINATION_NUMBER) {
+    return <span className="md:text-base">...</span>;
   }
+
+  const currentPage = parseInt(readonlySearchParams.get("page") ?? "1", 10);
+  const isActive = currentPage === page;
+  const searchParams = new URLSearchParams(readonlySearchParams);
+  searchParams.set("page", page.toString());
+  const scrollToIdParam = scrollToId ? `#${scrollToId}` : "";
+
+  const url = `${pathname}?${searchParams}` + scrollToIdParam;
 
   return (
     <Link
-      className={cn(
-        "rounded-lg bg-bg-100 hover:bg-bg-200",
-        "px-2.5 py-1.5 text-lg",
-        isActive && "pointer-events-none bg-secondary text-fg-900",
-      )}
       href={url}
+      className={cn(
+        "rounded bg-bg-100 hover:bg-bg-200 sm:text-sm px-2 py-1",
+        isActive && "pointer-events-none bg-primary text-fg-900",
+      )}
     >
       {children}
     </Link>

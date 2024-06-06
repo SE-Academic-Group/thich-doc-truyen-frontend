@@ -1,11 +1,11 @@
 "use client";
 
-import { cn } from "@/lib/utils";
-import { searchQuerySchema } from "@/types/search-query";
-import { useRouter } from "next/navigation";
-import { useEffect, useRef, useState, useTransition } from "react";
 import { SearchIcon } from "../../lib/icons";
 import ErrorText from "../../ui/common/error-text";
+import { cn } from "@/lib/utils";
+import { ZSearchQuery } from "@/types/search-query";
+import { useRouter } from "next/navigation";
+import { useEffect, useRef, useState, useTransition } from "react";
 
 export default function SearchForm() {
   const [errorMsg, setErrorMsg] = useState<string | null>(null);
@@ -17,7 +17,7 @@ export default function SearchForm() {
     event.preventDefault();
 
     const transition = () => {
-      const parsedQuery = searchQuerySchema.safeParse(inputRef.current?.value);
+      const parsedQuery = ZSearchQuery.safeParse(inputRef.current?.value);
 
       if (parsedQuery.success) {
         router.push(`/tim-kiem?q=${parsedQuery.data}`);

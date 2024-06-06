@@ -1,10 +1,10 @@
-import { StorySearchResult } from "@/types/story-search-result";
+import { TStorySearchResult } from "@/types/story-search-result";
 import Image from "next/image";
 import Link from "next/link";
 
-export type ResultStoryCardProps = Readonly<{
-  story: StorySearchResult;
-}>;
+type ResultStoryCardProps = {
+  story: TStorySearchResult;
+};
 
 export default function ResultStoryCard({ story }: ResultStoryCardProps) {
   const storyDetailUrl = `/chi-tiet?url=${story.url}`;

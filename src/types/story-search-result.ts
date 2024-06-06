@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-export const storySearchResultSchema = z.object({
+export const ZStorySearchResult = z.object({
   title: z.string().transform((s) => s.replace(/\[.*\]/g, "")),
   author: z.string(),
   image: z.string().url(),
@@ -8,4 +8,4 @@ export const storySearchResultSchema = z.object({
   nchapter: z.number().int().min(0),
 });
 
-export type StorySearchResult = z.infer<typeof storySearchResultSchema>;
+export type TStorySearchResult = z.infer<typeof ZStorySearchResult>;

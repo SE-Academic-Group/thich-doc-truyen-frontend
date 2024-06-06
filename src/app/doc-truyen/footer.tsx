@@ -6,7 +6,7 @@ export default function Footer() {
     <footer className="flex container p-2 items-center gap-1 justify-between">
       <div>
         <ThichDocTruyenLogo size="sm" />
-        <p className="mb-2 text-pretty text-sm italic hidden sm:block">
+        <p className="mb-2  text-sm italic hidden sm:block">
           Đọc truyện quá 60 phút sẽ ảnh hưởng đến công việc và sức khỏe
         </p>
       </div>
