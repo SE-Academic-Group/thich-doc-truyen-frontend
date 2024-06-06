@@ -27,7 +27,6 @@ export default function SettingsConsumer({ children }: BackgroundChangeProps) {
       >
         {children}
       </div>
-      )
     </ClientOnly>
   );
 }
