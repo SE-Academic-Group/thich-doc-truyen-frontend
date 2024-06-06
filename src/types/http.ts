@@ -5,21 +5,23 @@ import { ZStoryDetail } from "./story-detail";
 import { ZStorySearchResult } from "./story-search-result";
 import { z } from "zod";
 
-export const httpErrorSchema = z.object({
-  error: z.object({
-    errorCode: z.string(),
-    reason: z.string(),
-  }),
-});
+export const ZHttpError = z
+  .object({
+    error: z.object({
+      errorCode: z.string(),
+      reason: z.string().optional(),
+    }),
+  })
+  .describe("ZHttpError, error response from server");
 
-export const paginationMetadataSchema = z.object({
+export const ZPaginationMetadata = z.object({
   currentPage: z.number(),
   maxPage: z.number(),
 });
 
-export const httpSearchResultSchema = z.object({
+export const ZHttpSearchResult = z.object({
   data: z.array(ZStorySearchResult),
-  metadata: paginationMetadataSchema,
+  metadata: ZPaginationMetadata,
 });
 
 export const httpSourcePluginListSchema = z.object({
@@ -32,7 +34,7 @@ export const httpStoryDetailSchema = z.object({
 
 export const httpChapterListSchema = z.object({
   data: z.array(ZStoryChapter),
-  metadata: paginationMetadataSchema,
+  metadata: ZPaginationMetadata,
 });
 
 export const httpFullChapterListSchema = z.object({

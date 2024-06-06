@@ -1,6 +1,7 @@
 import Pagination from "../../../ui/common/pagination";
 import ResultStoryCard from "./result-story-card";
 import { getSearchResult } from "@/data/get-search-result";
+import ErrorBoundary from "@/ui/common/error-boundary";
 
 type SearchResultListProps = {
   keyword: string;
@@ -8,9 +9,9 @@ type SearchResultListProps = {
 };
 
 export default async function SearchResultList(props: SearchResultListProps) {
-  const { data: stories, metadata } = await getSearchResult(props);
+  const { results, currentPage, totalPages } = await getSearchResult(props);
 
-  if (!stories?.length) {
+  if (results.length == 0) {
     return (
       <div>
         <span>Không tìm thấy kết quả nào cho từ khóa </span>
@@ -20,18 +21,17 @@ export default async function SearchResultList(props: SearchResultListProps) {
   }
 
   return (
-    <div className="space-y-6">
-      <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-x-4 gap-y-5">
-        {stories.map((story) => (
-          <li key={story.url}>
-            <ResultStoryCard story={story} />
-          </li>
-        ))}
-      </ul>
-      <Pagination
-        currentPage={metadata.currentPage}
-        totalPages={metadata.maxPage}
-      />
-    </div>
+    <ErrorBoundary fallback={<div>Failed to load search results</div>}>
+      <div className="space-y-6">
+        <ul className="grid grid-cols-[repeat(auto-fit,minmax(min(100%,320px),1fr))] gap-x-4 gap-y-5">
+          {results.map((result) => (
+            <li key={result.url}>
+              <ResultStoryCard story={result} />
+            </li>
+          ))}
+        </ul>
+        <Pagination currentPage={currentPage} totalPages={totalPages} />
+      </div>
+    </ErrorBoundary>
   );
 }

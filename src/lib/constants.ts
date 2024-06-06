@@ -19,3 +19,13 @@ export const FONT_FAMILY_MAP: Record<string, string> = {
   sans: "font-openSans",
   mono: "font-inconsolata",
 };
+
+export enum HTTP_ERROR_CODES {
+  NOT_FOUND = "NOT_FOUND",
+  BAD_REQUEST = "BAD_REQUEST",
+  INTERNAL_SERVER_ERROR = "INTERNAL_SERVER_ERROR",
+}
+
+export enum APP_ERROR_CODES {
+  MISS_SHAPED_SCHEMA = "MISS_SHAPED_SCHEMA",
+}

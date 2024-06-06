@@ -1,6 +1,6 @@
 "use client";
 
-import { useLogToErrorReporting } from "@/lib/error-handling";
+import { useLogToErrorReporting } from "@/lib/hooks";
 
 export default function Error({
   error,
