@@ -9,8 +9,8 @@ const removeChapterIndex = (val: string) => {
 
 export const ZStoryChapter = z.object({
   title: z.string().transform(removeChapterIndex),
-  url: z.string().url(),
-  index: z.string(),
+  url: z.string().url().nullable(),
+  index: z.string().nullable(),
 });
 
 export type TStoryChapter = z.infer<typeof ZStoryChapter>;

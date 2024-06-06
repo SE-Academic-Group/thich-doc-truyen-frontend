@@ -12,25 +12,19 @@ export default function ChangeSourceSetting() {
   const state = useAsync(getPluginList);
 
   useEffect(() => {
-    const pluginName = cookies.pluginName;
+    if (!state.value) return;
+    if (!cookies.pluginName) setCookie("pluginName", state.value.at(0)?.name);
 
-    if (!pluginName) {
-      setCookie("pluginName", state.value?.data[0].name);
-    }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [state.value]);
 
-  if (state.loading) {
+  if (state.loading)
     return (
       <Skeleton.Wrapper>
         <Skeleton.Box className="h-[1.875rem] w-32" />
       </Skeleton.Wrapper>
     );
-  }
-
-  if (state.error || !state.value?.data) {
-    return <ErrorText>Có lỗi xảy ra</ErrorText>;
-  }
+  if (state.error || !state.value) return <ErrorText>Có lỗi xảy ra</ErrorText>;
 
   return (
     <select
@@ -38,7 +32,7 @@ export default function ChangeSourceSetting() {
       defaultValue={cookies.pluginName}
       className="rounded border bg-bg-50 px-2 py-1"
     >
-      {state.value.data.map((plugin) => {
+      {state.value.map((plugin) => {
         return (
           <option value={plugin.name} key={plugin.url}>
             {capitalize(plugin.name)}
