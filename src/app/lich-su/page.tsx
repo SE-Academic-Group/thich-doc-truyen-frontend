@@ -7,7 +7,7 @@ export default function Page() {
       <h1 className="text-xl font-medium uppercase underline underline-offset-2 mb-2">
         Lịch sử đọc truyện
       </h1>
-      <ClientOnly>
+      <ClientOnly fallback={<p aria-live="polite">Chờ chút nha...</p>}>
         <ReadingHistory />
       </ClientOnly>
     </main>

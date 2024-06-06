@@ -11,14 +11,20 @@ export default async function Page({ searchParams }: PageProps) {
   const novelUrl = getSearchParam({ searchParams, key: "novelUrl" });
   const chapterUrl = getSearchParam({ searchParams, key: "chapterUrl" });
 
-  const { data, metadata } = await getChapterDetail({
-    novelURL: novelUrl,
-    chapterURL: chapterUrl,
-  });
+  const { chapterDetail, nextChapterURL, prevChapterURL } =
+    await getChapterDetail({
+      chapterURL: chapterUrl,
+      novelURL: novelUrl,
+    });
 
   return (
     <main>
-      <Content novelURL={novelUrl} chapterDetail={data} navigation={metadata} />
+      <Content
+        novelURL={novelUrl}
+        chapterDetail={chapterDetail}
+        prevChapterURL={prevChapterURL}
+        nextChapterURL={nextChapterURL}
+      />
     </main>
   );
 }

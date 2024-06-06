@@ -4,7 +4,6 @@ import { useReadingHistoryList } from "@/data/use-reading-history-list";
 import { TReadingHistory } from "@/types/reading-history";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
-import { useCookies } from "react-cookie";
 
 type SetReadingHistoryProps = {
   storyTitle: string;
@@ -13,31 +12,20 @@ type SetReadingHistoryProps = {
 export default function SetReadingHistory({
   storyTitle,
 }: SetReadingHistoryProps) {
-  const searchParams = useSearchParams();
-  const [cookies] = useCookies(["pluginName"]);
   const { addNewHistory } = useReadingHistoryList();
 
-  const pluginName = cookies.pluginName;
+  const searchParams = useSearchParams();
   const novelURL = searchParams.get("novelUrl");
   const chapterURL = searchParams.get("chapterUrl");
   const chapterIndex = searchParams.get("chapterIndex");
 
   useEffect(() => {
-    if (
-      !novelURL ||
-      !pluginName ||
-      !chapterURL ||
-      !storyTitle ||
-      !chapterIndex
-    ) {
-      return;
-    }
+    if (!novelURL || !chapterURL || !storyTitle || !chapterIndex) return;
 
     const newHistory: TReadingHistory = {
       novelURL,
       chapterURL,
       storyTitle,
-      pluginName,
       chapterIndex: parseInt(chapterIndex, 10),
     };
 

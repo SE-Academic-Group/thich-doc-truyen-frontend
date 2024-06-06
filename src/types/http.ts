@@ -37,14 +37,14 @@ export const ZHttpChapterList = z.object({
   metadata: ZPaginationMetadata,
 });
 
-export const httpFullChapterListSchema = z.object({
+export const ZHttpFullChapterList = z.object({
   data: z.array(ZStoryChapter),
 });
 
-export const httpChapterDetailSchema = z.object({
+export const ZHttpChapterDetail = z.object({
   data: ZChapterDetail,
   metadata: z.object({
-    nextPage: z.string().nullable(),
-    prevPage: z.string().nullable(),
+    nextPage: z.string().url().nullable(),
+    prevPage: z.string().url().nullable(),
   }),
 });

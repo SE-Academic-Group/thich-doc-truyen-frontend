@@ -8,9 +8,7 @@ export default function ReadingHistory() {
   const { readingHistoryList } = useReadingHistoryList();
   const fiveRecentlyRead = readingHistoryList.slice(-5).toReversed();
 
-  if (fiveRecentlyRead.length == 0) {
-    return <Disclaimer />;
-  }
+  if (fiveRecentlyRead.length == 0) return <Disclaimer />;
 
   return (
     <>

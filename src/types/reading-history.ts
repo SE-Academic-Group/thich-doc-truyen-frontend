@@ -3,7 +3,6 @@ import { z } from "zod";
 export const ZReadingHistory = z.object({
   storyTitle: z.string(),
   chapterIndex: z.number(),
-  pluginName: z.string(),
   chapterURL: z.string().url(),
   novelURL: z.string().url(),
 });

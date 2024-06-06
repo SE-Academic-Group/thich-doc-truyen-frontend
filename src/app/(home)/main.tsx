@@ -19,7 +19,13 @@ export default function Main() {
             <StorySourceList />
           </Suspense>
         </ErrorBoundary>
-        <ClientOnly>
+        <ClientOnly
+          fallback={
+            <p aria-live="polite" className="text-center">
+              Chờ chút nha...
+            </p>
+          }
+        >
           <ReadingHistory />
         </ClientOnly>
       </section>
