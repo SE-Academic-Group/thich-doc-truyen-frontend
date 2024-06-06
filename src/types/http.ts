@@ -24,15 +24,15 @@ export const ZHttpSearchResult = z.object({
   metadata: ZPaginationMetadata,
 });
 
-export const httpSourcePluginListSchema = z.object({
+export const ZHttpSourcePluginList = z.object({
   data: z.array(ZSourcePlugin),
 });
 
-export const httpStoryDetailSchema = z.object({
+export const ZHttpStoryDetail = z.object({
   data: ZStoryDetail,
 });
 
-export const httpChapterListSchema = z.object({
+export const ZHttpChapterList = z.object({
   data: z.array(ZStoryChapter),
   metadata: ZPaginationMetadata,
 });

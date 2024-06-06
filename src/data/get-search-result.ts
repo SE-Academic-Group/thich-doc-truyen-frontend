@@ -1,6 +1,7 @@
 import { parseZodSchema } from "./helpers";
 import { API_URL, HTTP_ERROR_CODES } from "@/lib/constants";
 import { ZHttpError, ZHttpSearchResult } from "@/types/http";
+import { TStorySearchResult } from "@/types/story-search-result";
 import { cookies } from "next/headers";
 
 type getSearchResultParams = {
@@ -9,11 +10,17 @@ type getSearchResultParams = {
   pluginName?: string;
 };
 
+type getSearchResultResponse = {
+  results: TStorySearchResult[];
+  currentPage: number;
+  totalPages: number;
+};
+
 export const getSearchResult = async ({
   page,
   keyword,
   pluginName,
-}: getSearchResultParams) => {
+}: getSearchResultParams): Promise<getSearchResultResponse> => {
   const fetchPluginName =
     pluginName ||
     cookies().get("pluginName")?.value ||
@@ -47,7 +54,6 @@ export const getSearchResult = async ({
     throw err;
   }
 
-  // http data schema
   const parsed = await parseZodSchema(ZHttpSearchResult, json);
 
   return {

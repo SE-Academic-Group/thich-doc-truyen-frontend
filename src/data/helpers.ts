@@ -1,5 +1,6 @@
 import { APP_ERROR_CODES } from "@/lib/constants";
 import { logToErrorReportingService } from "@/lib/error-handling";
+import { ZHttpError } from "@/types/http";
 import { z } from "zod";
 
 export const parseZodSchema = async <T extends z.ZodTypeAny>(
@@ -30,3 +31,6 @@ export const parseZodSchema = async <T extends z.ZodTypeAny>(
 
   return parsed.data;
 };
+
+export const parseHttpErrorSchema = async (data: unknown) =>
+  await parseZodSchema(ZHttpError, data);
