@@ -14,7 +14,8 @@ export default function ChangeChapterSource() {
   const chapterIndex = searchParams.get("chapterIndex")!;
 
   const state = useAsync(
-    async () => await getAlternativePlugins({ novelURL, chapterIndex }),
+    () => getAlternativePlugins({ novelURL, chapterIndex }),
+    [novelURL, chapterIndex],
   );
 
   if (state.loading) {

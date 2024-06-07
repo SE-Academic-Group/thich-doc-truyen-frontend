@@ -46,7 +46,7 @@ export default function Content({
               <h2 className="mb-3.5 text-center sm:text-xl font-medium uppercase text-primary">
                 {chapterDetail.title}
               </h2>
-              {/* <ChangeChapterSource key={novelURL + chapterIndex} /> */}
+              <ChangeChapterSource />
               <ChapterNavigation
                 nextChapterURL={nextChapterURL}
                 prevChapterURL={prevChapterURL}

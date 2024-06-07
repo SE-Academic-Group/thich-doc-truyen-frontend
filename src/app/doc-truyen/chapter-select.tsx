@@ -36,6 +36,7 @@ export default function ChapterSelect(props: ChapterSelectProps) {
   };
 
   useEffect(() => {
+    console.log(chapterURL);
     setSelectValue(chapterURL);
   }, [chapterURL]);
 

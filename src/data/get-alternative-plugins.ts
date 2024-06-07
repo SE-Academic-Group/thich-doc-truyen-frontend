@@ -16,7 +16,6 @@ export async function getAlternativePlugins({
   const fetchURL = new URL("switch-plugin", API_URL);
   fetchURL.searchParams.append("novelUrl", novelURL);
   fetchURL.searchParams.append("chapterIndex", chapterIndex.toString());
-
   const response = await fetch(fetchURL);
   const json = await response.json();
 

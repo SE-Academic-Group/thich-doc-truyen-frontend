@@ -9,7 +9,10 @@ import { useSearchParams } from "next/navigation";
 export default function FullChapterList() {
   const searchParams = useSearchParams();
   const novelURL = searchParams.get("novelUrl")!;
-  const state = useAsync(() => getFullChapterList({ url: novelURL }));
+  const state = useAsync(
+    () => getFullChapterList({ url: novelURL }),
+    [novelURL],
+  );
 
   if (state.loading) {
     return (
