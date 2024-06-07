@@ -66,7 +66,7 @@ export default function StoryText({ storyText }: StoryTextProps) {
         {desc}
       </section>
       <section className="gap-8 text-center hidden md:grid grid-cols-[auto_1fr]">
-        <div className="pt-8">{poster}</div>
+        {poster}
         <div className="space-y-2.5">
           {title}
           {info}
