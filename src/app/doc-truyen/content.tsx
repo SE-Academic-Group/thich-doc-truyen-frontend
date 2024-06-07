@@ -2,6 +2,7 @@
 
 import ChangeChapterSource from "./change-chapter-source";
 import ChapterNavigation from "./chapter-navigation";
+import CurrentSource from "./current-source";
 import LoadingScreen from "./loading-screen";
 import ReadingPadSettings from "./reading-pad-settings";
 import SetReadingHistory from "./set-reading-history";
@@ -32,7 +33,8 @@ export default function Content({
         <SettingsConsumer>
           <article className="container">
             <section className="container py-3">
-              <div className="flex justify-end">
+              <div className="flex justify-between mb-2">
+                <CurrentSource />
                 <ReadingPadSettings />
               </div>
               <h3 className="mb-2 text-center font-medium uppercase text-fg-500 sm:text-lg">
