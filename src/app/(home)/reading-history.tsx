@@ -26,7 +26,7 @@ export default function ReadingHistory() {
               className="underline underline-offset-2 md:no-underline py-1"
             >
               <Link
-                href={`/doc-truyen?chapterUrl=${history.chapterURL}&novelUrl=${history.novelURL}&chapterIndex=${history.chapterIndex}`}
+                href={`/doc-truyen?chapterUrl=${history.chapterURL}&novelUrl=${history.novelURL}&chapterIndex=${history.chapterIndex}&currentPlugin=${history.pluginName}`}
                 className="line-clamp-1 hover:underline"
               >
                 Chương {history.chapterIndex} - {history.storyTitle}

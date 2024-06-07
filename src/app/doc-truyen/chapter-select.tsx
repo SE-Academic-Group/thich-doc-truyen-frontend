@@ -23,6 +23,9 @@ export default function ChapterSelect(props: ChapterSelectProps) {
     setSelectValue(chapterURL);
     startTransition(() => {
       const newChapterURL = e.target.value;
+
+      if (!newChapterURL || newChapterURL === chapterURL) return;
+
       const chapter = props.fullChapterList.find(
         (chapter) => chapter.url === newChapterURL,
       )!;
@@ -33,6 +36,7 @@ export default function ChapterSelect(props: ChapterSelectProps) {
   };
 
   useEffect(() => {
+    console.log(chapterURL);
     setSelectValue(chapterURL);
   }, [chapterURL]);
 
@@ -49,7 +53,7 @@ export default function ChapterSelect(props: ChapterSelectProps) {
       {props.fullChapterList.map((chapter) => (
         <option
           key={chapter.url}
-          value={chapter.url}
+          value={chapter.url || ""}
           onClick={(e) => e.preventDefault()}
         >
           Chương {chapter.index}

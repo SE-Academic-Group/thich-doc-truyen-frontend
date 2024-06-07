@@ -30,7 +30,7 @@ export default function ReadingHistory() {
             className="flex justify-between items-center w-full bg-bg-50 py-1 px-2 rounded"
           >
             <Link
-              href={`/doc-truyen?chapterUrl=${history.chapterURL}&novelUrl=${history.novelURL}&chapterIndex=${history.chapterIndex}`}
+              href={`/doc-truyen?chapterUrl=${history.chapterURL}&novelUrl=${history.novelURL}&chapterIndex=${history.chapterIndex}&currentPlugin=${history.pluginName}`}
               className="line-clamp-1 hover:underline"
             >
               Chương {history.chapterIndex} - {history.storyTitle}

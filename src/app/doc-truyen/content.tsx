@@ -1,6 +1,8 @@
 "use client";
 
+import ChangeChapterSource from "./change-chapter-source";
 import ChapterNavigation from "./chapter-navigation";
+import CurrentSource from "./current-source";
 import LoadingScreen from "./loading-screen";
 import ReadingPadSettings from "./reading-pad-settings";
 import SetReadingHistory from "./set-reading-history";
@@ -27,11 +29,12 @@ export default function Content({
   return (
     <CookiesProvider>
       <ClientOnly fallback={<LoadingScreen />}>
-        <SetReadingHistory storyTitle={chapterDetail.novelTitle} />
+        <SetReadingHistory storyTitle={chapterDetail.title} />
         <SettingsConsumer>
           <article className="container">
             <section className="container py-3">
-              <div className="flex justify-end">
+              <div className="flex justify-between mb-2">
+                <CurrentSource />
                 <ReadingPadSettings />
               </div>
               <h3 className="mb-2 text-center font-medium uppercase text-fg-500 sm:text-lg">
@@ -42,9 +45,10 @@ export default function Content({
                   {chapterDetail.novelTitle}
                 </Link>
               </h3>
-              <h2 className="mb-4 text-center sm:text-xl font-medium uppercase text-primary">
+              <h2 className="mb-3.5 text-center sm:text-xl font-medium uppercase text-primary">
                 {chapterDetail.title}
               </h2>
+              <ChangeChapterSource />
               <ChapterNavigation
                 nextChapterURL={nextChapterURL}
                 prevChapterURL={prevChapterURL}

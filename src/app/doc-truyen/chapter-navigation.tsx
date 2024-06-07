@@ -20,7 +20,7 @@ export default function ChapterNavigation({
   const chapterIndex = Number(searchParams.get("chapterIndex")!);
 
   return (
-    <nav className="mt-4 mb-6 flex justify-center gap-2">
+    <nav className="mb-6 mt-2 flex justify-center gap-2">
       <Link
         className={cn(
           "inline-flex items-center rounded-sm bg-primary py-1.5 pe-2 ps-0.5 text-sm text-fg-900 hover:opacity-90",

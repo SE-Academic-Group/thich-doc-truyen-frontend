@@ -1,5 +1,7 @@
 import { logToErrorReportingService } from "./error-handling";
+import { useSearchParams } from "next/navigation";
 import { useCallback, useEffect, useState } from "react";
+import { useCookie } from "react-use";
 
 export { useCookies } from "react-cookie";
 export const useLogToErrorReporting = (error: Error) => {
@@ -39,4 +41,13 @@ export const useScrollToTop = (params: TUseScrollToTopParams) => {
   }, [threshold]);
 
   return { isShown, scrollToTop };
+};
+
+export const usePluginName = () => {
+  const [pluginName] = useCookie("pluginName");
+  const searchParams = useSearchParams();
+  const currentPlugin =
+    searchParams.get("currentPlugin") ?? pluginName ?? "default";
+
+  return currentPlugin;
 };

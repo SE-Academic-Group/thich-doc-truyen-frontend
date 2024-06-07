@@ -5,6 +5,7 @@ export const ZReadingHistory = z.object({
   chapterIndex: z.number(),
   chapterURL: z.string().url(),
   novelURL: z.string().url(),
+  pluginName: z.string(),
 });
 
 export const ZReadingHistoryList = z.array(ZReadingHistory);
