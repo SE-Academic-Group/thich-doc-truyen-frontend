@@ -12,12 +12,12 @@ type SetReadingHistoryProps = {
 export default function SetReadingHistory({
   storyTitle,
 }: SetReadingHistoryProps) {
-  const { addNewHistory } = useReadingHistoryList();
-
   const searchParams = useSearchParams();
-  const novelURL = searchParams.get("novelUrl");
-  const chapterURL = searchParams.get("chapterUrl");
-  const chapterIndex = searchParams.get("chapterIndex");
+  const novelURL = searchParams.get("novelUrl")!;
+  const chapterURL = searchParams.get("chapterUrl")!;
+  const chapterIndex = searchParams.get("chapterIndex")!;
+
+  const { addNewHistory } = useReadingHistoryList();
 
   useEffect(() => {
     if (!novelURL || !chapterURL || !storyTitle || !chapterIndex) return;
@@ -32,7 +32,7 @@ export default function SetReadingHistory({
     addNewHistory(newHistory);
 
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [chapterIndex]);
 
   return null;
 }
