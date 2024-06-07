@@ -1,5 +1,5 @@
-import Footer from "@/app/doc-truyen/footer";
-import Header from "@/app/doc-truyen/header";
+import Footer from "@/app/doc-truyen/_layout/footer";
+import Header from "@/app/doc-truyen/_layout/header";
 
 type LayoutProps = React.WithChildren;
 

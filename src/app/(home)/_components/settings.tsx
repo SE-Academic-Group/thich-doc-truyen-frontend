@@ -1,6 +1,6 @@
 "use client";
 
-import ChangeSourceSetting from "./change-source-setting";
+import ChangeDefaultSourceSetting from "../_layout/change-default-source-setting";
 import { BarsIcon } from "@/lib/icons";
 import { CookiesProvider } from "@/lib/providers";
 import { Popover } from "@/ui/common/popover";
@@ -18,7 +18,7 @@ export default function Settings() {
               <span className="text-medium mb-2 block text-sm">
                 Nguồn truyện mặc định
               </span>
-              <ChangeSourceSetting />
+              <ChangeDefaultSourceSetting />
             </li>
           </ul>
         </Popover.Content>

@@ -1,7 +1,7 @@
-import ReadingHistory from "./reading-history";
-import SearchForm from "./search-form";
-import StorySourceList from "./story-source-list";
-import StorySourceListSkeleton from "./story-source-list-skeleton";
+import SearchForm from "../_components/search-form";
+import StorySourceList from "../_components/story-source-list";
+import StorySourceListSkeleton from "../_components/story-source-list-skeleton";
+import RecentReadingHistory from "./recent-reading-history";
 import ClientOnlyComponent from "@/ui/common/client-only-component";
 import ErrorBoundary from "@/ui/common/error-boundary";
 import ErrorText from "@/ui/common/error-text";
@@ -26,7 +26,7 @@ export default function Main() {
             </p>
           }
         >
-          <ReadingHistory />
+          <RecentReadingHistory />
         </ClientOnlyComponent>
       </section>
     </main>

@@ -7,7 +7,7 @@ import ErrorText from "@/ui/common/error-text";
 import Skeleton from "@/ui/common/skeleton";
 import { useEffect } from "react";
 
-export default function ChangeSourceSetting() {
+export default function ChangeDefaultSourceSetting() {
   const [cookies, setCookie] = useCookies(["pluginName"]);
   const state = useAsync(getPluginList);
 

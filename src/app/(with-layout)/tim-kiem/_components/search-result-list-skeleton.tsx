@@ -1,4 +1,4 @@
-import Skeleton from "../../../ui/common/skeleton";
+import Skeleton from "../../../../ui/common/skeleton";
 import { ImageIcon } from "@/lib/icons";
 
 export default function SearchResultListSkeleton() {

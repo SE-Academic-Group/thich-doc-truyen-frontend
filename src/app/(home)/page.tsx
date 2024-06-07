@@ -1,6 +1,6 @@
-import Footer from "@/app/(home)/footer";
-import Header from "@/app/(home)/header";
-import Main from "@/app/(home)/main";
+import Footer from "@/app/(home)/_layout/footer";
+import Header from "@/app/(home)/_layout/header";
+import Main from "@/app/(home)/_layout/main";
 
 export default function Page() {
   return (

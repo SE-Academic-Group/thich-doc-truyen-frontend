@@ -1,4 +1,4 @@
-import ReadMore from "../../../ui/common/read-more";
+import ReadMore from "../../../../ui/common/read-more";
 import { cn } from "@/lib/utils";
 import { TStoryDetail } from "@/types/story-detail";
 import Image from "next/image";

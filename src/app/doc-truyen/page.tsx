@@ -1,4 +1,4 @@
-import Content from "@/app/doc-truyen/content";
+import Content from "@/app/doc-truyen/_layout/content";
 import { getChapterDetail } from "@/data/get-chapter-detail";
 import { getSearchParam } from "@/lib/utils";
 import { TSearchParams } from "@/types/search-params";
