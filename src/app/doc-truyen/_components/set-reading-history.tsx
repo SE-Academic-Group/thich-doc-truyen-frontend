@@ -17,7 +17,7 @@ export default function SetReadingHistory({
   const novelURL = searchParams.get("novelUrl")!;
   const chapterURL = searchParams.get("chapterUrl")!;
   const chapterIndex = searchParams.get("chapterIndex")!;
-  const pluginName = usePluginName();
+  const { pluginName } = usePluginName();
 
   const { addNewHistory } = useReadingHistoryList();
 

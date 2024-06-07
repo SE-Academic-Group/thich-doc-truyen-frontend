@@ -1,3 +1,3 @@
 export default function NotFoundError() {
-  return <div>Not found</div>;
+  return <div className="container">Không tìm thấy gì hết :))</div>;
 }

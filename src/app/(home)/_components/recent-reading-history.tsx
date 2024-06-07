@@ -1,6 +1,6 @@
 "use client";
 
-import Disclaimer from "./disclaimer";
+import Disclaimer from "../_layout/disclaimer";
 import { useReadingHistoryList } from "@/data/use-reading-history-list";
 import Link from "next/link";
 
