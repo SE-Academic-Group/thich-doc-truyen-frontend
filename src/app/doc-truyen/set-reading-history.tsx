@@ -1,6 +1,7 @@
 "use client";
 
 import { useReadingHistoryList } from "@/data/use-reading-history-list";
+import { usePluginName } from "@/lib/hooks";
 import { TReadingHistory } from "@/types/reading-history";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
@@ -16,6 +17,7 @@ export default function SetReadingHistory({
   const novelURL = searchParams.get("novelUrl")!;
   const chapterURL = searchParams.get("chapterUrl")!;
   const chapterIndex = searchParams.get("chapterIndex")!;
+  const pluginName = usePluginName();
 
   const { addNewHistory } = useReadingHistoryList();
 
@@ -26,6 +28,7 @@ export default function SetReadingHistory({
       novelURL,
       chapterURL,
       storyTitle,
+      pluginName,
       chapterIndex: parseInt(chapterIndex, 10),
     };
 
