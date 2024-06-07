@@ -1,5 +1,5 @@
-import ChapterList from "@/app/(with-layout)/chi-tiet/chapter-list";
-import StoryText from "@/app/(with-layout)/chi-tiet/story-text";
+import ChapterList from "@/app/(with-layout)/chi-tiet/_components/chapter-list";
+import StoryText from "@/app/(with-layout)/chi-tiet/_components/story-text";
 import { getChapterList } from "@/data/get-chapter-list";
 import { getStoryDetail } from "@/data/get-story-detail";
 import { getSearchParam } from "@/lib/utils";

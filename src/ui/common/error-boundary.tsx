@@ -1,6 +1,6 @@
 "use client";
 
-import { logToErrorReportingService } from "@/lib/error-handling";
+import { reportError } from "@/lib/error-handling";
 import { ErrorBoundary as ReactErrorBoundary } from "react-error-boundary";
 
 type ErrorBoundaryProps = {
@@ -15,7 +15,7 @@ export default function ErrorBoundary({
   return (
     <ReactErrorBoundary
       fallback={fallback}
-      onError={(error) => logToErrorReportingService(error)}
+      onError={(error) => reportError(error)}
     >
       {children}
     </ReactErrorBoundary>

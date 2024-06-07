@@ -2,17 +2,19 @@
 
 import { useEffect, useState } from "react";
 
-type ClientOnlyProps = React.PropsWithChildren & {
+type ClientOnlyComponentProps = React.PropsWithChildren & {
   fallback?: React.ReactNode;
 };
 
-export default function ClientOnly({ children, fallback }: ClientOnlyProps) {
+export default function ClientOnlyComponent({
+  children,
+  fallback,
+}: ClientOnlyComponentProps) {
   const [isClient, setIsClient] = useState(false);
 
   useEffect(() => {
     setIsClient(true);
   }, []);
 
-  if (isClient) return children;
-  return fallback;
+  return isClient ? children : fallback;
 }

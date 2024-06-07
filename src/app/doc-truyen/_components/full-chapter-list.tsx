@@ -2,7 +2,7 @@
 
 import ChapterSelect from "./chapter-select";
 import { getFullChapterList } from "@/data/get-full-chapter-list";
-import { useAsync } from "@/lib/hooks";
+import { useAsync } from "@/hooks";
 import Skeleton from "@/ui/common/skeleton";
 import { useSearchParams } from "next/navigation";
 

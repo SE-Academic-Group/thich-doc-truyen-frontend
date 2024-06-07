@@ -1,16 +1,16 @@
 "use client";
 
-import ChangeChapterSource from "./change-chapter-source";
-import ChapterNavigation from "./chapter-navigation";
-import CurrentSource from "./current-source";
+import ChangeChapterSource from "../_components/change-chapter-source";
+import ChapterNavigation from "../_components/chapter-navigation";
+import CurrentSource from "../_components/current-source";
+import ReadingPadSettings from "../_components/reading-pad-settings";
+import SetReadingHistory from "../_components/set-reading-history";
+import SettingsConsumer from "../_components/settings-consumer";
+import StoryContent from "../_components/story-content";
 import LoadingScreen from "./loading-screen";
-import ReadingPadSettings from "./reading-pad-settings";
-import SetReadingHistory from "./set-reading-history";
-import SettingsConsumer from "./settings-consumer";
-import StoryContent from "./story-content";
 import { CookiesProvider } from "@/lib/providers";
 import { TChapterDetail } from "@/types/chapter-detail";
-import ClientOnly from "@/ui/common/client-only";
+import ClientOnlyComponent from "@/ui/common/client-only-component";
 import Link from "next/link";
 
 type ContentProps = {
@@ -28,7 +28,7 @@ export default function Content({
 }: ContentProps) {
   return (
     <CookiesProvider>
-      <ClientOnly fallback={<LoadingScreen />}>
+      <ClientOnlyComponent fallback={<LoadingScreen />}>
         <SetReadingHistory storyTitle={chapterDetail.title} />
         <SettingsConsumer>
           <article className="container">
@@ -61,7 +61,7 @@ export default function Content({
             </section>
           </article>
         </SettingsConsumer>
-      </ClientOnly>
+      </ClientOnlyComponent>
     </CookiesProvider>
   );
 }

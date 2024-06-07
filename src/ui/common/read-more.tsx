@@ -3,25 +3,17 @@
 import parse from "html-react-parser";
 import { useState } from "react";
 
-type ReadMoreProps = Readonly<{
-  children: string;
-  length?: number;
-}>;
+type ReadMoreProps = React.PropsWithChildren;
 
 const DEFAULT_SHOW_LENGTH = 600;
 
-export default function ReadMore({
-  children,
-  length = DEFAULT_SHOW_LENGTH,
-}: ReadMoreProps) {
+export default function ReadMore({ children }: ReadMoreProps) {
   const [more, setMore] = useState(false);
-  const contentLength = children.length;
 
-  if (contentLength <= length) {
-    return <div>{parse(children)}</div>;
-  }
+  if (!children || typeof children != "string") return null;
+  if (children.length <= length) return <div>{parse(children)}</div>;
 
-  const content = more ? children : children.slice(0, length);
+  const content = more ? children : children.slice(0, DEFAULT_SHOW_LENGTH);
 
   return (
     <div>

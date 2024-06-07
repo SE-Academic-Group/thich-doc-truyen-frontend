@@ -1,6 +1,6 @@
 import { parseZodSchema } from "./helpers";
 import { API_URL } from "@/lib/constants";
-import { logToErrorReportingService } from "@/lib/error-handling";
+import { reportError } from "@/lib/error-handling";
 import { TAlternativePlugin } from "@/types/alternative-plugin";
 import { ZHttpAlternativePlugins, ZHttpError } from "@/types/http";
 
@@ -27,7 +27,7 @@ export async function getAlternativePlugins({
     err.name = errorCode;
     err.message = reason || "Failed to fetch alternative plugins";
 
-    logToErrorReportingService(err);
+    reportError(err);
 
     return [];
   }

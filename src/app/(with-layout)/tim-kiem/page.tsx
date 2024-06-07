@@ -1,5 +1,5 @@
-import SearchResultList from "@/app/(with-layout)/tim-kiem/search-result-list";
-import SearchResultListSkeleton from "@/app/(with-layout)/tim-kiem/search-result-list-skeleton";
+import SearchResultList from "@/app/(with-layout)/tim-kiem/_components/search-result-list";
+import SearchResultListSkeleton from "@/app/(with-layout)/tim-kiem/_components/search-result-list-skeleton";
 import { getSearchParam } from "@/lib/utils";
 import { TSearchParams } from "@/types/search-params";
 import Section from "@/ui/common/section";

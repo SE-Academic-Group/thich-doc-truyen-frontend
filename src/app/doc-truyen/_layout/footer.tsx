@@ -1,5 +1,5 @@
-import BackToTop from "../../ui/common/back-to-top";
-import ThichDocTruyenLogo from "../../ui/common/thich-doc-truyen-logo";
+import BackToTop from "../../../ui/common/back-to-top";
+import ThichDocTruyenLogo from "../../../ui/common/thich-doc-truyen-logo";
 
 export default function Footer() {
   return (

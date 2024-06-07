@@ -1,4 +1,4 @@
-import Pagination from "../../../ui/common/pagination";
+import Pagination from "../../../../ui/common/pagination";
 import ResultStoryCard from "./result-story-card";
 import { getSearchResult } from "@/data/get-search-result";
 import ErrorBoundary from "@/ui/common/error-boundary";

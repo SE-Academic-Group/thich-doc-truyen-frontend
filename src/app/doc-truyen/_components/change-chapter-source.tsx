@@ -1,11 +1,11 @@
 "use client";
 
 import { getAlternativePlugins } from "@/data/get-alternative-plugins";
+import { useAsync } from "@/hooks";
 import { capitalize, cn } from "@/lib/utils";
 import { TAlternativePlugin } from "@/types/alternative-plugin";
 import Skeleton from "@/ui/common/skeleton";
 import { useRouter, useSearchParams } from "next/navigation";
-import { useAsync } from "react-use";
 
 export default function ChangeChapterSource() {
   const router = useRouter();

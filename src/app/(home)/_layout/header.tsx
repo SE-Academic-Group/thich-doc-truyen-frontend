@@ -1,4 +1,4 @@
-import Settings from "./settings";
+import Settings from "../_components/settings";
 import Link from "next/link";
 
 export default function Header() {

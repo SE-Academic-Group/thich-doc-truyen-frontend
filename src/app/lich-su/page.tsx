@@ -1,5 +1,5 @@
 import ReadingHistory from "./reading-history";
-import ClientOnly from "@/ui/common/client-only";
+import ClientOnlyComponent from "@/ui/common/client-only-component";
 
 export default function Page() {
   return (
@@ -7,9 +7,9 @@ export default function Page() {
       <h1 className="text-xl font-medium uppercase underline underline-offset-2 mb-2">
         Lịch sử đọc truyện
       </h1>
-      <ClientOnly fallback={<p aria-live="polite">Chờ chút nha...</p>}>
+      <ClientOnlyComponent fallback={<p aria-live="polite">Chờ chút nha...</p>}>
         <ReadingHistory />
-      </ClientOnly>
+      </ClientOnlyComponent>
     </main>
   );
 }

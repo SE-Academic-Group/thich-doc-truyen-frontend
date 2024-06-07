@@ -1,4 +1,4 @@
-export const logToErrorReportingService = (error: Error) => {
-  console.log("logging service");
+export const reportError = (error: Error) => {
+  console.log("LOGGING SERVICE");
   console.error(error.toString());
 };

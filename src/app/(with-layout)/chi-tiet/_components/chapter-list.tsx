@@ -1,4 +1,4 @@
-import Pagination from "../../../ui/common/pagination";
+import Pagination from "../../../../ui/common/pagination";
 import { TStoryChapter } from "@/types/story-chapter";
 import Link from "next/link";
 

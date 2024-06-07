@@ -1,4 +1,4 @@
-import ThichDocTruyenLogo from "../../ui/common/thich-doc-truyen-logo";
+import ThichDocTruyenLogo from "../../../ui/common/thich-doc-truyen-logo";
 import HeaderSearchForm from "@/ui/layout/header-search-form";
 
 export default function Header() {

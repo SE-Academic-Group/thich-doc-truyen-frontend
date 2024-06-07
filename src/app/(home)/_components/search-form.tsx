@@ -1,7 +1,7 @@
 "use client";
 
-import { SearchIcon } from "../../lib/icons";
-import ErrorText from "../../ui/common/error-text";
+import { SearchIcon } from "../../../lib/icons";
+import ErrorText from "../../../ui/common/error-text";
 import { cn } from "@/lib/utils";
 import { ZSearchQuery } from "@/types/search-query";
 import { useRouter } from "next/navigation";
