@@ -1,5 +1,5 @@
 import { APP_ERROR_CODES } from "@/lib/constants";
-import { logToErrorReportingService } from "@/lib/error-handling";
+import { reportError } from "@/lib/error-handling";
 import { ZHttpError } from "@/types/http";
 import { z } from "zod";
 
@@ -24,7 +24,7 @@ export const parseZodSchema = async <T extends z.ZodTypeAny>(
       `Received: ${JSON.stringify(loggedData)}`,
     ].join("\n");
 
-    logToErrorReportingService(err);
+    reportError(err);
 
     return data;
   }

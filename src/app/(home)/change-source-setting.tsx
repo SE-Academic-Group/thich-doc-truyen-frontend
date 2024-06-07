@@ -1,10 +1,10 @@
 "use client";
 
-import ErrorText from "../../ui/common/error-text";
-import Skeleton from "../../ui/common/skeleton";
 import { getPluginList } from "@/data/get-plugin-list";
-import { useAsync, useCookies } from "@/lib/hooks";
+import { useAsync, useCookies } from "@/hooks";
 import { capitalize } from "@/lib/utils";
+import ErrorText from "@/ui/common/error-text";
+import Skeleton from "@/ui/common/skeleton";
 import { useEffect } from "react";
 
 export default function ChangeSourceSetting() {

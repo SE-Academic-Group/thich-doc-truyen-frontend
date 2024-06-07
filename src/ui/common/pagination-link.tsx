@@ -12,8 +12,8 @@ type PaginationLinkProps = React.PropsWithChildren & {
 
 export function PaginationLink({
   page,
-  scrollToId,
   children,
+  scrollToId,
 }: PaginationLinkProps) {
   const pathname = usePathname();
   const readonlySearchParams = useSearchParams();
@@ -22,13 +22,13 @@ export function PaginationLink({
     return <span className="md:text-base">...</span>;
   }
 
-  const currentPage = parseInt(readonlySearchParams.get("page") ?? "1", 10);
-  const isActive = currentPage === page;
   const searchParams = new URLSearchParams(readonlySearchParams);
   searchParams.set("page", page.toString());
   const scrollToIdParam = scrollToId ? `#${scrollToId}` : "";
-
   const url = `${pathname}?${searchParams}` + scrollToIdParam;
+
+  const currentPage = parseInt(readonlySearchParams.get("page") ?? "1", 10);
+  const isActive = currentPage === page;
 
   return (
     <Link

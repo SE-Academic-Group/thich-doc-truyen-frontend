@@ -1,6 +1,6 @@
 "use client";
 
-import { useLogToErrorReporting } from "@/lib/hooks";
+import { useErrorReporting } from "@/hooks/use-error-reporting";
 
 export default function Error({
   error,
@@ -9,7 +9,7 @@ export default function Error({
   error: Error;
   reset: () => void;
 }) {
-  useLogToErrorReporting(error);
+  useErrorReporting(error);
 
   return (
     <div className="container">

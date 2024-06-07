@@ -10,7 +10,7 @@ import SettingsConsumer from "./settings-consumer";
 import StoryContent from "./story-content";
 import { CookiesProvider } from "@/lib/providers";
 import { TChapterDetail } from "@/types/chapter-detail";
-import ClientOnly from "@/ui/common/client-only";
+import ClientOnlyComponent from "@/ui/common/client-only-component";
 import Link from "next/link";
 
 type ContentProps = {
@@ -28,7 +28,7 @@ export default function Content({
 }: ContentProps) {
   return (
     <CookiesProvider>
-      <ClientOnly fallback={<LoadingScreen />}>
+      <ClientOnlyComponent fallback={<LoadingScreen />}>
         <SetReadingHistory storyTitle={chapterDetail.title} />
         <SettingsConsumer>
           <article className="container">
@@ -61,7 +61,7 @@ export default function Content({
             </section>
           </article>
         </SettingsConsumer>
-      </ClientOnly>
+      </ClientOnlyComponent>
     </CookiesProvider>
   );
 }

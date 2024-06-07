@@ -2,7 +2,7 @@ import ReadingHistory from "./reading-history";
 import SearchForm from "./search-form";
 import StorySourceList from "./story-source-list";
 import StorySourceListSkeleton from "./story-source-list-skeleton";
-import ClientOnly from "@/ui/common/client-only";
+import ClientOnlyComponent from "@/ui/common/client-only-component";
 import ErrorBoundary from "@/ui/common/error-boundary";
 import ErrorText from "@/ui/common/error-text";
 import ThichDocTruyenLogo from "@/ui/common/thich-doc-truyen-logo";
@@ -19,7 +19,7 @@ export default function Main() {
             <StorySourceList />
           </Suspense>
         </ErrorBoundary>
-        <ClientOnly
+        <ClientOnlyComponent
           fallback={
             <p aria-live="polite" className="text-center">
               Chờ chút nha...
@@ -27,7 +27,7 @@ export default function Main() {
           }
         >
           <ReadingHistory />
-        </ClientOnly>
+        </ClientOnlyComponent>
       </section>
     </main>
   );

@@ -1,9 +1,9 @@
 "use client";
 
-import { useLogToErrorReporting } from "@/lib/hooks";
+import { useErrorReporting } from "@/hooks/use-error-reporting";
 
 export default function GlobalError({ error }: { error: Error }) {
-  useLogToErrorReporting(error);
+  useErrorReporting(error);
 
   return (
     <html>

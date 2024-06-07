@@ -1,7 +1,7 @@
 "use client";
 
 import { useReadingHistoryList } from "@/data/use-reading-history-list";
-import { usePluginName } from "@/lib/hooks";
+import { usePluginName } from "@/hooks/use-plugin-name";
 import { TReadingHistory } from "@/types/reading-history";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";

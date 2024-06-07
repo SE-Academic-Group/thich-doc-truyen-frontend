@@ -1,7 +1,7 @@
 "use client";
 
+import { useCookies } from "@/hooks";
 import { BG_COLOR_MAP, FONT_FAMILY_MAP, FONT_SIZE_MAP } from "@/lib/constants";
-import { useCookies } from "@/lib/hooks";
 import { cn } from "@/lib/utils";
 import { ZBgColor, ZFontFamily, ZFontSize } from "@/types/reading-pad-settings";
 
