@@ -23,11 +23,11 @@ export default function ReadingHistory() {
           <span>Xoá tất cả</span>
         </button>
       </div>
-      <ul className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <ul className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2 py-3">
         {readingHistoryList.map((history) => (
           <li
             key={history.novelURL}
-            className="mt-2 flex justify-between items-center w-full bg-bg-50 py-1 px-2 rounded"
+            className="flex justify-between items-center w-full bg-bg-50 py-1 px-2 rounded"
           >
             <Link
               href={`/doc-truyen?chapterUrl=${history.chapterURL}&novelUrl=${history.novelURL}&chapterIndex=${history.chapterIndex}`}
