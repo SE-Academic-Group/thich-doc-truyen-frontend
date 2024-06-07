@@ -1,48 +1,60 @@
-import z from "zod";
+import retextLatin from "retext-latin";
+import retextSmartyPants from "retext-smartypants";
+import retextStringify from "retext-stringify";
+import { unified } from "unified";
+import { z } from "zod";
+
+// check if the content does not contain any html tags
+const isPlainText = (val: string) => {
+  return !/<[a-z][\s\S]*>/i.test(val);
+};
 
 // remove the content between the two colons
 const removeChapterIndex = (val: string) => {
   return val.replace(/:(.*):/g, ":");
 };
 
-const addNewLineAfterPunctuation = (val: string) => {
+// use retext to process content to a standard format
+const processContent = async (val: string) => {
+  const file = await unified()
+    .use(retextLatin)
+    .use(retextSmartyPants)
+    .use(retextStringify)
+    .process(val);
+
+  return String(file);
+};
+
+// add a linebreak after each dot (one dot only)
+const addLineBreak = (val: string) => {
+  if (!isPlainText(val)) return val;
+
   return val
-    .replace(/\."/g, '"')
-    .replace(/” “/g, "”\n\n“")
-    .replace(/"/, "”")
-    .replace(/(\.|!”|:|\?”)/g, "$1\n\n")
-    .replace(/.\n\n”/g, ".” ")
-    .replace(/\.\n\n\.\n\n\.\n\n/g, "...")
-    .replace(/\.\n\n\./g, "..");
+    .replace(/([.!?])\s*(?=[A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠƯẠ-ỹ])/g, "$1<br/><br/>")
+    .replace(/(” )/g, "$1<br/><br/>")
+    .replace(/(“)/g, "<br/><br/>$1")
+    .replaceAll("<br/><br/><br/><br/>", "<br/><br/>")
+    .replace(/“[^”]+/g, (match) => `- ${match.replaceAll("<br/>", " ")}`);
 };
 
-const addSpaceAfter = (val: string) => {
-  return val.replace(/([?!])[^”]/g, "$1 ").replace(/(\w)([A-Z])/g, "$1 $2");
+// remove all words inside []
+const removeBracketContent = (val: string) => {
+  return val.replace(/\[.*?\]/g, "");
 };
 
-// if an capital letter has no space before it, add a space before it
-const addSpaceBefore = (val: string) => {
-  return val.replace(/(\w)([A-Z])/g, "$1 $2");
-};
-
-// replace <br /> with \n
-const replaceBr = (val: string) => {
-  return val.replace(/<\/br>/g, "\n");
-};
-
-const addSpaceBetween = (val: string) => {
-  return val.replaceAll('" "', '"\n\n"');
+// remove first linebreaks if any
+const removeFirstLineBreak = (val: string) => {
+  return val.replace(/^<br\/><br\/>/, "");
 };
 
 export const ZChapterDetail = z.object({
   title: z.string().transform(removeChapterIndex),
   content: z
     .string()
-    .transform(addNewLineAfterPunctuation)
-    .transform(addSpaceAfter)
-    .transform(addSpaceBefore)
-    .transform(replaceBr)
-    .transform(addSpaceBetween),
+    .transform(processContent)
+    .transform(removeBracketContent)
+    .transform(addLineBreak)
+    .transform(removeFirstLineBreak),
   url: z.string().url(),
   novelTitle: z.string(),
 });
