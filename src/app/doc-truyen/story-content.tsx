@@ -9,7 +9,7 @@ type StoryContentProps = {
 
 export default function StoryContent(props: StoryContentProps) {
   return (
-    <div className={cn("mb-4 mt-6 whitespace-pre-line text-pretty")}>
+    <div className={cn("mb-6 mt-8 whitespace-pre-line text-pretty")}>
       {parse(props.storyContent)}
     </div>
   );

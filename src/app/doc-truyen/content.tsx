@@ -1,5 +1,6 @@
 "use client";
 
+import ChangeChapterSource from "./change-chapter-source";
 import ChapterNavigation from "./chapter-navigation";
 import LoadingScreen from "./loading-screen";
 import ReadingPadSettings from "./reading-pad-settings";
@@ -27,7 +28,7 @@ export default function Content({
   return (
     <CookiesProvider>
       <ClientOnly fallback={<LoadingScreen />}>
-        <SetReadingHistory storyTitle={chapterDetail.novelTitle} />
+        <SetReadingHistory storyTitle={chapterDetail.title} />
         <SettingsConsumer>
           <article className="container">
             <section className="container py-3">
@@ -42,9 +43,10 @@ export default function Content({
                   {chapterDetail.novelTitle}
                 </Link>
               </h3>
-              <h2 className="mb-4 text-center sm:text-xl font-medium uppercase text-primary">
+              <h2 className="mb-3.5 text-center sm:text-xl font-medium uppercase text-primary">
                 {chapterDetail.title}
               </h2>
+              {/* <ChangeChapterSource key={novelURL + chapterIndex} /> */}
               <ChapterNavigation
                 nextChapterURL={nextChapterURL}
                 prevChapterURL={prevChapterURL}

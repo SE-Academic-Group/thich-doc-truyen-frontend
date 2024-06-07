@@ -10,16 +10,14 @@ type ChapterListProps = {
 };
 
 export default async function ChapterList({
+  storyURL,
+  totalPages,
   chapterList,
   currentPage,
-  totalPages,
-  storyURL,
 }: ChapterListProps) {
   const builderChapterLink = (chapter: TStoryChapter) => {
-    if (!chapter.url || !chapter.index) return "";
-
     const searchParams = new URLSearchParams();
-    searchParams.set("chapterUrl", chapter.url);
+    searchParams.set("chapterUrl", chapter.url!);
     searchParams.set("novelUrl", storyURL);
     searchParams.set("chapterIndex", String(chapter.index));
 

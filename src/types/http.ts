@@ -1,3 +1,4 @@
+import { ZAlternativePlugin } from "./alternative-plugin";
 import { ZChapterDetail } from "./chapter-detail";
 import { ZSourcePlugin } from "./source-plugin";
 import { ZStoryChapter } from "./story-chapter";
@@ -47,4 +48,8 @@ export const ZHttpChapterDetail = z.object({
     nextPage: z.string().url().nullable(),
     prevPage: z.string().url().nullable(),
   }),
+});
+
+export const ZHttpAlternativePlugins = z.object({
+  data: z.array(ZAlternativePlugin),
 });
