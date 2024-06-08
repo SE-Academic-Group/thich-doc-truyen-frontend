@@ -1,3 +1,5 @@
+import { ReactSVGElement } from "react";
+
 export {
   SettingsIcon,
   SearchIcon,
@@ -10,4 +12,5 @@ export {
   XIcon,
   TrashIcon,
   MoveUpIcon,
+  DownloadIcon,
 } from "lucide-react";
