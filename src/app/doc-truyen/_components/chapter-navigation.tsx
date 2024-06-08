@@ -19,7 +19,7 @@ export default function ChapterNavigation({
   const searchParams = useSearchParams();
   const novelURL = searchParams.get("novelUrl")!;
   const chapterIndex = Number(searchParams.get("chapterIndex")!);
-  const currentPlugin = usePluginName();
+  const { pluginName: currentPlugin } = usePluginName();
 
   return (
     <nav className="mb-6 mt-2 flex justify-center gap-2">

@@ -12,7 +12,7 @@ type ChapterSelectProps = {
 
 export default function ChapterSelect(props: ChapterSelectProps) {
   const router = useRouter();
-  const currentPlugin = usePluginName();
+  const { pluginName: currentPlugin } = usePluginName();
   const searchParams = useSearchParams();
   const novelURL = searchParams.get("novelUrl")!;
   const chapterURL = searchParams.get("chapterUrl")!;
