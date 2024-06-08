@@ -1,5 +1,6 @@
 import { parseZodSchema } from "./helpers";
 import { API_URL, HTTP_ERROR_CODES } from "@/lib/constants";
+import { reportError } from "@/lib/error-handling";
 import { ZHttpError, ZHttpSearchResult } from "@/types/http";
 import { TStorySearchResult } from "@/types/story-search-result";
 import { cookies } from "next/headers";
@@ -50,8 +51,13 @@ export const getSearchResult = async ({
     const err = new Error();
     err.name = errorCode;
     err.message = reason || "Failed to fetch search results";
+    reportError(err);
 
-    throw err;
+    return {
+      results: [],
+      currentPage: 1,
+      totalPages: 1,
+    };
   }
 
   const parsed = await parseZodSchema(ZHttpSearchResult, json);
