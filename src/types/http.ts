@@ -1,5 +1,6 @@
 import { ZAlternativePlugin } from "./alternative-plugin";
 import { ZChapterDetail } from "./chapter-detail";
+import { ZDownloadOption } from "./download-option";
 import { ZSourcePlugin } from "./source-plugin";
 import { ZStoryChapter } from "./story-chapter";
 import { ZStoryDetail } from "./story-detail";
@@ -52,4 +53,8 @@ export const ZHttpChapterDetail = z.object({
 
 export const ZHttpAlternativePlugins = z.object({
   data: z.array(ZAlternativePlugin),
+});
+
+export const ZHttpDownloadOptions = z.object({
+  data: z.array(ZDownloadOption),
 });
