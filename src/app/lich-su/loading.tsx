@@ -9,7 +9,6 @@ export default function Loading() {
           <Skeleton.Box className="h-6 w-24" />
         </div>
         <div>
-          <Skeleton.Box className="h-7 w-24 mb-3" />
           <Skeleton.Box className="h-6 w-1/2 mb-2" />
           <Skeleton.Box className="h-6 w-1/2 mb-2" />
           <Skeleton.Box className="h-6 w-1/2 mb-2" />
