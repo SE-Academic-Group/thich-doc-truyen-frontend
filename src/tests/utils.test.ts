@@ -1,4 +1,10 @@
-import { generatePagination, getSearchParam } from "../lib/utils";
+import { SKIP_PAGINATION_NUMBER } from "../lib/constants";
+import {
+  capitalize,
+  cn,
+  generatePagination,
+  getSearchParam,
+} from "../lib/utils";
 import { describe, expect, test } from "vitest";
 
 describe("getSearchParam: get a specified search param from the url", () => {
@@ -63,24 +69,77 @@ describe("generatePagination: receive currentPage and totalPages to generate an 
         currentPage: 1,
         totalPages: 10,
       }),
-    ).toEqual([1, 2, 3, "...", 9, 10]);
+    ).toEqual([1, 2, 3, SKIP_PAGINATION_NUMBER, 9, 10]);
     expect(
       generatePagination({
         currentPage: 8,
         totalPages: 10,
       }),
-    ).toEqual([1, "...", 7, 8, 9, "...", 10]);
+    ).toEqual([1, SKIP_PAGINATION_NUMBER, 7, 8, 9, SKIP_PAGINATION_NUMBER, 10]);
     expect(
       generatePagination({
         currentPage: 5,
         totalPages: 10,
       }),
-    ).toEqual([1, "...", 4, 5, 6, "...", 10]);
+    ).toEqual([1, SKIP_PAGINATION_NUMBER, 4, 5, 6, SKIP_PAGINATION_NUMBER, 10]);
     expect(
       generatePagination({
         currentPage: 10,
         totalPages: 10,
       }),
-    ).toEqual([1, 2, "...", 8, 9, 10]);
+    ).toEqual([1, 2, SKIP_PAGINATION_NUMBER, 8, 9, 10]);
+  });
+});
+
+describe("cn: concatenate class names", () => {
+  test("should concatenate class names", () => {
+    expect(cn("class1", "class2")).toBe("class1 class2");
+    expect(cn("class1", "class2", "class3")).toBe("class1 class2 class3");
+  });
+
+  test("should ignore falsy values", () => {
+    expect(cn("class1", false && "class2")).toBe("class1");
+    expect(cn("class1", undefined && "class2")).toBe("class1");
+    expect(cn("class1", null && "class2")).toBe("class1");
+  });
+
+  test("should ignore empty strings", () => {
+    expect(cn("class1", "")).toBe("class1");
+    expect(cn("class1", "", "class2")).toBe("class1 class2");
+  });
+
+  test("shoud resolve tailwindcss classes", () => {
+    expect(cn("text-center bg-white", "bg-red-500 text-end")).toBe(
+      "bg-red-500 text-end",
+    );
+    expect(cn("px-2 m-1 text-red-500", "m-2.5 py-2")).toBe(
+      "px-2 text-red-500 m-2.5 py-2",
+    );
+  });
+});
+
+describe("capitalize: capitalize the first letter of a string", () => {
+  test("should capitalize the first letter of a string", () => {
+    expect(capitalize("hello")).toBe("Hello");
+    expect(capitalize("world")).toBe("World");
+  });
+
+  test("should not change the string if the first letter is already capitalized", () => {
+    expect(capitalize("Hello")).toBe("Hello");
+    expect(capitalize("World")).toBe("World");
+  });
+
+  test("should return an empty string if the input is an empty string", () => {
+    expect(capitalize("")).toBe("");
+  });
+
+  test("should convert camelCase to Capital Case", () => {
+    expect(capitalize("helloWorld")).toBe("Hello World");
+    expect(capitalize("worldHello")).toBe("World Hello");
+  });
+
+  test("should convert snake_case to Capital Case", () => {
+    expect(capitalize("hello_world")).toBe("Hello World");
+    expect(capitalize("world_hello")).toBe("World Hello");
   });
 });
