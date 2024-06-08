@@ -1,5 +1,6 @@
 "use client";
 
+import { usePluginName } from "@/hooks/use-plugin-name";
 import { cn } from "@/lib/utils";
 import { TStoryChapter } from "@/types/story-chapter";
 import { useRouter, useSearchParams } from "next/navigation";
@@ -11,15 +12,15 @@ type ChapterSelectProps = {
 
 export default function ChapterSelect(props: ChapterSelectProps) {
   const router = useRouter();
-  const [isPending, startTransition] = useTransition();
+  const currentPlugin = usePluginName();
   const searchParams = useSearchParams();
-  const chapterURL = searchParams.get("chapterUrl")!;
   const novelURL = searchParams.get("novelUrl")!;
+  const chapterURL = searchParams.get("chapterUrl")!;
+  const [isPending, startTransition] = useTransition();
   const [selectValue, setSelectValue] = useState(chapterURL);
 
   const handleChange = (e: React.ChangeEvent<HTMLSelectElement>) => {
     e.preventDefault();
-
     setSelectValue(chapterURL);
     startTransition(() => {
       const newChapterURL = e.target.value;
@@ -30,13 +31,12 @@ export default function ChapterSelect(props: ChapterSelectProps) {
         (chapter) => chapter.url === newChapterURL,
       )!;
       router.push(
-        `/doc-truyen?chapterUrl=${newChapterURL}&novelUrl=${novelURL}&chapterIndex=${chapter.index}`,
+        `/doc-truyen?chapterUrl=${newChapterURL}&novelUrl=${novelURL}&chapterIndex=${chapter.index}&currentPlugin=${currentPlugin}`,
       );
     });
   };
 
   useEffect(() => {
-    console.log(chapterURL);
     setSelectValue(chapterURL);
   }, [chapterURL]);
 
