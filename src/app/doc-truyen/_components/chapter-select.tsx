@@ -10,7 +10,7 @@ type ChapterSelectProps = {
   fullChapterList: TStoryChapter[];
 };
 
-export default function ChapterSelect(props: ChapterSelectProps) {
+export default function ChapterSelect({ fullChapterList }: ChapterSelectProps) {
   const router = useRouter();
   const { pluginName: currentPlugin } = usePluginName();
   const searchParams = useSearchParams();
@@ -27,18 +27,26 @@ export default function ChapterSelect(props: ChapterSelectProps) {
 
       if (!newChapterURL || newChapterURL === chapterURL) return;
 
-      const chapter = props.fullChapterList.find(
-        (chapter) => chapter.url === newChapterURL,
+      const chapter = fullChapterList.find(
+        (chapter) => chapter.url === newChapterURL && chapter.index,
       )!;
-      router.push(
-        `/doc-truyen?chapterUrl=${newChapterURL}&novelUrl=${novelURL}&chapterIndex=${chapter.index}&currentPlugin=${currentPlugin}`,
-      );
+
+      const searchParams = new URLSearchParams();
+      searchParams.set("novelUrl", novelURL);
+      searchParams.set("chapterUrl", newChapterURL);
+      searchParams.set("currentPlugin", currentPlugin);
+      searchParams.set("chapterIndex", chapter.index!);
+      router.push(`/doc-truyen?${searchParams}`);
     });
   };
 
   useEffect(() => {
     setSelectValue(chapterURL);
   }, [chapterURL]);
+
+  const filtered = fullChapterList.filter(
+    (chapter) => chapter.url && chapter.index,
+  );
 
   return (
     <select
@@ -50,7 +58,7 @@ export default function ChapterSelect(props: ChapterSelectProps) {
       disabled={isPending}
       value={selectValue}
     >
-      {props.fullChapterList.map((chapter) => (
+      {filtered.map((chapter) => (
         <option
           key={chapter.url}
           value={chapter.url || ""}
