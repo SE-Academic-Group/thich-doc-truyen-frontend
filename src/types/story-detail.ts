@@ -1,6 +1,5 @@
 import { z } from "zod";
 
-// TODO: process the description string
 export const ZStoryDetail = z.object({
   title: z.string(),
   author: z.string(),
