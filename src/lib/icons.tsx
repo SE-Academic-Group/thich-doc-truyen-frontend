@@ -1,16 +1,14 @@
-import { ReactSVGElement } from "react";
-
 export {
-  SettingsIcon,
-  SearchIcon,
-  CircleHelp as QuestionIcon,
+  Menu as BarsIcon,
   ChevronLeftIcon,
   ChevronRightIcon,
-  Menu as BarsIcon,
-  ImageIcon,
-  SearchSlash as TextSearchIcon,
-  XIcon,
-  TrashIcon,
-  MoveUpIcon,
   DownloadIcon,
+  ImageIcon,
+  MoveUpIcon,
+  CircleHelp as QuestionIcon,
+  SearchIcon,
+  SettingsIcon,
+  SearchSlash as TextSearchIcon,
+  TrashIcon,
+  XIcon,
 } from "lucide-react";
