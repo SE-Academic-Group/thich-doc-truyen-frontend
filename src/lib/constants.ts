@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 export const API_URL = process.env.API_URL || process.env.NEXT_PUBLIC_API_URL;
 export const SKIP_PAGINATION_NUMBER = 0;
 
