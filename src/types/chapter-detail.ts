@@ -53,7 +53,7 @@ const removeEndLineBreak = (val: string) => {
 
 // remove quadruple linebreaks
 const removeQuadrupleLineBreak = (val: string) => {
-  return val.replace(/<br\/><br\/> <br\/><br\/>/g, "<br/><br/>");
+  return val.replace(/<br\/><br\/> *<br\/><br\/>/g, "<br/><br/>");
 };
 
 export const ZChapterDetail = z.object({
@@ -63,9 +63,9 @@ export const ZChapterDetail = z.object({
     .transform(processContent)
     .transform(removeBracketContent)
     .transform(addLineBreak)
+    .transform(removeQuadrupleLineBreak)
     .transform(removeFirstLineBreak)
-    .transform(removeEndLineBreak)
-    .transform(removeQuadrupleLineBreak),
+    .transform(removeEndLineBreak),
   url: z.string().url(),
   novelTitle: z.string(),
 });
