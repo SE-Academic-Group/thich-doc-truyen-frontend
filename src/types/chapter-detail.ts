@@ -33,7 +33,6 @@ const addLineBreak = (val: string) => {
     .replace(/([.!?])\s*(?=[A-ZÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠƯẠ-ỹ])/g, "$1<br/><br/>")
     .replace(/(” )/g, "$1<br/><br/>")
     .replace(/(“)/g, "<br/><br/>$1")
-    .replaceAll("<br/><br/><br/><br/>", "<br/><br/>")
     .replace(/“[^”]+/g, (match) => `- ${match.replaceAll("<br/>", " ")}`);
 };
 
@@ -47,6 +46,16 @@ const removeFirstLineBreak = (val: string) => {
   return val.replace(/^<br\/><br\/>/, "");
 };
 
+// remove end linebreaks if any
+const removeEndLineBreak = (val: string) => {
+  return val.replace(/<br\/><br\/>$/, "");
+};
+
+// remove quadruple linebreaks
+const removeQuadrupleLineBreak = (val: string) => {
+  return val.replace(/<br\/><br\/> <br\/><br\/>/g, "<br/><br/>");
+};
+
 export const ZChapterDetail = z.object({
   title: z.string().transform(removeChapterIndex),
   content: z
@@ -54,7 +63,9 @@ export const ZChapterDetail = z.object({
     .transform(processContent)
     .transform(removeBracketContent)
     .transform(addLineBreak)
-    .transform(removeFirstLineBreak),
+    .transform(removeFirstLineBreak)
+    .transform(removeEndLineBreak)
+    .transform(removeQuadrupleLineBreak),
   url: z.string().url(),
   novelTitle: z.string(),
 });
