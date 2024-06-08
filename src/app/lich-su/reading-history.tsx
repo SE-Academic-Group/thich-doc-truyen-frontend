@@ -2,6 +2,7 @@
 
 import { useReadingHistoryList } from "@/data/use-reading-history-list";
 import { TrashIcon } from "@/lib/icons";
+import { buildReadingURL } from "@/types/reading-history";
 import Link from "next/link";
 
 export default function ReadingHistory() {
@@ -30,7 +31,7 @@ export default function ReadingHistory() {
             className="flex justify-between items-center w-full bg-bg-50 py-1 px-2 rounded"
           >
             <Link
-              href={history.readingURL}
+              href={buildReadingURL(history)}
               className="line-clamp-1 hover:underline"
             >
               Chương {history.chapterIndex} - {history.storyTitle}
