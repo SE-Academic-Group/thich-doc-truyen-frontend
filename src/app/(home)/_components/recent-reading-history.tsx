@@ -2,6 +2,7 @@
 
 import Disclaimer from "../_layout/disclaimer";
 import { useReadingHistoryList } from "@/data/use-reading-history-list";
+import { buildReadingURL } from "@/types/reading-history";
 import Link from "next/link";
 
 const NUMBER_OF_RECENTLY_READ = 5;
@@ -27,7 +28,7 @@ export default function RecentReadingHistory() {
             className="underline underline-offset-2 md:no-underline py-1"
           >
             <Link
-              href={`/doc-truyen?chapterUrl=${history.chapterURL}&novelUrl=${history.novelURL}&chapterIndex=${history.chapterIndex}&currentPlugin=${history.pluginName}`}
+              href={buildReadingURL(history)}
               className="line-clamp-1 hover:underline"
             >
               Chương {history.chapterIndex} - {history.storyTitle}
