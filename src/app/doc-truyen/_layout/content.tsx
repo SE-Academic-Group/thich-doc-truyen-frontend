@@ -29,7 +29,7 @@ export default function Content({
   return (
     <CookiesProvider>
       <ClientOnlyComponent fallback={<LoadingScreen />}>
-        <SetReadingHistory storyTitle={chapterDetail.title} />
+        <SetReadingHistory storyTitle={chapterDetail.novelTitle} />
         <SettingsConsumer>
           <article className="container">
             <section className="container py-3">
