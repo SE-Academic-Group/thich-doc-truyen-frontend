@@ -1,36 +1,75 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Thích Đọc Truyện
 
-## Getting Started
+Software Design course final project.
 
-First, run the development server:
+Story reading web application with capabilities to search, read, and enjoy a variety types of story on the Internet (We do not steal them, we just use them as academic material).
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Should there be any inconvience to you who owns a story we use, please kindly contact us for resolution.
+
+## Team members
+
+| Student ID | Full Name        |
+| ---------- | ---------------- |
+| 21120502   | Trần Đức Minh    |
+| 21120515   | Trần Phước Nhân  |
+| 21120519   | Lê Thanh Phát    |
+| 21120521   | Nguyễn Phúc Phát |
+| 21120524   | Trương Minh Phát |
+
+## Features - Client Side
+
+- Search for a story by name or author name from a story source
+- Display details of a story (story title, description, number of chapters, genres, etc.) and chapter list
+- Choose a specific chapter to read (the story content is formatted a bit)
+- UI elements of the reading pad can be adjusted (background color, font family, font size)
+- Chapter detail can be saved to local as PDF, EPUB, and images
+- Switch the source of a chapter detail if possible
+- Quickly navigate to previous, next, or a specific chapter
+- Save reading history to local
+
+## Prerequisites
+
+1. [Node](https://nodejs.org/en) >= v18.21 (For the pnpm to work)
+2. [pnpm](https://pnpm.io/) >= 9.1.0
+
+## Getting started with this project
+
+Create `.env` or `.env.local` file and fill all the variables (see `.env.example`)
+
+```
+# Backend API URL
+NEXT_PUBLIC_API_URL=
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Install dependencies
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm i
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Spin up the `dev` server
 
-## Learn More
+```bash
+pnpm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+You can run tests (for fun)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+pnpm run test # unit & integration tests (vitest)
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+```bash
+pnpm run test:ese # e2e tests (playwright)
+```
 
-## Deploy on Vercel
+## Acknowledgements
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+- I am, [@tmphat1312](https://github.com/tmphat1312), the only one who maintains this project will abandon it when the Software Design course ends.
+- Actions in this repo are just for demo only (I just got my hands dirty with GitHub Actions)
+- There was a getting started option with Docker. However I ran into problem wiht node-18 lately and decided to quit (I'm new to Docker btw)
+- You can use this repo (I don't care anyway), but be careful with hidden code smell and bugs.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## License
+
+[The Unlicense](https://choosealicense.com/licenses/unlicense/#)
