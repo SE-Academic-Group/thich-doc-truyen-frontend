@@ -23,7 +23,7 @@ export async function getDownloadOptions(): Promise<TDownloadOption[]> {
 
     const err = new Error();
     err.name = errorCode;
-    err.message = reason || "Failed to fetch plugin list";
+    err.message = reason || "Failed to fetch download option list";
     reportError(err);
 
     return [];
