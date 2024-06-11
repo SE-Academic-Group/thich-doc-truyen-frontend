@@ -23,14 +23,14 @@ export default function DownloadOptions({ chapterURL }: DownloadOptionsProps) {
   return (
     <ul className="space-y-2 text-sm">
       {data.map((option) => (
-        <li key={option.path}>
+        <li key={option.name}>
           <Link
-            href={`${API_URL}${option.path}?url=${chapterURL}`}
+            href={`${API_URL}/download?type=${option.name}&url=${chapterURL}`}
             className="flex items-center gap-1.5"
             target="_blank"
           >
             <DownloadIcon className="text-fg-500 size-4" />
-            <span>{capitalize(option.type)}</span>
+            <span>{capitalize(option.name)}</span>
           </Link>
         </li>
       ))}
