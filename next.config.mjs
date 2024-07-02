@@ -8,7 +8,7 @@ const nextConfig = {
       },
     ],
   },
-  output: "standalone",
+  // output: "standalone", // enable this to build docker image
 };
 
 export default nextConfig;
